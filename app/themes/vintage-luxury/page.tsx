@@ -1,15 +1,10 @@
 "use client";
 
-import {
-  useEffect,
-  useRef,
-  useState,
-  type RefObject,
-} from "react";
+import { useEffect, useRef, useState, type RefObject } from "react";
 import Link from "next/link";
 import { DM_Mono, DM_Sans, Playfair_Display } from "next/font/google";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import VLNavbar from "./VLNavbar";
+import VLFooter from "./VLFooter";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -81,14 +76,46 @@ const SERVICES = [
 ] as const;
 
 const MARQUEE = [
-  { g: "linear-gradient(135deg,#8B4513,#3d1c00)", name: "Rattan Jewellers", cat: "Jewellery · Jaipur" },
-  { g: "linear-gradient(135deg,#1a0a00,#C9A84C)", name: "Mithaas Sweets", cat: "Sweet Shop · Jodhpur" },
-  { g: "linear-gradient(135deg,#2d0000,#8B0000)", name: "Arora Fabrics", cat: "Saree Store · Ajmer" },
-  { g: "linear-gradient(135deg,#0d1a00,#2d4a00)", name: "Meena Clinic", cat: "Clinic · Kota" },
-  { g: "linear-gradient(135deg,#1a1a2e,#C9A84C)", name: "Haveli Dhaba", cat: "Restaurant · Udaipur" },
-  { g: "linear-gradient(135deg,#2d1600,#8B6914)", name: "Surana Antiques", cat: "Heritage Store · Jaipur" },
-  { g: "linear-gradient(135deg,#0a0a1a,#4a0080)", name: "Rajputana Motors", cat: "Auto · Bikaner" },
-  { g: "linear-gradient(135deg,#1a0a0a,#C9A84C)", name: "Geetanjali Salon", cat: "Salon · Jaipur" },
+  {
+    g: "linear-gradient(135deg,#8B4513,#3d1c00)",
+    name: "Rattan Jewellers",
+    cat: "Jewellery · Jaipur",
+  },
+  {
+    g: "linear-gradient(135deg,#1a0a00,#C9A84C)",
+    name: "Mithaas Sweets",
+    cat: "Sweet Shop · Jodhpur",
+  },
+  {
+    g: "linear-gradient(135deg,#2d0000,#8B0000)",
+    name: "Arora Fabrics",
+    cat: "Saree Store · Ajmer",
+  },
+  {
+    g: "linear-gradient(135deg,#0d1a00,#2d4a00)",
+    name: "Meena Clinic",
+    cat: "Clinic · Kota",
+  },
+  {
+    g: "linear-gradient(135deg,#1a1a2e,#C9A84C)",
+    name: "Haveli Dhaba",
+    cat: "Restaurant · Udaipur",
+  },
+  {
+    g: "linear-gradient(135deg,#2d1600,#8B6914)",
+    name: "Surana Antiques",
+    cat: "Heritage Store · Jaipur",
+  },
+  {
+    g: "linear-gradient(135deg,#0a0a1a,#4a0080)",
+    name: "Rajputana Motors",
+    cat: "Auto · Bikaner",
+  },
+  {
+    g: "linear-gradient(135deg,#1a0a0a,#C9A84C)",
+    name: "Geetanjali Salon",
+    cat: "Salon · Jaipur",
+  },
 ] as const;
 
 function useScrollReveal() {
@@ -128,9 +155,12 @@ function useCustomCursor(rootRef: RefObject<HTMLElement | null>) {
 
     const onMove = (e: MouseEvent) => {
       target.current = { x: e.clientX, y: e.clientY };
-      const under = document.elementFromPoint(e.clientX, e.clientY) as HTMLElement | null;
+      const under = document.elementFromPoint(
+        e.clientX,
+        e.clientY
+      ) as HTMLElement | null;
       const h = !!(under && root.contains(under) && under.closest("a, button"));
-        if (h !== hoverRef.current) {
+      if (h !== hoverRef.current) {
         hoverRef.current = h;
         outerRef.current?.classList.toggle("vl-cursor-ring--hover", h);
       }
@@ -198,7 +228,10 @@ function TypewriterLine() {
   return (
     <span className="vl-font-body text-[clamp(1rem,2.5vw,1.15rem)] text-[var(--text)]">
       {text}
-      <span className="ml-0.5 inline-block w-0.5 animate-pulse bg-[#C9A84C]" aria-hidden>
+      <span
+        className="ml-0.5 inline-block w-0.5 animate-pulse bg-[#C9A84C]"
+        aria-hidden
+      >
         |
       </span>
     </span>
@@ -357,11 +390,19 @@ export default function VintageLuxuryThemePage() {
         className={`relative min-h-screen ${fontVars}`}
         style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}
       >
-        <div ref={outerRef} className="vl-cursor-ring hidden md:block" aria-hidden />
-        <div ref={innerRef} className="vl-cursor-dot hidden md:block" aria-hidden />
+        <div
+          ref={outerRef}
+          className="vl-cursor-ring hidden md:block"
+          aria-hidden
+        />
+        <div
+          ref={innerRef}
+          className="vl-cursor-dot hidden md:block"
+          aria-hidden
+        />
 
         <div className="relative z-[10000]">
-          <Navbar />
+          <VLNavbar />
         </div>
 
         <main className="vl-font-body">
@@ -381,24 +422,50 @@ export default function VintageLuxuryThemePage() {
               }}
             />
 
-            <div className="vl-chip vl-chip--tl vl-font-display absolute left-4 top-28 z-10 hidden max-w-[200px] rounded-2xl border border-[var(--glass-border)] p-[18px_24px] backdrop-blur-[18px] transition-all duration-300 lg:block" style={{ background: "var(--glass-bg)" }}>
-              <p className="vl-font-mono text-[10px] tracking-widest text-[var(--muted)]">PROJECTS LIVE</p>
+            <div
+              className="vl-chip vl-chip--tl vl-font-display absolute left-4 top-28 z-10 hidden max-w-[200px] rounded-2xl border border-[var(--glass-border)] p-[18px_24px] backdrop-blur-[18px] transition-all duration-300 lg:block"
+              style={{ background: "var(--glass-bg)" }}
+            >
+              <p className="vl-font-mono text-[10px] tracking-widest text-[var(--muted)]">
+                PROJECTS LIVE
+              </p>
               <p className="mt-1 text-2xl font-bold text-[#C9A84C]">120+</p>
             </div>
-            <div className="vl-chip vl-chip--tr vl-font-display absolute right-4 top-28 z-10 hidden max-w-[200px] rounded-2xl border border-[var(--glass-border)] p-[18px_24px] backdrop-blur-[18px] transition-all duration-300 lg:block hover:border-[rgba(201,168,76,0.3)] hover:shadow-[0_8px_40px_rgba(201,168,76,0.12)]" style={{ background: "var(--glass-bg)" }}>
-              <p className="vl-font-mono text-[10px] tracking-widest text-[var(--muted)]">AVG. TURNAROUND</p>
+            <div
+              className="vl-chip vl-chip--tr vl-font-display absolute right-4 top-28 z-10 hidden max-w-[200px] rounded-2xl border border-[var(--glass-border)] p-[18px_24px] backdrop-blur-[18px] transition-all duration-300 lg:block hover:border-[rgba(201,168,76,0.3)] hover:shadow-[0_8px_40px_rgba(201,168,76,0.12)]"
+              style={{ background: "var(--glass-bg)" }}
+            >
+              <p className="vl-font-mono text-[10px] tracking-widest text-[var(--muted)]">
+                AVG. TURNAROUND
+              </p>
               <p className="mt-1 text-2xl font-bold text-[var(--text)]">
-                5–7 <span className="text-sm font-normal text-[var(--muted)]">days</span>
+                5–7{" "}
+                <span className="text-sm font-normal text-[var(--muted)]">
+                  days
+                </span>
               </p>
             </div>
-            <div className="vl-chip vl-chip--bl vl-font-display absolute bottom-36 left-4 z-10 hidden max-w-[200px] rounded-2xl border border-[var(--glass-border)] p-[18px_24px] backdrop-blur-[18px] transition-all duration-300 lg:block hover:border-[rgba(201,168,76,0.3)] hover:shadow-[0_8px_40px_rgba(201,168,76,0.12)]" style={{ background: "var(--glass-bg)" }}>
-              <p className="vl-font-mono text-[10px] tracking-widest text-[var(--muted)]">TURNAROUND</p>
+            <div
+              className="vl-chip vl-chip--bl vl-font-display absolute bottom-36 left-4 z-10 hidden max-w-[200px] rounded-2xl border border-[var(--glass-border)] p-[18px_24px] backdrop-blur-[18px] transition-all duration-300 lg:block hover:border-[rgba(201,168,76,0.3)] hover:shadow-[0_8px_40px_rgba(201,168,76,0.12)]"
+              style={{ background: "var(--glass-bg)" }}
+            >
+              <p className="vl-font-mono text-[10px] tracking-widest text-[var(--muted)]">
+                TURNAROUND
+              </p>
               <p className="mt-1 text-2xl font-bold text-[var(--text)]">
-                5–7 <span className="text-sm font-normal text-[var(--muted)]">days</span>
+                5–7{" "}
+                <span className="text-sm font-normal text-[var(--muted)]">
+                  days
+                </span>
               </p>
             </div>
-            <div className="vl-chip vl-chip--br vl-font-display absolute bottom-36 right-4 z-10 hidden max-w-[200px] rounded-2xl border border-[var(--glass-border)] p-[18px_24px] backdrop-blur-[18px] transition-all duration-300 lg:block hover:border-[rgba(201,168,76,0.3)] hover:shadow-[0_8px_40px_rgba(201,168,76,0.12)]" style={{ background: "var(--glass-bg)" }}>
-              <p className="vl-font-mono text-[10px] tracking-widest text-[var(--muted)]">CLIENT RATING</p>
+            <div
+              className="vl-chip vl-chip--br vl-font-display absolute bottom-36 right-4 z-10 hidden max-w-[200px] rounded-2xl border border-[var(--glass-border)] p-[18px_24px] backdrop-blur-[18px] transition-all duration-300 lg:block hover:border-[rgba(201,168,76,0.3)] hover:shadow-[0_8px_40px_rgba(201,168,76,0.12)]"
+              style={{ background: "var(--glass-bg)" }}
+            >
+              <p className="vl-font-mono text-[10px] tracking-widest text-[var(--muted)]">
+                CLIENT RATING
+              </p>
               <p className="mt-1 text-2xl font-bold text-[#C9A84C]">
                 4.9 <span className="text-sm">★</span>
               </p>
@@ -406,12 +473,19 @@ export default function VintageLuxuryThemePage() {
 
             <div className="relative z-[1] mx-auto max-w-5xl text-center">
               <h1 className="vl-font-display font-black tracking-[-0.04em] text-[clamp(4.5rem,10vw,9rem)] leading-[0.92]">
-                <span className="vl-hero-line vl-hero-line--1 block text-[var(--text)]">Your Shop.</span>
-                <span className="vl-hero-line vl-hero-line--2 block italic text-[#C9A84C]">Your Legacy.</span>
-                <span className="vl-hero-line vl-hero-line--3 block text-[var(--text)]">The Web.</span>
+                <span className="vl-hero-line vl-hero-line--1 block text-[var(--text)]">
+                  Your Shop.
+                </span>
+                <span className="vl-hero-line vl-hero-line--2 block italic text-[#C9A84C]">
+                  Your Legacy.
+                </span>
+                <span className="vl-hero-line vl-hero-line--3 block text-[var(--text)]">
+                  The Web.
+                </span>
               </h1>
               <p className="vl-hero-sub mx-auto mt-8 max-w-xl font-light text-[var(--muted)] [font-size:clamp(1rem,2vw,1.2rem)]">
-                We build websites that make decades-old businesses impossible to ignore online.
+                We build websites that make decades-old businesses impossible to
+                ignore online.
               </p>
               <div className="vl-hero-cta mt-10 flex flex-wrap items-center justify-center gap-4">
                 <Link
@@ -430,7 +504,9 @@ export default function VintageLuxuryThemePage() {
             </div>
 
             <div className="absolute bottom-8 left-1/2 z-[1] flex -translate-x-1/2 flex-col items-center gap-2">
-              <span className="vl-font-mono text-[10px] tracking-[0.2em] text-[var(--muted)]">SCROLL</span>
+              <span className="vl-font-mono text-[10px] tracking-[0.2em] text-[var(--muted)]">
+                SCROLL
+              </span>
               <div className="vl-scroll-line" />
             </div>
           </section>
@@ -447,7 +523,8 @@ export default function VintageLuxuryThemePage() {
             <div
               className="pointer-events-none absolute inset-x-0 top-0 h-24"
               style={{
-                background: "linear-gradient(to bottom, var(--bg), transparent)",
+                background:
+                  "linear-gradient(to bottom, var(--bg), transparent)",
               }}
             />
             <div
@@ -457,7 +534,10 @@ export default function VintageLuxuryThemePage() {
               }}
             />
 
-            <div className="relative z-[1] mx-auto max-w-[760px] text-center" data-vl-reveal>
+            <div
+              className="relative z-[1] mx-auto max-w-[760px] text-center"
+              data-vl-reveal
+            >
               <p className="vl-font-mono text-xs font-normal uppercase tracking-[0.18em] text-[#C9A84C]">
                 POWERED BY AI
               </p>
@@ -469,8 +549,18 @@ export default function VintageLuxuryThemePage() {
                 style={{ background: "rgba(255,255,255,0.04)" }}
               >
                 <span className="text-[#C9A84C]" aria-hidden>
-                  <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  <svg
+                    className="h-5 w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    />
                   </svg>
                 </span>
                 <div className="min-h-[1.5rem] flex-1">
@@ -478,7 +568,13 @@ export default function VintageLuxuryThemePage() {
                 </div>
               </div>
               <div className="mt-6 flex flex-wrap justify-center gap-2">
-                {["Jewellery Shop", "Sweet Shop", "Heritage Store", "Clinic", "Restaurant"].map((t) => (
+                {[
+                  "Jewellery Shop",
+                  "Sweet Shop",
+                  "Heritage Store",
+                  "Clinic",
+                  "Restaurant",
+                ].map((t) => (
                   <button
                     key={t}
                     type="button"
@@ -494,7 +590,9 @@ export default function VintageLuxuryThemePage() {
           {/* SECTION 3 — SERVICES */}
           <section className="mx-auto max-w-[1280px] px-6 py-[120px]">
             <div className="text-center" data-vl-reveal>
-              <p className="vl-font-mono text-xs uppercase tracking-widest text-[#C9A84C]">WHAT WE DO</p>
+              <p className="vl-font-mono text-xs uppercase tracking-widest text-[#C9A84C]">
+                WHAT WE DO
+              </p>
               <h2 className="vl-font-display mt-4 text-[clamp(2rem,4vw,3rem)] font-bold text-[var(--text)]">
                 Full-stack presence,
                 <br />
@@ -512,7 +610,10 @@ export default function VintageLuxuryThemePage() {
                 >
                   <div
                     className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                    style={{ background: "radial-gradient(circle, rgba(201,168,76,0.2) 0%, transparent 70%)" }}
+                    style={{
+                      background:
+                        "radial-gradient(circle, rgba(201,168,76,0.2) 0%, transparent 70%)",
+                    }}
                   />
                   <span
                     className="relative text-3xl drop-shadow-[0_0_8px_rgba(201,168,76,0.4)]"
@@ -537,9 +638,12 @@ export default function VintageLuxuryThemePage() {
           {/* SECTION 4 — MARQUEE */}
           <section id="vl-work" className="overflow-hidden py-[120px]">
             <div className="px-6 text-center" data-vl-reveal>
-              <p className="vl-font-mono text-xs uppercase tracking-widest text-[#C9A84C]">RECENT WORK</p>
+              <p className="vl-font-mono text-xs uppercase tracking-widest text-[#C9A84C]">
+                RECENT WORK
+              </p>
               <h2 className="vl-font-display mt-4 text-[clamp(2rem,4vw,3rem)] font-bold text-[var(--text)]">
-                Built for the <span className="italic text-[#C9A84C]">real world</span>
+                Built for the{" "}
+                <span className="italic text-[#C9A84C]">real world</span>
               </h2>
             </div>
             <div className="vl-marquee-wrap relative mt-14">
@@ -550,10 +654,15 @@ export default function VintageLuxuryThemePage() {
                     className="w-[280px] shrink-0 overflow-hidden rounded-[14px] border border-[var(--glass-border)] transition-transform duration-300 hover:-translate-y-1.5 hover:scale-[1.02] hover:shadow-[0_20px_50px_rgba(0,0,0,0.45)]"
                     style={{ background: "var(--card-bg)" }}
                   >
-                    <div className="h-[180px] w-full" style={{ background: m.g }} />
+                    <div
+                      className="h-[180px] w-full"
+                      style={{ background: m.g }}
+                    />
                     <div className="px-5 py-4">
                       <p className="font-bold text-[var(--text)]">{m.name}</p>
-                      <p className="mt-1 text-xs text-[var(--muted)]">{m.cat}</p>
+                      <p className="mt-1 text-xs text-[var(--muted)]">
+                        {m.cat}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -564,9 +673,12 @@ export default function VintageLuxuryThemePage() {
           {/* SECTION 5 — PROCESS */}
           <section className="mx-auto max-w-[1000px] px-6 py-[120px]">
             <div className="text-center" data-vl-reveal>
-              <p className="vl-font-mono text-xs uppercase tracking-widest text-[#C9A84C]">HOW IT WORKS</p>
+              <p className="vl-font-mono text-xs uppercase tracking-widest text-[#C9A84C]">
+                HOW IT WORKS
+              </p>
               <h2 className="vl-font-display mt-4 text-[clamp(2rem,4vw,3rem)] font-bold text-[var(--text)]">
-                Three steps to <span className="italic text-[#C9A84C]">live</span>
+                Three steps to{" "}
+                <span className="italic text-[#C9A84C]">live</span>
               </h2>
             </div>
             <div className="mt-16 space-y-0">
@@ -587,7 +699,10 @@ export default function VintageLuxuryThemePage() {
                   p: "Go live with full SEO setup and Google listing. We stay on as your growth partner on WhatsApp.",
                 },
               ].map((step, i) => (
-                <div key={step.n} className="grid grid-cols-[80px_1px_1fr] gap-0 md:grid-cols-[80px_1px_1fr]">
+                <div
+                  key={step.n}
+                  className="grid grid-cols-[80px_1px_1fr] gap-0 md:grid-cols-[80px_1px_1fr]"
+                >
                   <div
                     className="vl-font-display flex items-start justify-center pt-2 text-[3.5rem] font-black leading-none vl-step-num"
                     data-vl-reveal
@@ -598,12 +713,21 @@ export default function VintageLuxuryThemePage() {
                   <div
                     className="mx-auto w-px self-stretch"
                     style={{
-                      background: "linear-gradient(to bottom, #C9A84C, transparent)",
+                      background:
+                        "linear-gradient(to bottom, #C9A84C, transparent)",
                     }}
                   />
-                  <div className="pb-14 pl-6 md:pl-10" data-vl-reveal data-vl-delay={String(i * 150 + 50)}>
-                    <h3 className="vl-font-display text-[1.8rem] font-bold text-[var(--text)]">{step.t}</h3>
-                    <p className="mt-3 max-w-xl text-sm leading-relaxed text-[var(--muted)]">{step.p}</p>
+                  <div
+                    className="pb-14 pl-6 md:pl-10"
+                    data-vl-reveal
+                    data-vl-delay={String(i * 150 + 50)}
+                  >
+                    <h3 className="vl-font-display text-[1.8rem] font-bold text-[var(--text)]">
+                      {step.t}
+                    </h3>
+                    <p className="mt-3 max-w-xl text-sm leading-relaxed text-[var(--muted)]">
+                      {step.p}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -634,7 +758,8 @@ export default function VintageLuxuryThemePage() {
                 <span className="italic text-[#C9A84C]">in your city?</span>
               </h2>
               <p className="mx-auto mt-6 max-w-lg font-light text-[var(--muted)]">
-                No templates. No agency bloat. Just you, your story, and the web.
+                No templates. No agency bloat. Just you, your story, and the
+                web.
               </p>
               <Link
                 href="/#contact"
@@ -647,7 +772,7 @@ export default function VintageLuxuryThemePage() {
         </main>
 
         <div className="relative z-[10000]">
-          <Footer />
+          <VLFooter />
         </div>
       </div>
     </>
