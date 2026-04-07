@@ -9,9 +9,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "NextWebIt — Local Websites for Rajasthan Businesses | nexwebit.in",
+  title: "NextWebIt - Local Websites for Rajasthan Businesses | nexwebit.in",
   description:
-    "We visit your shop and build professional websites. Fast delivery, honest pricing from ₹4,999. Serving local businesses across Rajasthan.",
+    "We visit your shop and build professional websites. Fast delivery, honest pricing. Serving local businesses across Rajasthan.",
   metadataBase: new URL("https://nexwebit.in"),
 };
 
