@@ -121,7 +121,6 @@ export default function MPFooter() {
           </div>
         </div>
       </div>
-
       <style>{`
         @media (min-width: 640px) {
           .mp-footer-grid { grid-template-columns: repeat(2, 1fr) !important; }
