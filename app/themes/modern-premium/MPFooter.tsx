@@ -1,181 +1,138 @@
 import Link from "next/link";
 import { Cormorant_Garamond, DM_Sans, DM_Mono } from "next/font/google";
 
-const cormorant = Cormorant_Garamond({ subsets: ["latin"], weights: [400, 500, 600, 700] });
-const dmSans = DM_Sans({ subsets: ["latin"], weights: [300, 400] });
-const dmMono = DM_Mono({ subsets: ["latin"], weight: 400 });
+const cormorant = Cormorant_Garamond({ subsets: ["latin"], weight: ["400","600","700"], style: ["normal","italic"] });
+const dmSans = DM_Sans({ subsets: ["latin"], weight: ["300","400"] });
+const dmMono = DM_Mono({ subsets: ["latin"], weight: ["400"] });
 
-const navLinks = ["Home", "Shop", "About", "Contact"];
-
-const serviceLinks = [
-  "Design & Build",
-  "E-Commerce",
-  "Google Presence",
-  "Maintenance",
-];
-
+const navLinks = ["Home", "Shop", "Collections", "About", "Contact"];
+const serviceLinks = ["Design & Build", "E-Commerce", "Content & Copy", "Google Presence", "Photography", "Maintenance"];
 const socialLinks = ["f", "in", "yt", "wa", "tw"];
-
-const contactItems = [
-  "Jaipur, Rajasthan",
-  "+91 98765 43210",
-  "hello@nexwebit.in",
-];
+const contactItems = ["Jaipur, Rajasthan", "+91 98765 43210", "hello@nexwebit.in"];
 
 export default function MPFooter() {
   return (
-    <footer
-      className="bg-[#0a1e10] border-t border-[rgba(245,237,224,0.07)] pt-14 md:pt-16"
-      style={{ fontFamily: dmSans.style.fontFamily }}
-    >
-      <div className="max-w-[1280px] mx-auto px-6 md:px-8 pb-12">
+    <footer style={{ background: "#0a1e10", borderTop: "1px solid rgba(245,237,224,0.07)", paddingTop: 56, fontFamily: dmSans.style.fontFamily }}>
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px 48px" }}>
 
-        {/* ── Top grid ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.8fr_0.9fr_1.1fr_1.5fr] gap-10 lg:gap-8 xl:gap-12 mb-12">
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(1, 1fr)", gap: 40 }} className="mp-footer-grid">
 
-          {/* ── Brand col ── */}
-          <div className="sm:col-span-2 lg:col-span-1">
-            {/* Feuilles wordmark — Feuil cream, les gold */}
-            <Link
-              href="/themes/modern-premium"
-              className={`${cormorant.className} font-black text-[1.9rem] tracking-[-0.02em] text-[#f5ede0] block mb-5`}
-            >
-              Feuil<span className="text-[#c9a96e]">les</span>
+          {/* Brand */}
+          <div>
+            <Link href="/themes/modern-premium" style={{ textDecoration: "none", display: "block", marginBottom: 20 }}>
+              <span className={cormorant.className} style={{ fontSize: "1.9rem", fontWeight: 700, fontStyle: "italic", color: "#f5ede0", letterSpacing: "-0.02em" }}>
+                Modern<span style={{ color: "#c9a96e" }}> Premium</span>
+              </span>
             </Link>
-            <p className="text-[0.875rem] text-[rgba(245,237,224,0.55)] leading-[1.8] mb-6 max-w-sm lg:max-w-[300px]">
-              We craft bespoke digital experiences for premium fashion brands and boutiques that demand the extraordinary.
+            <p style={{ fontSize: "0.875rem", color: "rgba(245,237,224,0.5)", lineHeight: 1.8, marginBottom: 24, maxWidth: 300 }}>
+              We build stunning websites for boutiques, salons, and premium retailers. Your brand deserves a digital presence as refined as your products.
             </p>
-            <div className="flex gap-2.5 flex-wrap">
+            <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
               {socialLinks.map((s) => (
-                <Link
-                  key={s}
-                  href="#"
-                  className="w-9 h-9 rounded-full border border-[rgba(245,237,224,0.1)] flex items-center justify-center text-[rgba(245,237,224,0.45)] text-[13px] hover:border-[#c9a96e] hover:text-[#c9a96e] hover:bg-[rgba(201,169,110,0.08)] transition-all duration-200"
-                  style={{ fontFamily: dmMono.style.fontFamily }}
-                >
-                  {s}
-                </Link>
+                <Link key={s} href="#" style={{
+                  width: 36, height: 36, borderRadius: "50%",
+                  border: "1px solid rgba(245,237,224,0.1)",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  color: "rgba(245,237,224,0.45)", fontSize: 13,
+                  textDecoration: "none", fontFamily: dmMono.style.fontFamily,
+                  transition: "all 0.2s",
+                }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#c9a96e"; e.currentTarget.style.color = "#c9a96e"; e.currentTarget.style.background = "rgba(201,169,110,0.08)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(245,237,224,0.1)"; e.currentTarget.style.color = "rgba(245,237,224,0.45)"; e.currentTarget.style.background = "transparent"; }}
+                >{s}</Link>
               ))}
             </div>
           </div>
 
-          {/* ── Navigate col ── */}
+          {/* Navigate */}
           <div>
-            <p
-              className="text-[0.68rem] tracking-[0.18em] uppercase text-[#c9a96e] mb-5"
-              style={{ fontFamily: dmMono.style.fontFamily }}
-            >
-              Navigate
-            </p>
-            <ul className="space-y-3">
+            <p style={{ fontFamily: dmMono.style.fontFamily, fontSize: "0.68rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#c9a96e", marginBottom: 20 }}>Navigate</p>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
               {navLinks.map((l) => (
-                <li key={l}>
-                  <Link
-                    href="#"
-                    className="text-[0.875rem] text-[rgba(245,237,224,0.55)] hover:text-[#c9a96e] transition-colors duration-200 whitespace-nowrap"
-                  >
-                    {l}
-                  </Link>
+                <li key={l} style={{ marginBottom: 12 }}>
+                  <Link href="#" style={{ fontSize: "0.875rem", color: "rgba(245,237,224,0.5)", textDecoration: "none", whiteSpace: "nowrap", transition: "color 0.2s" }}
+                    onMouseEnter={e => (e.currentTarget.style.color = "#c9a96e")}
+                    onMouseLeave={e => (e.currentTarget.style.color = "rgba(245,237,224,0.5)")}
+                  >{l}</Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* ── Services col ── */}
+          {/* Services */}
           <div>
-            <p
-              className="text-[0.68rem] tracking-[0.18em] uppercase text-[#c9a96e] mb-5"
-              style={{ fontFamily: dmMono.style.fontFamily }}
-            >
-              Services
-            </p>
-            <ul className="space-y-3">
+            <p style={{ fontFamily: dmMono.style.fontFamily, fontSize: "0.68rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#c9a96e", marginBottom: 20 }}>Services</p>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
               {serviceLinks.map((l) => (
-                <li key={l}>
-                  <Link
-                    href="#"
-                    className="text-[0.875rem] text-[rgba(245,237,224,0.55)] hover:text-[#c9a96e] transition-colors duration-200 whitespace-nowrap"
-                  >
-                    {l}
-                  </Link>
+                <li key={l} style={{ marginBottom: 12 }}>
+                  <Link href="#" style={{ fontSize: "0.875rem", color: "rgba(245,237,224,0.5)", textDecoration: "none", whiteSpace: "nowrap", transition: "color 0.2s" }}
+                    onMouseEnter={e => (e.currentTarget.style.color = "#c9a96e")}
+                    onMouseLeave={e => (e.currentTarget.style.color = "rgba(245,237,224,0.5)")}
+                  >{l}</Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* ── Stay in Touch col ── */}
-          <div className="sm:col-span-2 lg:col-span-1">
-            <p
-              className="text-[0.68rem] tracking-[0.18em] uppercase text-[#c9a96e] mb-5"
-              style={{ fontFamily: dmMono.style.fontFamily }}
-            >
-              Stay in Touch
+          {/* Newsletter */}
+          <div>
+            <p style={{ fontFamily: dmMono.style.fontFamily, fontSize: "0.68rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#c9a96e", marginBottom: 20 }}>Stay in Touch</p>
+            <p style={{ fontSize: "0.875rem", color: "rgba(245,237,224,0.5)", lineHeight: 1.7, marginBottom: 16 }}>
+              Premium tips for boutique owners in Hindi &amp; English. No spam, ever.
             </p>
-            <p className="text-[0.875rem] text-[rgba(245,237,224,0.55)] leading-[1.7] mb-4">
-              Business tips for premium retailers in Hindi &amp; English. No spam, ever.
-            </p>
-
-            {/* Email input + button */}
-            <div className="flex gap-2 mb-2">
-              <input
-                type="email"
-                placeholder="your@email.com"
-                className="flex-1 min-w-0 bg-[rgba(245,237,224,0.04)] border border-[rgba(245,237,224,0.1)] rounded-lg px-3.5 py-2.5 text-[0.875rem] text-[#f5ede0] placeholder:text-[rgba(245,237,224,0.25)] outline-none focus:border-[rgba(201,169,110,0.5)] transition-colors duration-200"
-              />
-              <button className="bg-[#c9a96e] text-[#0f2419] rounded-lg px-5 py-2.5 text-[0.875rem] font-bold hover:bg-[#e2c074] hover:-translate-y-px transition-all duration-200 whitespace-nowrap">
+            <div style={{ display: "flex", gap: 8, marginBottom: 8 }}>
+              <input type="email" placeholder="your@email.com" style={{
+                flex: 1, minWidth: 0,
+                background: "rgba(245,237,224,0.04)",
+                border: "1px solid rgba(245,237,224,0.1)",
+                borderRadius: 6, padding: "10px 14px",
+                fontSize: "0.875rem", color: "#f5ede0",
+                outline: "none", fontFamily: dmSans.style.fontFamily,
+              }} />
+              <button style={{ background: "#c9a96e", color: "#0f2419", border: "none", borderRadius: 6, padding: "10px 18px", fontSize: "0.875rem", fontWeight: 700, cursor: "pointer", whiteSpace: "nowrap", fontFamily: dmSans.style.fontFamily }}>
                 Join
               </button>
             </div>
-
-            <p
-              className="text-[0.65rem] tracking-[0.06em] text-[rgba(245,237,224,0.25)] mb-5"
-              style={{ fontFamily: dmMono.style.fontFamily }}
-            >
-              No spam · Unsubscribe anytime
-            </p>
-
-            {/* Contact info */}
-            <div className="flex flex-col gap-2.5">
+            <p style={{ fontFamily: dmMono.style.fontFamily, fontSize: "0.65rem", letterSpacing: "0.06em", color: "rgba(245,237,224,0.25)", marginBottom: 20 }}>No spam · Unsubscribe anytime</p>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               {contactItems.map((item) => (
-                <div
-                  key={item}
-                  className="flex items-center gap-2 text-[0.8rem] text-[rgba(245,237,224,0.4)]"
-                >
-                  <span className="w-[5px] h-[5px] rounded-full bg-[#c9a96e] shrink-0" />
+                <div key={item} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.8rem", color: "rgba(245,237,224,0.4)" }}>
+                  <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#c9a96e", flexShrink: 0 }} />
                   {item}
                 </div>
               ))}
             </div>
           </div>
-
         </div>
 
-        {/* ── Divider ── */}
-        <div className="h-px bg-[rgba(245,237,224,0.06)] mb-5" />
+        <div style={{ height: 1, background: "rgba(245,237,224,0.06)", margin: "0 0 20px" }} />
 
-        {/* ── Bottom bar ── */}
-        <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-3 text-center sm:text-left">
-          <p className="text-[0.78rem] text-[rgba(245,237,224,0.3)]">
-            © 2025{" "}
-            <span className={`${cormorant.className} text-[#f5ede0]`}>
-              NextWeb<span className="text-[#c9a96e]">It</span>
-            </span>
-            {" "}· nexwebit.in
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }} className="mp-footer-bottom">
+          <p style={{ fontSize: "0.78rem", color: "rgba(245,237,224,0.3)" }}>
+            © 2025 <span style={{ color: "#c9a96e" }}>NextWebIt</span> · nexwebit.in · All rights reserved.
           </p>
-          <div className="flex flex-wrap justify-center sm:justify-end gap-4 sm:gap-6">
+          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 20 }}>
             {["Privacy Policy", "Terms of Service", "Refund Policy"].map((l) => (
-              <Link
-                key={l}
-                href="#"
-                className="text-[0.78rem] text-[rgba(245,237,224,0.3)] hover:text-[#c9a96e] transition-colors duration-200"
-              >
-                {l}
-              </Link>
+              <Link key={l} href="#" style={{ fontSize: "0.78rem", color: "rgba(245,237,224,0.3)", textDecoration: "none", transition: "color 0.2s" }}
+                onMouseEnter={e => (e.currentTarget.style.color = "#c9a96e")}
+                onMouseLeave={e => (e.currentTarget.style.color = "rgba(245,237,224,0.3)")}
+              >{l}</Link>
             ))}
           </div>
         </div>
-
       </div>
+
+      <style>{`
+        @media (min-width: 640px) {
+          .mp-footer-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (min-width: 1024px) {
+          .mp-footer-grid { grid-template-columns: 1.8fr 0.9fr 1.1fr 1.5fr !important; gap: 48px !important; }
+        }
+        @media (min-width: 640px) {
+          .mp-footer-bottom { flex-direction: row !important; justify-content: space-between !important; }
+        }
+      `}</style>
     </footer>
   );
 }
