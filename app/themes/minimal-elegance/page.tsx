@@ -1,770 +1,301 @@
 "use client";
-
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import MENavbar from "./MENavbar";
 import MEFooter from "./MEFooter";
-import {
-  Playfair_Display,
-  DM_Sans,
-  Cormorant_Garamond,
-  Libre_Baskerville,
-} from "next/font/google";
+import { Cormorant_Garamond, DM_Sans, DM_Mono } from "next/font/google";
 
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
-});
+const cormorant = Cormorant_Garamond({ subsets: ["latin"], weight: ["400","500","600","700"], style: ["normal","italic"] });
+const dmSans = DM_Sans({ subsets: ["latin"], weight: ["300","400","500"] });
+const dmMono = DM_Mono({ subsets: ["latin"], weight: ["400"] });
 
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
-});
+const CREAM = "#F5F0E8";
+const GREEN = "#2C3E2D";
+const TERRA = "#C4735A";
+const MUTED = "#5C6B5D";
+const SOFT = "#8A9E8B";
+const BG2 = "#EDE8DF";
+const PINK = "rgba(196,115,90,0.12)";
 
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  style: ["normal", "italic"],
-});
+const packages = [
+  { name: "The Intimate", price: "₹85,000", guests: "Up to 50 guests", features: ["Venue styling", "Floral arrangements", "Day-of coordination", "Photography 4hrs"], popular: false },
+  { name: "The Grand", price: "₹2,20,000", guests: "Up to 300 guests", features: ["Full venue transformation", "Catering coordination", "Mehendi & Sangeet", "2-day photography", "Videography"], popular: true },
+  { name: "The Royal", price: "Custom", guests: "Unlimited guests", features: ["Everything in Grand", "Destination wedding", "International vendors", "Bridal styling", "Honeymoon planning"], popular: false },
+];
 
-const baskerville = Libre_Baskerville({
-  subsets: ["latin"],
-  weight: ["400"],
-  style: ["italic"],
-});
+const gallery = [
+  "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80",
+  "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=600&q=80",
+  "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80",
+  "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=600&q=80",
+  "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&q=80",
+  "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=600&q=80",
+];
+
+const steps = [
+  { num: "01", title: "First Consultation", desc: "We meet you over chai — at your home or our Jaipur studio. We listen to your love story and understand your dream day." },
+  { num: "02", title: "Crafting Your Vision", desc: "Our team curates venue options, mood boards, floral concepts and a custom timeline — all presented in a beautiful proposal." },
+  { num: "03", title: "Bringing It to Life", desc: "From vendor coordination to day-of management, we handle everything so you can simply be present in every moment." },
+];
+
+const testimonials = [
+  { name: "Priya & Arjun", date: "November 2024", text: "True Romance ne hamare wedding ko ekdum dream jaisa bana diya. Har ek detail perfect thi. Hum shukriyada hain!", img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=200&q=80" },
+  { name: "Sneha & Rahul", date: "February 2024", text: "From the mandap flowers to the last dance, everything was exactly as we had imagined. Worth every rupee!", img: "https://images.unsplash.com/photo-1622495966027-e0173192c728?w=200&q=80" },
+  { name: "Meera & Karan", date: "December 2023", text: "The team was so calm and organised on the day — we didn't worry about a single thing. Pure magic!", img: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=200&q=80" },
+];
+
+const Sparkle = ({ size = 14, style = {} }: { size?: number; style?: React.CSSProperties }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill={TERRA} style={{ opacity: 0.7, ...style }}>
+    <path d="M12 0 L13.5 10.5 L24 12 L13.5 13.5 L12 24 L10.5 13.5 L0 12 L10.5 10.5 Z" />
+  </svg>
+);
 
 export default function MinimalElegancePage() {
   const pageRef = useRef<HTMLDivElement>(null);
 
-  // Custom Crosshair Cursor
+  // Soft blush cursor — completely different from other themes
   useEffect(() => {
     const cursor = document.createElement("div");
-    cursor.id = "me-cursor";
-    cursor.innerHTML = `
-      <div id="me-cursor-h"></div>
-      <div id="me-cursor-v"></div>
-      <div id="me-cursor-dot"></div>
+    cursor.style.cssText = `
+      width:14px;height:14px;
+      background:rgba(196,115,90,0.55);
+      border-radius:50%;
+      position:fixed;top:0;left:0;
+      pointer-events:none;z-index:9999;
+      transform:translate(-50%,-50%);
+      transition:width .25s ease,height .25s ease,background .25s ease,border .25s ease;
+      mix-blend-mode:multiply;
     `;
     document.body.appendChild(cursor);
-
-    const style = document.createElement("style");
-    style.innerHTML = `
-      * { cursor: none !important; }
-      #me-cursor {
-        position: fixed;
-        top: 0; left: 0;
-        width: 32px; height: 32px;
-        pointer-events: none;
-        z-index: 99999;
-        transform: translate(-50%, -50%);
-        transition: transform 0.1s ease;
-        mix-blend-mode: multiply;
-      }
-      #me-cursor-h {
-        position: absolute;
-        top: 50%; left: 0; right: 0;
-        height: 1px;
-        background: #c16b4a;
-        transform: translateY(-50%);
-        transition: width 0.2s ease, opacity 0.2s ease;
-      }
-      #me-cursor-v {
-        position: absolute;
-        left: 50%; top: 0; bottom: 0;
-        width: 1px;
-        background: #c16b4a;
-        transform: translateX(-50%);
-        transition: height 0.2s ease, opacity 0.2s ease;
-      }
-      #me-cursor-dot {
-        position: absolute;
-        top: 50%; left: 50%;
-        width: 4px; height: 4px;
-        background: #c16b4a;
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-      }
-      #me-cursor.expanded #me-cursor-h {
-        left: -8px; right: -8px;
-      }
-      #me-cursor.expanded #me-cursor-v {
-        top: -8px; bottom: -8px;
-      }
-      #me-cursor.expanded #me-cursor-dot {
-        transform: translate(-50%, -50%) scale(2);
-      }
-    `;
-    document.head.appendChild(style);
-
-    let mouseX = 0, mouseY = 0;
-    let curX = 0, curY = 0;
-
-    const handleMove = (e: MouseEvent) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
+    const move = (e: MouseEvent) => {
+      cursor.style.left = e.clientX + "px";
+      cursor.style.top = e.clientY + "px";
     };
-
-    const handleHoverIn = () => cursor.classList.add("expanded");
-    const handleHoverOut = () => cursor.classList.remove("expanded");
-
-    const animate = () => {
-      curX += (mouseX - curX) * 0.12;
-      curY += (mouseY - curY) * 0.12;
-      cursor.style.left = curX + "px";
-      cursor.style.top = curY + "px";
-      requestAnimationFrame(animate);
+    const grow = () => {
+      cursor.style.width = "40px"; cursor.style.height = "40px";
+      cursor.style.background = "transparent";
+      cursor.style.border = `1.5px solid ${TERRA}`;
     };
-
-    document.addEventListener("mousemove", handleMove);
-    document.querySelectorAll("a, button, [data-hover]").forEach((el) => {
-      el.addEventListener("mouseenter", handleHoverIn);
-      el.addEventListener("mouseleave", handleHoverOut);
+    const shrink = () => {
+      cursor.style.width = "14px"; cursor.style.height = "14px";
+      cursor.style.background = "rgba(196,115,90,0.55)";
+      cursor.style.border = "none";
+    };
+    document.addEventListener("mousemove", move);
+    document.querySelectorAll("a,button,input").forEach(el => {
+      el.addEventListener("mouseenter", grow);
+      el.addEventListener("mouseleave", shrink);
     });
-    animate();
-
     return () => {
-      document.removeEventListener("mousemove", handleMove);
-      cursor.remove();
-      style.remove();
+      document.removeEventListener("mousemove", move);
+      if (document.body.contains(cursor)) document.body.removeChild(cursor);
     };
   }, []);
 
-  // Scroll Reveal
+  // Scroll reveal
   useEffect(() => {
-    const style = document.createElement("style");
-    style.innerHTML = `
-      .me-reveal {
-        opacity: 0;
-        transform: translateY(32px);
-        transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
-      }
-      .me-reveal.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .me-reveal-left {
-        opacity: 0;
-        transform: translateX(-32px);
-        transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
-      }
-      .me-reveal-left.visible {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    `;
-    document.head.appendChild(style);
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setTimeout(() => {
-              entry.target.classList.add("visible");
-            }, Number((entry.target as HTMLElement).dataset.delay || 0));
-          }
-        });
-      },
-      { threshold: 0.12 }
-    );
-
-    document.querySelectorAll(".me-reveal, .me-reveal-left").forEach((el) => observer.observe(el));
-
-    return () => {
-      observer.disconnect();
-      style.remove();
-    };
+    const els = document.querySelectorAll(".me-reveal");
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          (e.target as HTMLElement).style.opacity = "1";
+          (e.target as HTMLElement).style.transform = "translateY(0)";
+        }
+      });
+    }, { threshold: 0.08 });
+    els.forEach(el => {
+      (el as HTMLElement).style.opacity = "0";
+      (el as HTMLElement).style.transform = "translateY(28px)";
+      (el as HTMLElement).style.transition = "opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1)";
+      obs.observe(el);
+    });
+    return () => obs.disconnect();
   }, []);
-
-  // Scrollbar styling
-  useEffect(() => {
-    const style = document.createElement("style");
-    style.innerHTML = `
-      ::-webkit-scrollbar { width: 5px; }
-      ::-webkit-scrollbar-track { background: #f7f3ee; }
-      ::-webkit-scrollbar-thumb { background: rgba(193,107,74,0.35); border-radius: 3px; }
-      ::-webkit-scrollbar-thumb:hover { background: rgba(193,107,74,0.6); }
-    `;
-    document.head.appendChild(style);
-    return () => style.remove();
-  }, []);
-
-  const portfolioItems = [
-    {
-      title: "Aara Jewels",
-      category: "Brand Identity + Web",
-      img: "https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=600&q=80",
-      tag: "Jewellery",
-    },
-    {
-      title: "Marigold Salon",
-      category: "Digital Presence",
-      img: "https://images.unsplash.com/photo-1560066984-138daaa1ded3?w=600&q=80",
-      tag: "Beauty",
-    },
-    {
-      title: "Kesar Couture",
-      category: "E-Commerce",
-      img: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&q=80",
-      tag: "Fashion",
-    },
-    {
-      title: "Gulmohar Home",
-      category: "Brand + Print",
-      img: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80",
-      tag: "Decor",
-    },
-  ];
-
-  const services = [
-    {
-      number: "01",
-      title: "Brand Identity",
-      desc: "Logo, colour palette, typography system, and brand guidelines — everything a premium brand needs to look the part.",
-      price: "From ₹3,999",
-    },
-    {
-      number: "02",
-      title: "Website Design",
-      desc: "Hand-crafted, fast-loading websites built in Next.js. No templates. Designed to convert visitors into loyal customers.",
-      price: "From ₹7,999",
-    },
-    {
-      number: "03",
-      title: "E-Commerce Store",
-      desc: "Full online shop with product listings, payments, and inventory — so your boutique is open 24/7.",
-      price: "From ₹12,999",
-    },
-    {
-      number: "04",
-      title: "Google Presence",
-      desc: "Google Business setup, local SEO, and reviews management — so customers find you first in your city.",
-      price: "From ₹1,499",
-    },
-  ];
-
-  const testimonials = [
-    {
-      quote: "Our online enquiries tripled within the first month. The design is exactly what we imagined — elegant and effortless.",
-      name: "Priya Sharma",
-      role: "Owner, Aara Jewels · Jaipur",
-      img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80",
-    },
-    {
-      quote: "They understood our salon's personality from day one. The website has brought in clients we'd never have reached otherwise.",
-      name: "Ritu Malhotra",
-      role: "Founder, Marigold Salon · Delhi",
-      img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80",
-    },
-    {
-      quote: "Professional, fast, and genuinely attentive. The whole process was a pleasure — and the result is beautiful.",
-      name: "Anjali Mehta",
-      role: "Director, Kesar Couture · Mumbai",
-      img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80",
-    },
-  ];
-
-  const process = [
-    {
-      step: "I",
-      title: "We Visit You",
-      desc: "We come to your shop or salon, understand your brand, your customers, and your aspirations — before touching a single pixel.",
-    },
-    {
-      step: "II",
-      title: "Design & Review",
-      desc: "Within 48 hours, we present a full design concept. You share feedback, we refine until it's exactly right.",
-    },
-    {
-      step: "III",
-      title: "Live & Growing",
-      desc: "Your site goes live in 5–7 days, with WhatsApp support, Google setup, and ongoing care included.",
-    },
-  ];
 
   return (
-    <div
-      ref={pageRef}
-      style={{
-        background: "#f7f3ee",
-        color: "#2c1f14",
-        minHeight: "100vh",
-        overflowX: "hidden",
-      }}
-    >
+    <div ref={pageRef} style={{ background: CREAM, cursor: "none", overflowX: "hidden", fontFamily: dmSans.style.fontFamily }}>
       <MENavbar />
 
-      {/* ── HERO ─────────────────────────────────────────── */}
-      <section
-        style={{
-          minHeight: "100vh",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          alignItems: "center",
-          maxWidth: "1200px",
-          margin: "0 auto",
-          padding: "120px 48px 80px",
-          gap: "80px",
-          position: "relative",
-        }}
-        className="me-hero-grid"
-      >
-        {/* Decorative sparkles */}
-        <Sparkle top="18%" left="4%" size={14} delay={0.3} />
-        <Sparkle top="72%" left="6%" size={9} delay={0.6} />
-        <Sparkle top="30%" right="2%" size={11} delay={0.5} />
-
-        {/* Left */}
-        <div>
-          <p
-            className={dmSans.className}
-            style={{
-              fontSize: "0.68rem",
-              fontWeight: 500,
-              letterSpacing: "0.2em",
-              textTransform: "uppercase",
-              color: "#c16b4a",
-              marginBottom: "24px",
-            }}
-          >
-            Web Design Studio · India
-          </p>
-
-          <h1
-            className={playfair.className}
-            style={{
-              fontSize: "clamp(3rem, 6vw, 5.5rem)",
-              fontWeight: 500,
-              lineHeight: 1.05,
-              letterSpacing: "-0.02em",
-              marginBottom: "28px",
-              color: "#2c1f14",
-            }}
-          >
-            <span style={{ display: "block" }}>Let us design</span>
-            <span style={{ display: "block", fontStyle: "italic", color: "#c16b4a" }}>your beautiful</span>
-            <span style={{ display: "block" }}>digital presence.</span>
-          </h1>
-
-          <p
-            className={cormorant.className}
-            style={{
-              fontSize: "1.1rem",
-              fontStyle: "italic",
-              color: "rgba(44,31,20,0.55)",
-              lineHeight: 1.8,
-              maxWidth: "380px",
-              marginBottom: "40px",
-            }}
-          >
-            We craft refined websites for boutiques, salons, jewellery shops, and fashion brands across India — places that deserve to look as premium online as they do in person.
-          </p>
-
-          {/* Email CTA */}
-          <div
-            style={{
-              display: "flex",
-              gap: "0",
-              maxWidth: "400px",
-              marginBottom: "20px",
-            }}
-            className="me-email-row"
-          >
-            <input
-              type="email"
-              placeholder="your email address"
-              className={dmSans.className}
-              style={{
-                flex: 1,
-                background: "rgba(44,31,20,0.05)",
-                border: "1px solid rgba(44,31,20,0.14)",
-                borderRight: "none",
-                padding: "13px 18px",
-                fontSize: "0.85rem",
-                color: "#2c1f14",
-                outline: "none",
-                borderRadius: "2px 0 0 2px",
-                fontFamily: "inherit",
-              }}
-            />
-            <button
-              className={dmSans.className}
-              style={{
-                background: "#c16b4a",
-                color: "#f7f3ee",
-                border: "none",
-                padding: "13px 24px",
-                fontSize: "0.82rem",
-                fontWeight: 500,
-                letterSpacing: "0.06em",
-                cursor: "none",
-                borderRadius: "0 2px 2px 0",
-                whiteSpace: "nowrap",
-              }}
-            >
-              Let's go!
-            </button>
-          </div>
-
-          <p
-            className={dmSans.className}
-            style={{
-              fontSize: "0.75rem",
-              color: "rgba(44,31,20,0.35)",
-              letterSpacing: "0.05em",
-            }}
-          >
-            Confirm your attendance ↗
-          </p>
+      {/* ══════════════════════════
+          HERO
+      ══════════════════════════ */}
+      <section style={{ minHeight: "100vh", background: CREAM, display: "flex", alignItems: "center", paddingTop: 68, position: "relative", overflow: "hidden" }}>
+        {/* Large soft circle bg decoration */}
+        <div style={{ position: "absolute", top: -120, right: -120, width: 500, height: 500, borderRadius: "50%", background: "rgba(196,115,90,0.07)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", bottom: -80, left: -80, width: 320, height: 320, borderRadius: "50%", background: "rgba(196,115,90,0.05)", pointerEvents: "none" }} />
+        {/* Starburst decoration bottom-left like image */}
+        <div style={{ position: "absolute", bottom: 80, left: 60, opacity: 0.18, pointerEvents: "none" }}>
+          <svg width="120" height="120" viewBox="0 0 120 120">
+            {Array.from({ length: 12 }).map((_, i) => {
+              const angle = (i * 30) * Math.PI / 180;
+              const x2 = 60 + 55 * Math.cos(angle);
+              const y2 = 60 + 55 * Math.sin(angle);
+              return <line key={i} x1="60" y1="60" x2={x2} y2={y2} stroke={TERRA} strokeWidth={i % 3 === 0 ? 1.5 : 0.8} />;
+            })}
+          </svg>
         </div>
 
-        {/* Right — Image */}
-        <div style={{ position: "relative", display: "flex", justifyContent: "center" }}>
-          {/* Date badge */}
-          <div
-            className={baskerville.className}
-            style={{
-              position: "absolute",
-              bottom: "12%",
-              right: "-20px",
-              textAlign: "right",
-              zIndex: 2,
-            }}
-          >
-            <div style={{ fontSize: "0.7rem", color: "#c16b4a", letterSpacing: "0.1em" }}>06/22/2025</div>
-            <div
-              className={cormorant.className}
-              style={{ fontSize: "0.75rem", fontStyle: "italic", color: "rgba(44,31,20,0.5)" }}
-            >
-              Your brand · Live
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "60px 40px", width: "100%", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }} className="me-hero-grid">
+          <div>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 20 }}>
+              <Sparkle size={12} />
+              <p style={{ fontFamily: dmMono.style.fontFamily, fontSize: "0.65rem", letterSpacing: "0.2em", textTransform: "uppercase", color: TERRA }}>Wedding Planners · Jaipur</p>
+              <Sparkle size={8} style={{ opacity: 0.4 }} />
+            </div>
+            <h1 className={cormorant.className} style={{ fontSize: "clamp(3rem,6vw,5.5rem)", fontWeight: 500, color: GREEN, lineHeight: 1.05, letterSpacing: "-0.01em", margin: "0 0 8px" }}>
+              Let us celebrate
+            </h1>
+            <h1 className={cormorant.className} style={{ fontSize: "clamp(3rem,6vw,5.5rem)", fontWeight: 500, fontStyle: "italic", color: GREEN, lineHeight: 1.05, margin: "0 0 28px" }}>
+              this beautiful day
+            </h1>
+            <p style={{ fontSize: "0.95rem", color: MUTED, lineHeight: 1.85, maxWidth: 400, marginBottom: 36 }}>
+              Every love story is unique. We craft bespoke wedding experiences that reflect your personalities, honour your traditions, and create memories that last a lifetime.
+            </p>
+            {/* Email subscribe — like the image */}
+            <div style={{ display: "flex", gap: 0, marginBottom: 16, maxWidth: 380, borderRadius: 999, overflow: "hidden", border: "1px solid rgba(44,62,45,0.18)", background: "#fff" }}>
+              <input type="email" placeholder="your email address" style={{ flex: 1, border: "none", outline: "none", padding: "13px 20px", fontSize: "0.875rem", color: GREEN, background: "transparent", fontFamily: dmSans.style.fontFamily }} />
+              <button style={{ background: TERRA, color: "#fff", border: "none", borderRadius: 999, padding: "13px 24px", fontSize: "0.875rem", fontWeight: 500, cursor: "pointer", whiteSpace: "nowrap", margin: 3, fontFamily: dmSans.style.fontFamily, transition: "background 0.2s" }}
+                onMouseEnter={e => (e.currentTarget.style.background = "#d4856c")}
+                onMouseLeave={e => (e.currentTarget.style.background = TERRA)}
+              >Let&apos;s go!</button>
+            </div>
+            <Link href="#" style={{ fontSize: "0.8rem", color: SOFT, textDecoration: "none", borderBottom: `1px solid rgba(138,158,139,0.4)`, paddingBottom: 1, fontFamily: dmMono.style.fontFamily, letterSpacing: "0.06em", transition: "color 0.2s" }}
+              onMouseEnter={e => (e.currentTarget.style.color = GREEN)}
+              onMouseLeave={e => (e.currentTarget.style.color = SOFT)}
+            >Confirm your attendance</Link>
+          </div>
+
+          {/* Right — arch image like the reference */}
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", position: "relative" }}>
+            {/* Scattered sparkles around image */}
+            <Sparkle size={14} style={{ position: "absolute", top: "10%", left: "8%", opacity: 0.6 }} />
+            <Sparkle size={9} style={{ position: "absolute", top: "25%", right: "6%", opacity: 0.4 }} />
+            <Sparkle size={12} style={{ position: "absolute", bottom: "20%", right: "10%", opacity: 0.5 }} />
+            <Sparkle size={7} style={{ position: "absolute", bottom: "10%", left: "20%", opacity: 0.35 }} />
+
+            {/* Arch / pill image frame — exactly like reference */}
+            <div style={{ position: "relative", width: "100%", maxWidth: 320 }}>
+              <div style={{ width: "100%", aspectRatio: "3/4", borderRadius: "160px 160px 80px 80px", overflow: "hidden", border: "1px solid rgba(44,62,45,0.1)", position: "relative" }}>
+                <Image src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=80" alt="Happy couple" fill style={{ objectFit: "cover", objectPosition: "center top" }} priority />
+              </div>
+              {/* Date card floating bottom-right — like reference */}
+              <div style={{ position: "absolute", bottom: -16, right: -16, background: CREAM, border: "1px solid rgba(44,62,45,0.1)", borderRadius: 10, padding: "12px 16px", boxShadow: "0 4px 24px rgba(44,62,45,0.08)" }}>
+                <p style={{ fontFamily: dmMono.style.fontFamily, fontSize: "0.7rem", letterSpacing: "0.1em", color: TERRA, margin: 0, marginBottom: 3 }}>06/22/2025</p>
+                <p className={cormorant.className} style={{ fontSize: "0.95rem", fontStyle: "italic", color: GREEN, margin: 0 }}>Christopher &amp; Elena</p>
+              </div>
             </div>
           </div>
+        </div>
 
-          {/* Shadow rect */}
-          <div
-            style={{
-              position: "absolute",
-              top: "16px",
-              left: "16px",
-              width: "100%",
-              maxWidth: "380px",
-              aspectRatio: "3/4",
-              background: "rgba(44,31,20,0.07)",
-              borderRadius: "50% 16px 60px 16px",
-            }}
-          />
-
-          {/* Main image */}
-          <div
-            style={{
-              position: "relative",
-              width: "100%",
-              maxWidth: "380px",
-              aspectRatio: "3/4",
-              borderRadius: "50% 16px 60px 16px",
-              overflow: "hidden",
-              border: "1px solid rgba(44,31,20,0.08)",
-            }}
-          >
-            <Image
-              src="https://images.unsplash.com/photo-1523264653568-d3d4032d1476?w=800&q=80"
-              alt="Premium boutique style"
-              fill
-              priority
-              style={{ objectFit: "cover", objectPosition: "center top" }}
-            />
-          </div>
+        {/* Scroll cue */}
+        <div style={{ position: "absolute", bottom: 28, left: "50%", transform: "translateX(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
+          <div style={{ width: 1, height: 40, background: `linear-gradient(to bottom, transparent, ${TERRA})`, animation: "scrollPulse 2s ease infinite" }} />
+          <p style={{ fontFamily: dmMono.style.fontFamily, fontSize: "0.55rem", letterSpacing: "0.18em", textTransform: "uppercase", color: SOFT }}>Scroll</p>
         </div>
       </section>
 
-      {/* ── MARQUEE ──────────────────────────────────────── */}
-      <div
-        style={{
-          background: "#2c1f14",
-          padding: "18px 0",
-          overflow: "hidden",
-          position: "relative",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            gap: "0",
-            width: "max-content",
-            animation: "meMarquee 28s linear infinite",
-          }}
-        >
-          {[...Array(3)].map((_, rep) => (
-            <div key={rep} style={{ display: "flex", alignItems: "center", gap: "0" }}>
-              {[
-                "Brand Identity",
-                "✦",
-                "Web Design",
-                "✦",
-                "E-Commerce",
-                "✦",
-                "Boutique Stores",
-                "✦",
-                "Salons & Spas",
-                "✦",
-                "Jewellery Brands",
-                "✦",
-                "Fashion Labels",
-                "✦",
-                "Premium Retail",
-                "✦",
-              ].map((item, i) => (
-                <span
-                  key={i}
-                  className={item === "✦" ? undefined : dmSans.className}
-                  style={{
-                    fontSize: item === "✦" ? "0.6rem" : "0.72rem",
-                    fontWeight: 400,
-                    letterSpacing: item === "✦" ? "0" : "0.16em",
-                    textTransform: "uppercase",
-                    color: item === "✦" ? "#c16b4a" : "rgba(247,243,238,0.6)",
-                    padding: "0 24px",
-                    whiteSpace: "nowrap",
-                  }}
-                >
-                  {item}
-                </span>
+      {/* ══════════════════════════
+          ABOUT STRIP — horizontal with image
+      ══════════════════════════ */}
+      <section style={{ background: BG2, padding: "88px 40px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 72, alignItems: "center" }} className="me-2col">
+          <div className="me-reveal" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+            <div style={{ aspectRatio: "3/4", borderRadius: "80px 80px 20px 20px", overflow: "hidden", position: "relative" }}>
+              <Image src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=600&q=80" alt="Wedding" fill style={{ objectFit: "cover" }} />
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 12, paddingTop: 40 }}>
+              <div style={{ aspectRatio: "1/1", borderRadius: "50%", overflow: "hidden", position: "relative" }}>
+                <Image src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=400&q=80" alt="Wedding detail" fill style={{ objectFit: "cover" }} />
+              </div>
+              <div style={{ background: "#2C3E2D", borderRadius: 16, padding: "20px 16px", textAlign: "center" }}>
+                <div className={cormorant.className} style={{ fontSize: "2rem", fontWeight: 600, color: TERRA, fontStyle: "italic" }}>500+</div>
+                <div style={{ fontFamily: dmMono.style.fontFamily, fontSize: "0.6rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(245,240,232,0.6)", marginTop: 4 }}>Weddings Planned</div>
+              </div>
+            </div>
+          </div>
+          <div className="me-reveal">
+            <p style={{ fontFamily: dmMono.style.fontFamily, fontSize: "0.62rem", letterSpacing: "0.2em", textTransform: "uppercase", color: TERRA, marginBottom: 14 }}>Our story</p>
+            <h2 className={cormorant.className} style={{ fontSize: "clamp(2.2rem,4vw,3.4rem)", fontWeight: 500, color: GREEN, margin: "0 0 20px", lineHeight: 1.15 }}>
+              We plan. You <span style={{ fontStyle: "italic", color: TERRA }}>celebrate.</span>
+            </h2>
+            <p style={{ fontSize: "0.9rem", color: MUTED, lineHeight: 1.85, marginBottom: 16 }}>
+              Founded in Jaipur with a love for love itself, True Romance has spent over a decade turning wedding dreams into extraordinary realities. We are a team of passionate planners, designers, and storytellers.
+            </p>
+            <p style={{ fontSize: "0.9rem", color: MUTED, lineHeight: 1.85, marginBottom: 28 }}>
+              From intimate court marriages to 1000-guest grand celebrations — we bring the same meticulous attention to every single detail of every single day.
+            </p>
+            <div style={{ display: "flex", gap: 32 }}>
+              {[["500+","Weddings"],["12","Years"],["4.9★","Rating"]].map(([num, label]) => (
+                <div key={label}>
+                  <div className={cormorant.className} style={{ fontSize: "1.8rem", fontWeight: 600, color: GREEN }}>{num}</div>
+                  <div style={{ fontFamily: dmMono.style.fontFamily, fontSize: "0.6rem", textTransform: "uppercase", letterSpacing: "0.1em", color: SOFT }}>{label}</div>
+                </div>
               ))}
             </div>
-          ))}
-        </div>
-        <style>{`
-          @keyframes meMarquee {
-            from { transform: translateX(0); }
-            to { transform: translateX(-33.33%); }
-          }
-        `}</style>
-      </div>
-
-      {/* ── PORTFOLIO / WORK ─────────────────────────────── */}
-      <section
-        style={{
-          background: "#f7f3ee",
-          padding: "120px 48px",
-          maxWidth: "1200px",
-          margin: "0 auto",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "flex-end",
-            marginBottom: "64px",
-          }}
-          className="me-section-header me-reveal"
-        >
-          <div>
-            <p
-              className={dmSans.className}
-              style={{
-                fontSize: "0.65rem",
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                color: "#c16b4a",
-                marginBottom: "12px",
-              }}
-            >
-              Selected Work
-            </p>
-            <h2
-              className={playfair.className}
-              style={{
-                fontSize: "clamp(2rem, 4vw, 3.2rem)",
-                fontWeight: 500,
-                fontStyle: "italic",
-                color: "#2c1f14",
-                lineHeight: 1.1,
-              }}
-            >
-              A few brands we've
-              <br />
-              had the joy of building.
-            </h2>
-          </div>
-          <a
-            href="#"
-            className={dmSans.className}
-            style={{
-              fontSize: "0.78rem",
-              color: "rgba(44,31,20,0.5)",
-              textDecoration: "none",
-              borderBottom: "1px solid rgba(44,31,20,0.2)",
-              paddingBottom: "2px",
-              letterSpacing: "0.06em",
-              whiteSpace: "nowrap",
-            }}
-          >
-            View all work →
-          </a>
-        </div>
-
-        {/* Portfolio Grid — 2+2 asymmetric */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1.2fr 0.8fr",
-            gap: "20px",
-          }}
-          className="me-portfolio-grid"
-        >
-          {/* Left column — 2 stacked */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-            {portfolioItems.slice(0, 2).map((item, i) => (
-              <PortfolioCard
-                key={item.title}
-                item={item}
-                tall={i === 0}
-                playfair={playfair.className}
-                dmSans={dmSans.className}
-                cormorant={cormorant.className}
-                delay={i * 100}
-              />
-            ))}
-          </div>
-          {/* Right column — 2 stacked */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "20px", marginTop: "60px" }}>
-            {portfolioItems.slice(2, 4).map((item, i) => (
-              <PortfolioCard
-                key={item.title}
-                item={item}
-                tall={i === 1}
-                playfair={playfair.className}
-                dmSans={dmSans.className}
-                cormorant={cormorant.className}
-                delay={(i + 2) * 100}
-              />
-            ))}
           </div>
         </div>
       </section>
 
-      {/* ── ABOUT / PHILOSOPHY STRIP ─────────────────────── */}
-      <section
-        style={{
-          background: "#ede7de",
-          padding: "100px 48px",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "80px",
-            alignItems: "center",
-          }}
-          className="me-about-grid"
-        >
-          <div className="me-reveal-left">
-            <p
-              className={dmSans.className}
-              style={{
-                fontSize: "0.65rem",
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                color: "#c16b4a",
-                marginBottom: "16px",
-              }}
-            >
-              Our Philosophy
-            </p>
-            <h2
-              className={playfair.className}
-              style={{
-                fontSize: "clamp(2rem, 4vw, 3rem)",
-                fontWeight: 400,
-                lineHeight: 1.15,
-                color: "#2c1f14",
-                marginBottom: "28px",
-              }}
-            >
-              Every brand deserves to be
-              <span
-                style={{ fontStyle: "italic", color: "#c16b4a" }}
-              >
-                {" "}seen, remembered,{" "}
-              </span>
-              and loved.
+      {/* ══════════════════════════
+          GALLERY — Masonry grid
+      ══════════════════════════ */}
+      <section style={{ background: CREAM, padding: "88px 40px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div className="me-reveal" style={{ textAlign: "center", marginBottom: 52 }}>
+            <p style={{ fontFamily: dmMono.style.fontFamily, fontSize: "0.62rem", letterSpacing: "0.2em", textTransform: "uppercase", color: TERRA, marginBottom: 10 }}>Our work</p>
+            <h2 className={cormorant.className} style={{ fontSize: "clamp(2.4rem,5vw,3.8rem)", fontWeight: 500, color: GREEN, margin: 0 }}>
+              Gallery of <span style={{ fontStyle: "italic" }}>Love</span>
             </h2>
-            <p
-              className={dmSans.className}
-              style={{
-                fontSize: "0.9rem",
-                color: "rgba(44,31,20,0.55)",
-                lineHeight: 1.85,
-                fontWeight: 300,
-                marginBottom: "20px",
-              }}
-            >
-              We started NextWebIt with a single belief: India's premium local brands — the saree boutique that's been running for three generations, the salon that trained in Paris, the jeweller with one-of-a-kind pieces — deserve websites as thoughtful as the businesses themselves.
-            </p>
-            <p
-              className={dmSans.className}
-              style={{
-                fontSize: "0.9rem",
-                color: "rgba(44,31,20,0.55)",
-                lineHeight: 1.85,
-                fontWeight: 300,
-              }}
-            >
-              We don't do templates. We visit you, understand your world, and build something that genuinely reflects who you are.
-            </p>
           </div>
-
-          {/* Stats grid */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: "2px",
-            }}
-            className="me-reveal"
-            data-delay="100"
-          >
-            {[
-              { num: "120+", label: "Brands launched" },
-              { num: "14", label: "Cities across India" },
-              { num: "48h", label: "First design delivered" },
-              { num: "98%", label: "Client satisfaction" },
-            ].map((stat) => (
-              <div
-                key={stat.label}
-                style={{
-                  background: "#f7f3ee",
-                  padding: "36px 28px",
-                  borderRadius: "2px",
-                }}
+          {/* Masonry-style grid */}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gridTemplateRows: "auto", gap: 14 }} className="me-3col">
+            {gallery.map((img, i) => (
+              <div key={i} className="me-reveal" style={{
+                borderRadius: i % 3 === 0 ? "80px 80px 16px 16px" : i % 3 === 1 ? 16 : "16px 16px 80px 80px",
+                overflow: "hidden",
+                aspectRatio: i === 1 || i === 4 ? "4/3" : "3/4",
+                position: "relative",
+                cursor: "pointer",
+                transitionDelay: `${i * 60}ms`,
+              }}
+                onMouseEnter={e => { const img = e.currentTarget.querySelector(".me-img") as HTMLElement; if (img) img.style.transform = "scale(1.05)"; }}
+                onMouseLeave={e => { const img = e.currentTarget.querySelector(".me-img") as HTMLElement; if (img) img.style.transform = "scale(1)"; }}
               >
-                <div
-                  className={playfair.className}
-                  style={{
-                    fontSize: "2.5rem",
-                    fontWeight: 500,
-                    color: "#2c1f14",
-                    lineHeight: 1,
-                    marginBottom: "8px",
-                  }}
-                >
-                  {stat.num}
+                <div className="me-img" style={{ position: "absolute", inset: 0, transition: "transform 0.5s ease" }}>
+                  <Image src={img} alt={`Wedding ${i + 1}`} fill style={{ objectFit: "cover" }} />
                 </div>
-                <div
-                  className={dmSans.className}
-                  style={{
-                    fontSize: "0.75rem",
-                    color: "rgba(44,31,20,0.4)",
-                    letterSpacing: "0.06em",
-                    textTransform: "uppercase",
-                    fontWeight: 400,
-                  }}
-                >
-                  {stat.label}
+                <div style={{ position: "absolute", inset: 0, background: "rgba(44,62,45,0)", transition: "background 0.3s" }} />
+              </div>
+            ))}
+          </div>
+          <div style={{ textAlign: "center", marginTop: 40 }}>
+            <Link href="#" style={{ display: "inline-block", padding: "12px 36px", background: "transparent", border: `1px solid rgba(44,62,45,0.25)`, color: GREEN, borderRadius: 999, fontSize: "0.875rem", textDecoration: "none", transition: "all 0.2s" }}
+              onMouseEnter={e => { e.currentTarget.style.background = GREEN; e.currentTarget.style.color = CREAM; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = GREEN; }}
+            >View Full Gallery</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════
+          HOW WE WORK — elegant numbered steps
+      ══════════════════════════ */}
+      <section style={{ background: BG2, padding: "88px 40px" }}>
+        <div style={{ maxWidth: 960, margin: "0 auto" }}>
+          <div className="me-reveal" style={{ textAlign: "center", marginBottom: 60 }}>
+            <p style={{ fontFamily: dmMono.style.fontFamily, fontSize: "0.62rem", letterSpacing: "0.2em", textTransform: "uppercase", color: TERRA, marginBottom: 10 }}>The process</p>
+            <h2 className={cormorant.className} style={{ fontSize: "clamp(2.2rem,4vw,3.4rem)", fontWeight: 500, color: GREEN, margin: 0 }}>
+              How we <span style={{ fontStyle: "italic", color: TERRA }}>work together</span>
+            </h2>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+            {steps.map((step, i) => (
+              <div key={step.num} className="me-reveal" style={{ display: "grid", gridTemplateColumns: "80px 1fr", gap: 32, padding: "36px 0", borderBottom: i < steps.length - 1 ? "1px solid rgba(44,62,45,0.08)" : "none", transitionDelay: `${i * 100}ms` }}>
+                <div className={cormorant.className} style={{ fontSize: "3.2rem", fontWeight: 400, color: "rgba(196,115,90,0.25)", lineHeight: 1, fontStyle: "italic", textAlign: "right", paddingRight: 8 }}>{step.num}</div>
+                <div style={{ paddingTop: 8 }}>
+                  <h3 className={cormorant.className} style={{ fontSize: "1.6rem", fontWeight: 500, color: GREEN, margin: "0 0 10px" }}>{step.title}</h3>
+                  <p style={{ fontSize: "0.9rem", color: MUTED, lineHeight: 1.8, margin: 0 }}>{step.desc}</p>
                 </div>
               </div>
             ))}
@@ -772,337 +303,74 @@ export default function MinimalElegancePage() {
         </div>
       </section>
 
-      {/* ── SERVICES ─────────────────────────────────────── */}
-      <section
-        style={{
-          background: "#f7f3ee",
-          padding: "120px 48px",
-        }}
-      >
-        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div className="me-reveal" style={{ textAlign: "center", marginBottom: "72px" }}>
-            <p
-              className={dmSans.className}
-              style={{
-                fontSize: "0.65rem",
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                color: "#c16b4a",
-                marginBottom: "16px",
-              }}
-            >
-              What We Build
-            </p>
-            <h2
-              className={playfair.className}
-              style={{
-                fontSize: "clamp(2rem, 4vw, 3.2rem)",
-                fontWeight: 500,
-                color: "#2c1f14",
-                lineHeight: 1.1,
-              }}
-            >
-              Full-stack presence,
-              <span style={{ fontStyle: "italic", color: "#c16b4a" }}> zero complexity.</span>
+      {/* ══════════════════════════
+          PACKAGES — Pricing cards
+      ══════════════════════════ */}
+      <section style={{ background: CREAM, padding: "88px 40px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div className="me-reveal" style={{ textAlign: "center", marginBottom: 52 }}>
+            <p style={{ fontFamily: dmMono.style.fontFamily, fontSize: "0.62rem", letterSpacing: "0.2em", textTransform: "uppercase", color: TERRA, marginBottom: 10 }}>Pricing</p>
+            <h2 className={cormorant.className} style={{ fontSize: "clamp(2.4rem,5vw,3.8rem)", fontWeight: 500, color: GREEN, margin: 0 }}>
+              Choose your <span style={{ fontStyle: "italic" }}>experience</span>
             </h2>
           </div>
-
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(4, 1fr)",
-              gap: "1px",
-              background: "rgba(44,31,20,0.08)",
-              border: "1px solid rgba(44,31,20,0.08)",
-              borderRadius: "4px",
-              overflow: "hidden",
-            }}
-            className="me-services-grid"
-          >
-            {services.map((svc, i) => (
-              <div
-                key={svc.number}
-                className="me-reveal"
-                data-delay={`${i * 80}`}
-                style={{
-                  background: "#f7f3ee",
-                  padding: "48px 32px",
-                  transition: "background 0.3s ease",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.background = "#ede7de";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.background = "#f7f3ee";
-                }}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3,minmax(0,1fr))", gap: 20 }} className="me-3col">
+            {packages.map((pkg, i) => (
+              <div key={pkg.name} className="me-reveal" style={{ background: pkg.popular ? GREEN : "#fff", border: pkg.popular ? "none" : "1px solid rgba(44,62,45,0.12)", borderRadius: 20, padding: "36px 28px", position: "relative", transition: "transform 0.3s", transitionDelay: `${i * 80}ms` }}
+                onMouseEnter={e => (e.currentTarget.style.transform = "translateY(-4px)")}
+                onMouseLeave={e => (e.currentTarget.style.transform = "translateY(0)")}
               >
-                <div
-                  className={playfair.className}
-                  style={{
-                    fontSize: "0.8rem",
-                    fontStyle: "italic",
-                    color: "#c16b4a",
-                    marginBottom: "20px",
-                  }}
-                >
-                  {svc.number}
-                </div>
-                <h3
-                  className={playfair.className}
-                  style={{
-                    fontSize: "1.25rem",
-                    fontWeight: 500,
-                    color: "#2c1f14",
-                    marginBottom: "14px",
-                    lineHeight: 1.2,
-                  }}
-                >
-                  {svc.title}
-                </h3>
-                <p
-                  className={dmSans.className}
-                  style={{
-                    fontSize: "0.82rem",
-                    color: "rgba(44,31,20,0.5)",
-                    lineHeight: 1.75,
-                    fontWeight: 300,
-                    marginBottom: "24px",
-                  }}
-                >
-                  {svc.desc}
-                </p>
-                <div
-                  className={dmSans.className}
-                  style={{
-                    display: "inline-block",
-                    fontSize: "0.72rem",
-                    fontWeight: 500,
-                    color: "#c16b4a",
-                    border: "1px solid rgba(193,107,74,0.3)",
-                    padding: "5px 12px",
-                    borderRadius: "2px",
-                    letterSpacing: "0.06em",
-                  }}
-                >
-                  {svc.price}
-                </div>
+                {pkg.popular && (
+                  <div style={{ position: "absolute", top: -12, left: "50%", transform: "translateX(-50%)", background: TERRA, color: "#fff", borderRadius: 999, padding: "4px 18px", fontSize: "0.7rem", fontFamily: dmMono.style.fontFamily, letterSpacing: "0.1em", whiteSpace: "nowrap" }}>Most Popular</div>
+                )}
+                <p style={{ fontFamily: dmMono.style.fontFamily, fontSize: "0.62rem", letterSpacing: "0.14em", textTransform: "uppercase", color: pkg.popular ? "rgba(245,240,232,0.5)" : SOFT, marginBottom: 10 }}>{pkg.guests}</p>
+                <h3 className={cormorant.className} style={{ fontSize: "1.8rem", fontWeight: 500, fontStyle: "italic", color: pkg.popular ? CREAM : GREEN, margin: "0 0 8px" }}>{pkg.name}</h3>
+                <div className={cormorant.className} style={{ fontSize: "2.2rem", fontWeight: 600, color: pkg.popular ? TERRA : GREEN, margin: "0 0 24px" }}>{pkg.price}</div>
+                <div style={{ height: 1, background: pkg.popular ? "rgba(245,240,232,0.1)" : "rgba(44,62,45,0.1)", marginBottom: 20 }} />
+                <ul style={{ listStyle: "none", padding: 0, margin: "0 0 28px", display: "flex", flexDirection: "column", gap: 12 }}>
+                  {pkg.features.map((f) => (
+                    <li key={f} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: "0.875rem", color: pkg.popular ? "rgba(245,240,232,0.75)" : MUTED }}>
+                      <span style={{ color: TERRA, fontSize: 12, flexShrink: 0 }}>✦</span>{f}
+                    </li>
+                  ))}
+                </ul>
+                <Link href="#" style={{ display: "block", textAlign: "center", padding: "12px", background: pkg.popular ? TERRA : "transparent", color: pkg.popular ? "#fff" : GREEN, border: pkg.popular ? "none" : `1px solid rgba(44,62,45,0.25)`, borderRadius: 999, fontSize: "0.875rem", textDecoration: "none", fontWeight: 500, transition: "all 0.2s" }}
+                  onMouseEnter={e => { if (!pkg.popular) { e.currentTarget.style.background = GREEN; e.currentTarget.style.color = CREAM; } }}
+                  onMouseLeave={e => { if (!pkg.popular) { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = GREEN; } }}
+                >Choose this plan</Link>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── PROCESS ──────────────────────────────────────── */}
-      <section
-        style={{
-          background: "#2c1f14",
-          padding: "120px 48px",
-        }}
-      >
-        <div style={{ maxWidth: "820px", margin: "0 auto" }}>
-          <div className="me-reveal" style={{ marginBottom: "80px" }}>
-            <p
-              className={dmSans.className}
-              style={{
-                fontSize: "0.65rem",
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                color: "#c16b4a",
-                marginBottom: "16px",
-              }}
-            >
-              How It Works
-            </p>
-            <h2
-              className={playfair.className}
-              style={{
-                fontSize: "clamp(2rem, 4vw, 3rem)",
-                fontWeight: 400,
-                color: "#f7f3ee",
-                lineHeight: 1.15,
-              }}
-            >
-              Three unhurried steps to{" "}
-              <span style={{ fontStyle: "italic", color: "#c16b4a" }}>going live.</span>
+      {/* ══════════════════════════
+          TESTIMONIALS — soft cards
+      ══════════════════════════ */}
+      <section style={{ background: BG2, padding: "88px 40px" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div className="me-reveal" style={{ textAlign: "center", marginBottom: 52 }}>
+            <p style={{ fontFamily: dmMono.style.fontFamily, fontSize: "0.62rem", letterSpacing: "0.2em", textTransform: "uppercase", color: TERRA, marginBottom: 10 }}>Real stories</p>
+            <h2 className={cormorant.className} style={{ fontSize: "clamp(2.4rem,5vw,3.8rem)", fontWeight: 500, color: GREEN, margin: 0 }}>
+              Love <span style={{ fontStyle: "italic" }}>letters to us</span>
             </h2>
           </div>
-
-          <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
-            {process.map((step, i) => (
-              <div
-                key={step.step}
-                className="me-reveal"
-                data-delay={`${i * 120}`}
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "72px 1px 1fr",
-                  gap: "0 32px",
-                  paddingBottom: i < process.length - 1 ? "60px" : "0",
-                }}
-              >
-                {/* Roman numeral */}
-                <div
-                  className={playfair.className}
-                  style={{
-                    fontSize: "3rem",
-                    fontWeight: 400,
-                    fontStyle: "italic",
-                    color: "#c16b4a",
-                    lineHeight: 1,
-                    paddingTop: "4px",
-                  }}
-                >
-                  {step.step}
-                </div>
-
-                {/* Line */}
-                <div
-                  style={{
-                    width: "1px",
-                    background: i < process.length - 1
-                      ? "linear-gradient(to bottom, rgba(193,107,74,0.4) 0%, rgba(193,107,74,0) 100%)"
-                      : "transparent",
-                    margin: "8px 0",
-                  }}
-                />
-
-                {/* Content */}
-                <div style={{ paddingTop: "4px" }}>
-                  <h3
-                    className={playfair.className}
-                    style={{
-                      fontSize: "1.5rem",
-                      fontWeight: 500,
-                      color: "#f7f3ee",
-                      marginBottom: "12px",
-                    }}
-                  >
-                    {step.title}
-                  </h3>
-                  <p
-                    className={dmSans.className}
-                    style={{
-                      fontSize: "0.88rem",
-                      color: "rgba(247,243,238,0.45)",
-                      lineHeight: 1.8,
-                      fontWeight: 300,
-                    }}
-                  >
-                    {step.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── TESTIMONIALS ─────────────────────────────────── */}
-      <section
-        style={{
-          background: "#f7f3ee",
-          padding: "120px 48px",
-        }}
-      >
-        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div className="me-reveal" style={{ marginBottom: "64px" }}>
-            <p
-              className={dmSans.className}
-              style={{
-                fontSize: "0.65rem",
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                color: "#c16b4a",
-                marginBottom: "12px",
-              }}
-            >
-              Kind Words
-            </p>
-            <h2
-              className={playfair.className}
-              style={{
-                fontSize: "clamp(2rem, 4vw, 3rem)",
-                fontWeight: 500,
-                fontStyle: "italic",
-                color: "#2c1f14",
-              }}
-            >
-              From the brands we serve.
-            </h2>
-          </div>
-
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(3, 1fr)",
-              gap: "24px",
-            }}
-            className="me-testimonials-grid"
-          >
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3,minmax(0,1fr))", gap: 20 }} className="me-3col">
             {testimonials.map((t, i) => (
-              <div
-                key={t.name}
-                className="me-reveal"
-                data-delay={`${i * 100}`}
-                style={{
-                  background: "#ede7de",
-                  padding: "40px 32px",
-                  borderRadius: "2px",
-                  position: "relative",
-                }}
-              >
-                {/* Quote mark */}
-                <div
-                  className={playfair.className}
-                  style={{
-                    fontSize: "4rem",
-                    fontStyle: "italic",
-                    color: "rgba(193,107,74,0.2)",
-                    lineHeight: 0.8,
-                    marginBottom: "20px",
-                  }}
-                >
-                  "
+              <div key={t.name} className="me-reveal" style={{ background: "#fff", border: "1px solid rgba(44,62,45,0.08)", borderRadius: 20, padding: 28, transitionDelay: `${i * 80}ms` }}>
+                <div style={{ display: "flex", gap: 4, marginBottom: 16 }}>
+                  {Array.from({ length: 5 }).map((_, j) => (
+                    <span key={j} style={{ color: TERRA, fontSize: 13 }}>★</span>
+                  ))}
                 </div>
-                <p
-                  className={cormorant.className}
-                  style={{
-                    fontSize: "1.05rem",
-                    fontStyle: "italic",
-                    color: "#2c1f14",
-                    lineHeight: 1.75,
-                    marginBottom: "28px",
-                  }}
-                >
-                  {t.quote}
-                </p>
-                <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                  <div
-                    style={{
-                      width: "40px",
-                      height: "40px",
-                      borderRadius: "50%",
-                      overflow: "hidden",
-                      flexShrink: 0,
-                      border: "1.5px solid rgba(193,107,74,0.2)",
-                      position: "relative",
-                    }}
-                  >
+                <p style={{ fontSize: "0.9rem", color: MUTED, lineHeight: 1.8, marginBottom: 20, fontStyle: "italic" }}>&ldquo;{t.text}&rdquo;</p>
+                <div style={{ display: "flex", alignItems: "center", gap: 12, paddingTop: 16, borderTop: "1px solid rgba(44,62,45,0.06)" }}>
+                  <div style={{ width: 44, height: 44, borderRadius: "50%", overflow: "hidden", position: "relative", flexShrink: 0 }}>
                     <Image src={t.img} alt={t.name} fill style={{ objectFit: "cover" }} />
                   </div>
                   <div>
-                    <div
-                      className={dmSans.className}
-                      style={{ fontSize: "0.85rem", fontWeight: 500, color: "#2c1f14" }}
-                    >
-                      {t.name}
-                    </div>
-                    <div
-                      className={dmSans.className}
-                      style={{ fontSize: "0.72rem", color: "rgba(44,31,20,0.4)", fontWeight: 300 }}
-                    >
-                      {t.role}
-                    </div>
+                    <p className={cormorant.className} style={{ fontSize: "1rem", fontWeight: 500, color: GREEN, margin: 0 }}>{t.name}</p>
+                    <p style={{ fontFamily: dmMono.style.fontFamily, fontSize: "0.6rem", color: SOFT, margin: 0, marginTop: 2, letterSpacing: "0.06em" }}>{t.date}</p>
                   </div>
                 </div>
               </div>
@@ -1111,380 +379,47 @@ export default function MinimalElegancePage() {
         </div>
       </section>
 
-      {/* ── CTA BAND ─────────────────────────────────────── */}
-      <section
-        style={{
-          background: "#f7f3ee",
-          padding: "140px 48px",
-          textAlign: "center",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        {/* Decorative thin horizontal lines */}
-        <div
-          style={{
-            position: "absolute",
-            top: "20%",
-            left: 0,
-            right: 0,
-            height: "1px",
-            background: "rgba(44,31,20,0.04)",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            bottom: "20%",
-            left: 0,
-            right: 0,
-            height: "1px",
-            background: "rgba(44,31,20,0.04)",
-          }}
-        />
-
-        <div style={{ position: "relative", zIndex: 1 }}>
-          <div className="me-reveal">
-            <Sparkle top="-10%" left="8%" size={12} />
-            <Sparkle top="30%" right="6%" size={8} />
-
-            <p
-              className={dmSans.className}
-              style={{
-                fontSize: "0.65rem",
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                color: "#c16b4a",
-                marginBottom: "24px",
-              }}
+      {/* ══════════════════════════
+          INSTAGRAM WALL — decorative photo strip
+      ══════════════════════════ */}
+      <section style={{ background: CREAM, padding: "72px 0 0", overflow: "hidden" }}>
+        <div className="me-reveal" style={{ textAlign: "center", padding: "0 40px 40px" }}>
+          <p style={{ fontFamily: dmMono.style.fontFamily, fontSize: "0.62rem", letterSpacing: "0.2em", textTransform: "uppercase", color: TERRA, marginBottom: 10 }}>@trueromance.in</p>
+          <h2 className={cormorant.className} style={{ fontSize: "clamp(2rem,4vw,3rem)", fontWeight: 500, color: GREEN, margin: 0 }}>
+            Follow our <span style={{ fontStyle: "italic" }}>journey</span>
+          </h2>
+        </div>
+        <div style={{ display: "flex", gap: 4 }}>
+          {gallery.slice(0, 5).map((img, i) => (
+            <div key={i} style={{ flex: 1, height: 280, position: "relative", overflow: "hidden", cursor: "pointer" }}
+              onMouseEnter={e => { const c = e.currentTarget.querySelector(".ig-overlay") as HTMLElement; if (c) c.style.opacity = "1"; }}
+              onMouseLeave={e => { const c = e.currentTarget.querySelector(".ig-overlay") as HTMLElement; if (c) c.style.opacity = "0"; }}
             >
-              Ready to begin?
-            </p>
-
-            <h2
-              className={playfair.className}
-              style={{
-                fontSize: "clamp(2.5rem, 6vw, 5rem)",
-                fontWeight: 500,
-                lineHeight: 1.05,
-                color: "#2c1f14",
-                marginBottom: "24px",
-              }}
-            >
-              Your brand deserves
-              <br />
-              <span style={{ fontStyle: "italic", color: "#c16b4a" }}>to be seen.</span>
-            </h2>
-
-            <p
-              className={cormorant.className}
-              style={{
-                fontSize: "1.15rem",
-                fontStyle: "italic",
-                color: "rgba(44,31,20,0.45)",
-                marginBottom: "48px",
-                lineHeight: 1.6,
-              }}
-            >
-              Book a free discovery call. No pressure, no jargon — just an honest conversation.
-            </p>
-
-            <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-              <a
-                href="#"
-                className={dmSans.className}
-                style={{
-                  background: "#c16b4a",
-                  color: "#f7f3ee",
-                  padding: "16px 44px",
-                  borderRadius: "2px",
-                  fontSize: "0.88rem",
-                  fontWeight: 500,
-                  letterSpacing: "0.08em",
-                  textDecoration: "none",
-                  textTransform: "uppercase",
-                  transition: "background 0.2s, transform 0.2s",
-                }}
-                onMouseEnter={(e) => {
-                  const el = e.currentTarget as HTMLElement;
-                  el.style.background = "#a85a3c";
-                  el.style.transform = "translateY(-2px)";
-                }}
-                onMouseLeave={(e) => {
-                  const el = e.currentTarget as HTMLElement;
-                  el.style.background = "#c16b4a";
-                  el.style.transform = "translateY(0)";
-                }}
-              >
-                Book a Free Call
-              </a>
-              <a
-                href="https://wa.me/919876543210"
-                className={dmSans.className}
-                style={{
-                  background: "transparent",
-                  color: "#2c1f14",
-                  padding: "16px 44px",
-                  borderRadius: "2px",
-                  fontSize: "0.88rem",
-                  fontWeight: 400,
-                  letterSpacing: "0.08em",
-                  textDecoration: "none",
-                  textTransform: "uppercase",
-                  border: "1px solid rgba(44,31,20,0.15)",
-                  transition: "border-color 0.2s, color 0.2s",
-                }}
-                onMouseEnter={(e) => {
-                  const el = e.currentTarget as HTMLElement;
-                  el.style.borderColor = "#c16b4a";
-                  el.style.color = "#c16b4a";
-                }}
-                onMouseLeave={(e) => {
-                  const el = e.currentTarget as HTMLElement;
-                  el.style.borderColor = "rgba(44,31,20,0.15)";
-                  el.style.color = "#2c1f14";
-                }}
-              >
-                WhatsApp Us
-              </a>
+              <Image src={img} alt="" fill style={{ objectFit: "cover", transition: "transform 0.5s ease" }} />
+              <div className="ig-overlay" style={{ position: "absolute", inset: 0, background: "rgba(44,62,45,0.45)", display: "flex", alignItems: "center", justifyContent: "center", opacity: 0, transition: "opacity 0.3s" }}>
+                <span style={{ color: CREAM, fontSize: 22 }}>♡</span>
+              </div>
             </div>
-
-            <p
-              className={cormorant.className}
-              style={{
-                marginTop: "24px",
-                fontSize: "0.85rem",
-                fontStyle: "italic",
-                color: "rgba(44,31,20,0.3)",
-              }}
-            >
-              By appointment · Jaipur studio · We also visit your location
-            </p>
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* ── SCROLL CUE ───────────────────────────────────── */}
-      <div
-        style={{
-          position: "fixed",
-          bottom: "40px",
-          right: "32px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "8px",
-          zIndex: 50,
-          opacity: 0.4,
-        }}
-      >
-        <span
-          className={dmSans.className}
-          style={{
-            fontSize: "0.55rem",
-            letterSpacing: "0.2em",
-            textTransform: "uppercase",
-            color: "#2c1f14",
-            writingMode: "vertical-rl",
-          }}
-        >
-          Scroll
-        </span>
-        <div
-          style={{
-            width: "1px",
-            height: "40px",
-            background: "linear-gradient(to bottom, #c16b4a, transparent)",
-            animation: "meScrollLine 1.8s ease-in-out infinite",
-          }}
-        />
-        <style>{`
-          @keyframes meScrollLine {
-            0%, 100% { opacity: 0.3; transform: scaleY(0.5); }
-            50% { opacity: 1; transform: scaleY(1); }
-          }
-        `}</style>
-      </div>
-
       <MEFooter />
 
-      {/* Responsive */}
       <style>{`
-        @media (max-width: 1024px) {
-          .me-hero-grid { grid-template-columns: 1fr !important; padding: 120px 32px 60px !important; }
-          .me-about-grid { grid-template-columns: 1fr !important; }
-          .me-services-grid { grid-template-columns: 1fr 1fr !important; }
-          .me-testimonials-grid { grid-template-columns: 1fr !important; }
-          .me-portfolio-grid { grid-template-columns: 1fr !important; }
+        @keyframes scrollPulse { 0%,100%{opacity:.5;transform:scaleY(1)} 50%{opacity:1;transform:scaleY(.6)} }
+        ::-webkit-scrollbar{width:5px}
+        ::-webkit-scrollbar-track{background:${CREAM}}
+        ::-webkit-scrollbar-thumb{background:rgba(196,115,90,0.3);border-radius:3px}
+        @media(max-width:900px){
+          .me-hero-grid{grid-template-columns:1fr!important;gap:40px!important;padding:40px 24px!important;}
+          .me-2col{grid-template-columns:1fr!important;gap:40px!important;}
+          .me-3col{grid-template-columns:1fr 1fr!important;}
         }
-        @media (max-width: 640px) {
-          .me-services-grid { grid-template-columns: 1fr !important; }
-          .me-section-header { flex-direction: column !important; align-items: flex-start !important; gap: 20px !important; }
-          section { padding-left: 24px !important; padding-right: 24px !important; }
-          .me-email-row { flex-direction: column !important; }
-          .me-email-row input, .me-email-row button { border-radius: 2px !important; border: 1px solid rgba(44,31,20,0.14) !important; }
+        @media(max-width:560px){
+          .me-3col{grid-template-columns:1fr!important;}
         }
       `}</style>
-    </div>
-  );
-}
-
-/* ── Sub-components ────────────────────────────────── */
-
-function Sparkle({
-  top,
-  left,
-  right,
-  size = 12,
-  delay = 0,
-}: {
-  top?: string;
-  left?: string;
-  right?: string;
-  size?: number;
-  delay?: number;
-}) {
-  return (
-    <div
-      style={{
-        position: "absolute",
-        top,
-        left,
-        right,
-        width: size,
-        height: size,
-        animation: `meSparkle 3s ease-in-out ${delay}s infinite`,
-        zIndex: 1,
-        pointerEvents: "none",
-      }}
-    >
-      <svg viewBox="0 0 16 16" fill="none" width={size} height={size}>
-        <path d="M8 0L9 7L16 8L9 9L8 16L7 9L0 8L7 7L8 0Z" fill="#c16b4a" opacity="0.7" />
-      </svg>
-      <style>{`
-        @keyframes meSparkle {
-          0%, 100% { opacity: 0.4; transform: scale(1) rotate(0deg); }
-          50% { opacity: 1; transform: scale(1.15) rotate(20deg); }
-        }
-      `}</style>
-    </div>
-  );
-}
-
-function PortfolioCard({
-  item,
-  tall,
-  playfair,
-  dmSans,
-  cormorant,
-  delay = 0,
-}: {
-  item: { title: string; category: string; img: string; tag: string };
-  tall: boolean;
-  playfair: string;
-  dmSans: string;
-  cormorant: string;
-  delay?: number;
-}) {
-  return (
-    <div
-      className="me-reveal"
-      data-delay={String(delay)}
-      style={{
-        borderRadius: "4px",
-        overflow: "hidden",
-        position: "relative",
-        aspectRatio: tall ? "4/5" : "4/3",
-        cursor: "none",
-      }}
-      onMouseEnter={(e) => {
-        const overlay = (e.currentTarget as HTMLElement).querySelector(".me-card-overlay") as HTMLElement;
-        if (overlay) overlay.style.opacity = "1";
-      }}
-      onMouseLeave={(e) => {
-        const overlay = (e.currentTarget as HTMLElement).querySelector(".me-card-overlay") as HTMLElement;
-        if (overlay) overlay.style.opacity = "0";
-      }}
-    >
-      <Image
-        src={item.img}
-        alt={item.title}
-        fill
-        style={{ objectFit: "cover", transition: "transform 0.6s ease" }}
-      />
-
-      {/* Tag */}
-      <div
-        className={dmSans}
-        style={{
-          position: "absolute",
-          top: "16px",
-          left: "16px",
-          background: "rgba(247,243,238,0.9)",
-          color: "#c16b4a",
-          fontSize: "0.65rem",
-          fontWeight: 500,
-          letterSpacing: "0.1em",
-          textTransform: "uppercase",
-          padding: "4px 10px",
-          borderRadius: "2px",
-          zIndex: 2,
-        }}
-      >
-        {item.tag}
-      </div>
-
-      {/* Hover overlay */}
-      <div
-        className="me-card-overlay"
-        style={{
-          position: "absolute",
-          inset: 0,
-          background: "rgba(44,31,20,0.75)",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "flex-end",
-          padding: "28px",
-          opacity: 0,
-          transition: "opacity 0.35s ease",
-          zIndex: 3,
-        }}
-      >
-        <div
-          className={playfair}
-          style={{
-            fontSize: "1.4rem",
-            fontWeight: 500,
-            fontStyle: "italic",
-            color: "#f7f3ee",
-            marginBottom: "6px",
-          }}
-        >
-          {item.title}
-        </div>
-        <div
-          className={dmSans}
-          style={{
-            fontSize: "0.72rem",
-            color: "rgba(247,243,238,0.55)",
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
-            marginBottom: "16px",
-          }}
-        >
-          {item.category}
-        </div>
-        <span
-          className={dmSans}
-          style={{
-            fontSize: "0.78rem",
-            color: "#c16b4a",
-            letterSpacing: "0.06em",
-          }}
-        >
-          View project →
-        </span>
-      </div>
     </div>
   );
 }
