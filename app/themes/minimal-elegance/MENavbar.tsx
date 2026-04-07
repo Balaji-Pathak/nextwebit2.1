@@ -1,33 +1,25 @@
 "use client";
-
 import { useEffect, useState } from "react";
-import { Playfair_Display, DM_Sans, Cormorant_Garamond } from "next/font/google";
+import Link from "next/link";
+import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 
-const playfair = Playfair_Display({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   style: ["normal", "italic"],
 });
+const dmSans = DM_Sans({ subsets: ["latin"], weight: ["300", "400", "500"] });
 
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
-});
-
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  style: ["normal", "italic"],
-});
+const navItems = ["Home", "Gallery", "Schedule", "Contact"];
 
 export default function MENavbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
@@ -35,242 +27,81 @@ export default function MENavbar() {
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
-  const navLinks = ["Home", "Portfolio", "Services", "Journal", "Contact"];
-
   return (
     <>
-      <nav
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 100,
-          height: "72px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          padding: "0 48px",
-          transition: "background 0.4s ease, border-bottom 0.4s ease",
-          background: scrolled ? "rgba(247,243,238,0.94)" : "transparent",
-          backdropFilter: scrolled ? "blur(16px)" : "none",
-          borderBottom: scrolled ? "1px solid rgba(58,44,36,0.08)" : "1px solid transparent",
-        }}
-      >
-        {/* Logo */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "1px" }}>
-          <span
-            className={playfair.className}
-            style={{
-              fontSize: "1.25rem",
-              fontWeight: 500,
-              color: "#2c1f14",
-              letterSpacing: "-0.01em",
-              lineHeight: 1,
-            }}
-          >
-            Bloom Studio
-          </span>
-          <span
-            className={cormorant.className}
-            style={{
-              fontSize: "0.65rem",
-              fontStyle: "italic",
-              color: "rgba(44,31,20,0.45)",
-              letterSpacing: "0.12em",
-              lineHeight: 1,
-            }}
-          >
-            Crafting moments, beautifully
-          </span>
-        </div>
+      <nav style={{
+        position: "fixed", top: 0, left: 0, right: 0, zIndex: 50,
+        height: 68,
+        background: scrolled || menuOpen ? "rgba(245,240,232,0.96)" : "transparent",
+        backdropFilter: scrolled || menuOpen ? "blur(16px)" : "none",
+        borderBottom: scrolled ? "1px solid rgba(44,62,45,0.08)" : "1px solid transparent",
+        transition: "all 0.45s ease",
+      }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 40px", height: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
 
-        {/* Center Nav */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "36px",
-          }}
-          className="me-nav-center"
-        >
-          {navLinks.map((link) => (
-            <a
-              key={link}
-              href="#"
-              className={dmSans.className}
-              style={{
-                fontSize: "0.82rem",
-                fontWeight: 400,
-                color: "rgba(44,31,20,0.6)",
-                textDecoration: "none",
-                letterSpacing: "0.06em",
-                textTransform: "uppercase",
-                transition: "color 0.2s ease",
-                position: "relative",
-              }}
-              onMouseEnter={(e) => {
-                (e.target as HTMLElement).style.color = "#c16b4a";
-              }}
-              onMouseLeave={(e) => {
-                (e.target as HTMLElement).style.color = "rgba(44,31,20,0.6)";
-              }}
-            >
-              {link}
-            </a>
-          ))}
-        </div>
+          {/* Brand — stacked like image */}
+          <Link href="/themes/minimal-elegance" style={{ textDecoration: "none" }}>
+            <div className={cormorant.className} style={{ fontSize: "1rem", fontWeight: 600, color: "#2C3E2D", letterSpacing: "0.02em", lineHeight: 1.2 }}>True Romance</div>
+            <div style={{ fontFamily: dmSans.style.fontFamily, fontSize: "0.65rem", color: "#8A9E8B", letterSpacing: "0.12em", textTransform: "uppercase" }}>Wedding Planners</div>
+          </Link>
 
-        {/* Right: CTA */}
-        <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-          <a
-            href="#contact"
-            className={dmSans.className}
-            style={{
-              fontSize: "0.78rem",
-              fontWeight: 500,
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-              color: "#f7f3ee",
-              background: "#c16b4a",
-              padding: "9px 22px",
-              borderRadius: "2px",
-              textDecoration: "none",
-              transition: "background 0.2s ease, transform 0.2s ease",
-            }}
-            onMouseEnter={(e) => {
-              (e.target as HTMLElement).style.background = "#a85a3c";
-            }}
-            onMouseLeave={(e) => {
-              (e.target as HTMLElement).style.background = "#c16b4a";
-            }}
-          >
-            Book a Call
-          </a>
+          {/* Desktop nav — clean text only, no pills */}
+          <ul className="me-nav-links" style={{ display: "flex", listStyle: "none", gap: 36, margin: 0, padding: 0 }}>
+            {navItems.map((item) => (
+              <li key={item}>
+                <Link href="#" style={{ fontFamily: dmSans.style.fontFamily, fontSize: "0.875rem", fontWeight: 400, color: "#2C3E2D", textDecoration: "none", letterSpacing: "0.02em", transition: "color 0.2s" }}
+                  onMouseEnter={e => (e.currentTarget.style.color = "#C4735A")}
+                  onMouseLeave={e => (e.currentTarget.style.color = "#2C3E2D")}
+                >{item}</Link>
+              </li>
+            ))}
+          </ul>
+
+          {/* CTA */}
+          <Link href="#" className="me-nav-cta" style={{ fontFamily: dmSans.style.fontFamily, fontSize: "0.8rem", fontWeight: 500, color: "#C4735A", textDecoration: "none", letterSpacing: "0.06em", textTransform: "uppercase", borderBottom: "1px solid rgba(196,115,90,0.4)", paddingBottom: 2, transition: "all 0.2s" }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = "#C4735A"; }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(196,115,90,0.4)"; }}
+          >Book a Call</Link>
 
           {/* Hamburger */}
-          <button
-            onClick={() => setMenuOpen(true)}
-            style={{
-              background: "none",
-              border: "none",
-              cursor: "none",
-              padding: "4px",
-              display: "flex",
-              flexDirection: "column",
-              gap: "5px",
-            }}
-            className="me-hamburger"
-            aria-label="Open menu"
+          <button className="me-hamburger" onClick={() => setMenuOpen(!menuOpen)}
+            style={{ display: "none", background: "none", border: "none", cursor: "pointer", flexDirection: "column", gap: 5, alignItems: "center", width: 36, height: 36, justifyContent: "center" }}
+            aria-label="Toggle menu"
           >
-            {[0, 1, 2].map((i) => (
-              <span
-                key={i}
-                style={{
-                  display: "block",
-                  width: i === 1 ? "18px" : "24px",
-                  height: "1px",
-                  background: "#2c1f14",
-                  transition: "width 0.2s ease",
-                }}
-              />
-            ))}
+            <span style={{ display: "block", width: 20, height: 1, background: "#2C3E2D", transition: "all 0.3s", transform: menuOpen ? "rotate(45deg) translateY(6px)" : "none" }} />
+            <span style={{ display: "block", width: 14, height: 1, background: "#2C3E2D", transition: "all 0.3s", opacity: menuOpen ? 0 : 1 }} />
+            <span style={{ display: "block", width: 20, height: 1, background: "#2C3E2D", transition: "all 0.3s", transform: menuOpen ? "rotate(-45deg) translateY(-6px)" : "none" }} />
           </button>
         </div>
       </nav>
 
-      {/* Mobile Fullscreen Overlay */}
-      <div
-        style={{
-          position: "fixed",
-          inset: 0,
-          zIndex: 200,
-          background: "#f7f3ee",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          transform: menuOpen ? "translateY(0)" : "translateY(-100%)",
-          transition: "transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
-        }}
-      >
-        <button
-          onClick={() => setMenuOpen(false)}
-          style={{
-            position: "absolute",
-            top: "28px",
-            right: "48px",
-            background: "none",
-            border: "none",
-            cursor: "none",
-            fontSize: "1.5rem",
-            color: "#2c1f14",
-            lineHeight: 1,
-          }}
-          aria-label="Close menu"
-        >
-          ×
-        </button>
-
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: "32px",
-          }}
-        >
-          {navLinks.map((link, i) => (
-            <a
-              key={link}
-              href="#"
-              onClick={() => setMenuOpen(false)}
-              className={playfair.className}
-              style={{
-                fontSize: "clamp(2.5rem, 6vw, 4rem)",
-                fontWeight: 400,
-                fontStyle: "italic",
-                color: "#2c1f14",
-                textDecoration: "none",
-                lineHeight: 1,
-                opacity: menuOpen ? 1 : 0,
-                transform: menuOpen ? "translateY(0)" : "translateY(20px)",
-                transition: `opacity 0.5s ease ${i * 0.07}s, transform 0.5s ease ${i * 0.07}s`,
-              }}
-              onMouseEnter={(e) => {
-                (e.target as HTMLElement).style.color = "#c16b4a";
-              }}
-              onMouseLeave={(e) => {
-                (e.target as HTMLElement).style.color = "#2c1f14";
-              }}
-            >
-              {link}
-            </a>
-          ))}
-        </div>
-
-        <div
-          className={dmSans.className}
-          style={{
-            position: "absolute",
-            bottom: "40px",
-            fontSize: "0.75rem",
-            color: "rgba(44,31,20,0.4)",
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
-          }}
-        >
-          nexwebit.in
-        </div>
+      {/* Mobile overlay */}
+      <div style={{
+        position: "fixed", inset: 0, zIndex: 40,
+        background: "#F5F0E8",
+        display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: 10,
+        opacity: menuOpen ? 1 : 0,
+        pointerEvents: menuOpen ? "all" : "none",
+        transition: "opacity 0.4s ease",
+      }}>
+        <div style={{ position: "absolute", top: 68, left: 0, right: 0, height: 1, background: "rgba(44,62,45,0.06)" }} />
+        <p style={{ fontFamily: dmSans.style.fontFamily, fontSize: "0.6rem", letterSpacing: "0.22em", textTransform: "uppercase", color: "#8A9E8B", marginBottom: 28 }}>True Romance</p>
+        {navItems.map((item, i) => (
+          <Link key={item} href="#" onClick={() => setMenuOpen(false)}
+            style={{ fontFamily: cormorant.className, fontSize: "2.8rem", fontWeight: 500, fontStyle: "italic", color: "#2C3E2D", textDecoration: "none", transitionDelay: `${i * 50}ms`, transition: "color 0.2s" }}
+            onMouseEnter={e => (e.currentTarget.style.color = "#C4735A")}
+            onMouseLeave={e => (e.currentTarget.style.color = "#2C3E2D")}
+          >{item}</Link>
+        ))}
+        <Link href="#" onClick={() => setMenuOpen(false)} style={{ marginTop: 28, padding: "12px 32px", background: "#C4735A", color: "#fff", borderRadius: 999, fontFamily: dmSans.style.fontFamily, fontSize: "0.875rem", fontWeight: 500, textDecoration: "none" }}>
+          Book a Call
+        </Link>
       </div>
 
       <style>{`
-        @media (max-width: 768px) {
-          .me-nav-center { display: none !important; }
-          .me-hamburger { display: flex !important; }
-        }
-        @media (min-width: 769px) {
-          .me-hamburger { display: none !important; }
+        @media(max-width:768px){
+          .me-nav-links,.me-nav-cta{display:none!important;}
+          .me-hamburger{display:flex!important;}
         }
       `}</style>
     </>
