@@ -1,352 +1,151 @@
-import { Playfair_Display, DM_Sans, Cormorant_Garamond } from "next/font/google";
+import Link from "next/link";
+import { Cormorant_Garamond, DM_Sans, DM_Mono } from "next/font/google";
 
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  style: ["normal", "italic"],
-});
+const cormorant = Cormorant_Garamond({ subsets: ["latin"], weight: ["400","500","600"], style: ["normal","italic"] });
+const dmSans = DM_Sans({ subsets: ["latin"], weight: ["300","400","500"] });
+const dmMono = DM_Mono({ subsets: ["latin"], weight: ["400"] });
 
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
-});
-
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["300", "400"],
-  style: ["italic"],
-});
+const quickLinks = ["Home", "Gallery", "Schedule", "About", "Contact"];
+const services = ["Wedding Planning", "Event Decor", "Photography", "Catering", "Venue Booking", "Mehendi & Beauty"];
+const socialLinks = [
+  { label: "Instagram", short: "ig" },
+  { label: "Pinterest", short: "pt" },
+  { label: "Facebook", short: "fb" },
+  { label: "WhatsApp", short: "wa" },
+];
 
 export default function MEFooter() {
-  const footerLinks = {
-    Studio: ["About Us", "Our Process", "Portfolio", "Journal", "Careers"],
-    Services: ["Brand Identity", "Web Design", "Photography", "Print & Collateral", "Consultation"],
-    Legal: ["Privacy Policy", "Terms of Service", "Cookie Policy"],
-  };
-
-  const socials = ["Ig", "Fb", "Pi", "Li"];
-
   return (
-    <footer
-      style={{
-        background: "#f0ebe3",
-        borderTop: "1px solid rgba(44,31,20,0.08)",
-        padding: "80px 0 0",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
-          padding: "0 48px",
-        }}
-      >
-        {/* Top Grid */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1.8fr 0.9fr 0.9fr 1.5fr",
-            gap: "60px",
-            paddingBottom: "60px",
-            borderBottom: "1px solid rgba(44,31,20,0.08)",
-          }}
-          className="me-footer-grid"
-        >
-          {/* Brand Column */}
+    <footer style={{ background: "#EDE8DF", borderTop: "1px solid rgba(44,62,45,0.08)", fontFamily: dmSans.style.fontFamily }}>
+
+      {/* Top CTA band */}
+      <div style={{ background: "#2C3E2D", padding: "64px 40px", textAlign: "center", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", top: -60, left: -60, width: 200, height: 200, borderRadius: "50%", background: "rgba(196,115,90,0.08)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", bottom: -40, right: -40, width: 160, height: 160, borderRadius: "50%", background: "rgba(196,115,90,0.06)", pointerEvents: "none" }} />
+        <p style={{ fontFamily: dmMono.style.fontFamily, fontSize: "0.65rem", letterSpacing: "0.22em", textTransform: "uppercase", color: "#C4735A", marginBottom: 14 }}>Let us make it unforgettable</p>
+        <h2 className={cormorant.className} style={{ fontSize: "clamp(2rem,5vw,3.5rem)", fontWeight: 500, fontStyle: "italic", color: "#F5F0E8", margin: "0 0 20px", lineHeight: 1.15 }}>
+          Your perfect day <span style={{ color: "#C4735A" }}>awaits</span>
+        </h2>
+        <p style={{ fontSize: "0.9rem", color: "rgba(245,240,232,0.6)", marginBottom: 28, maxWidth: 400, margin: "0 auto 28px" }}>
+          From intimate ceremonies to grand celebrations — we handle every detail with love.
+        </p>
+        <Link href="#" style={{ display: "inline-block", padding: "13px 36px", background: "#C4735A", color: "#fff", borderRadius: 999, fontSize: "0.875rem", fontWeight: 500, textDecoration: "none", transition: "all 0.2s" }}
+          onMouseEnter={e => { e.currentTarget.style.background = "#d4856c"; e.currentTarget.style.transform = "translateY(-2px)"; }}
+          onMouseLeave={e => { e.currentTarget.style.background = "#C4735A"; e.currentTarget.style.transform = "translateY(0)"; }}
+        >Start Planning Together</Link>
+      </div>
+
+      {/* Main footer grid */}
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "56px 40px 40px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1.4fr", gap: 48 }} className="me-footer-grid">
+
+          {/* Brand */}
           <div>
-            <div style={{ marginBottom: "20px" }}>
-              <span
-                className={playfair.className}
-                style={{
-                  fontSize: "1.6rem",
-                  fontWeight: 500,
-                  color: "#2c1f14",
-                  display: "block",
-                  lineHeight: 1.1,
-                }}
-              >
-                Bloom
-              </span>
-              <span
-                className={playfair.className}
-                style={{
-                  fontSize: "1.6rem",
-                  fontWeight: 400,
-                  fontStyle: "italic",
-                  color: "#c16b4a",
-                  display: "block",
-                  lineHeight: 1.1,
-                }}
-              >
-                Studio
-              </span>
-            </div>
-            <p
-              className={cormorant.className}
-              style={{
-                fontSize: "1rem",
-                fontStyle: "italic",
-                color: "rgba(44,31,20,0.5)",
-                lineHeight: 1.7,
-                marginBottom: "28px",
-                maxWidth: "260px",
-              }}
-            >
-              We design beautiful digital presences for boutiques, salons, and premium brands across India.
+            <div className={cormorant.className} style={{ fontSize: "1.6rem", fontWeight: 600, color: "#2C3E2D", marginBottom: 4 }}>True Romance</div>
+            <div style={{ fontFamily: dmMono.style.fontFamily, fontSize: "0.6rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#8A9E8B", marginBottom: 18 }}>Wedding Planners</div>
+            <p style={{ fontSize: "0.875rem", color: "#5C6B5D", lineHeight: 1.85, maxWidth: 280, marginBottom: 24 }}>
+              We believe every love story deserves a beautiful beginning. Based in Jaipur, we craft bespoke weddings that reflect who you truly are.
             </p>
-            {/* Socials */}
-            <div style={{ display: "flex", gap: "10px" }}>
-              {socials.map((s) => (
-                <a
-                  key={s}
-                  href="#"
-                  className={dmSans.className}
-                  style={{
-                    width: "36px",
-                    height: "36px",
-                    border: "1px solid rgba(44,31,20,0.15)",
-                    borderRadius: "50%",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: "0.68rem",
-                    fontWeight: 500,
-                    color: "rgba(44,31,20,0.5)",
-                    textDecoration: "none",
-                    transition: "border-color 0.2s, color 0.2s",
-                  }}
-                  onMouseEnter={(e) => {
-                    const el = e.currentTarget as HTMLElement;
-                    el.style.borderColor = "#c16b4a";
-                    el.style.color = "#c16b4a";
-                  }}
-                  onMouseLeave={(e) => {
-                    const el = e.currentTarget as HTMLElement;
-                    el.style.borderColor = "rgba(44,31,20,0.15)";
-                    el.style.color = "rgba(44,31,20,0.5)";
-                  }}
-                >
-                  {s}
-                </a>
+            {/* Sparkle decoration */}
+            <div style={{ display: "flex", gap: 6, marginBottom: 24 }}>
+              {["✦","✧","✦"].map((s, i) => (
+                <span key={i} style={{ color: "#C4735A", fontSize: i === 1 ? 10 : 14, opacity: i === 1 ? 0.5 : 0.8 }}>{s}</span>
+              ))}
+            </div>
+            <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+              {socialLinks.map((s) => (
+                <Link key={s.short} href="#" style={{ width: 36, height: 36, borderRadius: "50%", border: "1px solid rgba(44,62,45,0.2)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, color: "#5C6B5D", textDecoration: "none", fontFamily: dmMono.style.fontFamily, transition: "all 0.2s" }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#C4735A"; e.currentTarget.style.color = "#C4735A"; e.currentTarget.style.background = "rgba(196,115,90,0.08)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(44,62,45,0.2)"; e.currentTarget.style.color = "#5C6B5D"; e.currentTarget.style.background = "transparent"; }}
+                >{s.short}</Link>
               ))}
             </div>
           </div>
 
-          {/* Link Columns */}
-          {Object.entries(footerLinks).map(([heading, links]) => (
-            <div key={heading}>
-              <p
-                className={dmSans.className}
-                style={{
-                  fontSize: "0.65rem",
-                  fontWeight: 500,
-                  letterSpacing: "0.14em",
-                  textTransform: "uppercase",
-                  color: "#c16b4a",
-                  marginBottom: "20px",
-                }}
-              >
-                {heading}
-              </p>
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "11px" }}>
-                {links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className={dmSans.className}
-                      style={{
-                        fontSize: "0.85rem",
-                        fontWeight: 300,
-                        color: "rgba(44,31,20,0.55)",
-                        textDecoration: "none",
-                        whiteSpace: "nowrap",
-                        transition: "color 0.2s",
-                      }}
-                      onMouseEnter={(e) => {
-                        (e.target as HTMLElement).style.color = "#c16b4a";
-                      }}
-                      onMouseLeave={(e) => {
-                        (e.target as HTMLElement).style.color = "rgba(44,31,20,0.55)";
-                      }}
-                    >
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {/* Quick links */}
+          <div>
+            <p style={{ fontFamily: dmMono.style.fontFamily, fontSize: "0.6rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#8A9E8B", marginBottom: 20 }}>Navigate</p>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+              {quickLinks.map((l) => (
+                <li key={l} style={{ marginBottom: 12 }}>
+                  <Link href="#" style={{ fontSize: "0.875rem", color: "#5C6B5D", textDecoration: "none", transition: "color 0.2s", whiteSpace: "nowrap" }}
+                    onMouseEnter={e => (e.currentTarget.style.color = "#C4735A")}
+                    onMouseLeave={e => (e.currentTarget.style.color = "#5C6B5D")}
+                  >{l}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <p style={{ fontFamily: dmMono.style.fontFamily, fontSize: "0.6rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#8A9E8B", marginBottom: 20 }}>Services</p>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+              {services.map((l) => (
+                <li key={l} style={{ marginBottom: 12 }}>
+                  <Link href="#" style={{ fontSize: "0.875rem", color: "#5C6B5D", textDecoration: "none", transition: "color 0.2s", whiteSpace: "nowrap" }}
+                    onMouseEnter={e => (e.currentTarget.style.color = "#C4735A")}
+                    onMouseLeave={e => (e.currentTarget.style.color = "#5C6B5D")}
+                  >{l}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           {/* Newsletter */}
           <div>
-            <p
-              className={dmSans.className}
-              style={{
-                fontSize: "0.65rem",
-                fontWeight: 500,
-                letterSpacing: "0.14em",
-                textTransform: "uppercase",
-                color: "#c16b4a",
-                marginBottom: "20px",
-              }}
-            >
-              Stay Inspired
+            <p style={{ fontFamily: dmMono.style.fontFamily, fontSize: "0.6rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#8A9E8B", marginBottom: 20 }}>Stay Inspired</p>
+            <p style={{ fontSize: "0.875rem", color: "#5C6B5D", lineHeight: 1.75, marginBottom: 18 }}>
+              Wedding inspiration, planning tips and real love stories — straight to your inbox.
             </p>
-            <p
-              className={dmSans.className}
-              style={{
-                fontSize: "0.82rem",
-                color: "rgba(44,31,20,0.5)",
-                lineHeight: 1.7,
-                marginBottom: "20px",
-                fontWeight: 300,
-              }}
-            >
-              Design notes, seasonal lookbooks, and studio updates — once a month.
-            </p>
-            <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-              <input
-                type="email"
-                placeholder="your@email.com"
-                style={{
-                  background: "rgba(44,31,20,0.04)",
-                  border: "1px solid rgba(44,31,20,0.12)",
-                  borderRadius: "2px",
-                  padding: "10px 14px",
-                  fontSize: "0.82rem",
-                  color: "#2c1f14",
-                  fontFamily: "inherit",
-                  outline: "none",
-                }}
+            <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 16 }}>
+              <input type="email" placeholder="your@email.com" style={{ background: "#fff", border: "1px solid rgba(44,62,45,0.15)", borderRadius: 999, padding: "11px 18px", fontSize: "0.85rem", color: "#2C3E2D", outline: "none", fontFamily: dmSans.style.fontFamily, transition: "border-color 0.2s" }}
+                onFocus={e => (e.currentTarget.style.borderColor = "#C4735A")}
+                onBlur={e => (e.currentTarget.style.borderColor = "rgba(44,62,45,0.15)")}
               />
-              <button
-                className={dmSans.className}
-                style={{
-                  background: "#2c1f14",
-                  color: "#f7f3ee",
-                  border: "none",
-                  borderRadius: "2px",
-                  padding: "10px 14px",
-                  fontSize: "0.78rem",
-                  fontWeight: 500,
-                  letterSpacing: "0.08em",
-                  textTransform: "uppercase",
-                  cursor: "none",
-                  transition: "background 0.2s",
-                }}
-              >
-                Subscribe
-              </button>
+              <button style={{ background: "#2C3E2D", color: "#F5F0E8", border: "none", borderRadius: 999, padding: "11px 18px", fontSize: "0.85rem", fontWeight: 500, cursor: "pointer", fontFamily: dmSans.style.fontFamily, transition: "background 0.2s" }}
+                onMouseEnter={e => (e.currentTarget.style.background = "#3d5240")}
+                onMouseLeave={e => (e.currentTarget.style.background = "#2C3E2D")}
+              >Subscribe</button>
             </div>
-
-            {/* Contact Info */}
-            <div style={{ marginTop: "28px", display: "flex", flexDirection: "column", gap: "10px" }}>
-              {[
-                { dot: true, text: "hello@nexwebit.in" },
-                { dot: true, text: "+91 98765 43210" },
-                { dot: true, text: "Jaipur, Rajasthan" },
-              ].map((item) => (
-                <div key={item.text} style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <span
-                    style={{
-                      width: "5px",
-                      height: "5px",
-                      borderRadius: "50%",
-                      background: "#c16b4a",
-                      flexShrink: 0,
-                    }}
-                  />
-                  <span
-                    className={dmSans.className}
-                    style={{
-                      fontSize: "0.8rem",
-                      color: "rgba(44,31,20,0.5)",
-                      fontWeight: 300,
-                    }}
-                  >
-                    {item.text}
-                  </span>
+            <p style={{ fontFamily: dmMono.style.fontFamily, fontSize: "0.6rem", color: "#8A9E8B", letterSpacing: "0.06em" }}>No spam · Unsubscribe anytime</p>
+            <div style={{ marginTop: 20, display: "flex", flexDirection: "column", gap: 8 }}>
+              {["Jaipur, Rajasthan", "+91 98765 43210", "hello@nexwebit.in"].map((item) => (
+                <div key={item} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.8rem", color: "#5C6B5D" }}>
+                  <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#C4735A", flexShrink: 0 }} />
+                  {item}
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            padding: "24px 0",
-          }}
-          className="me-footer-bottom"
-        >
-          <span
-            className={dmSans.className}
-            style={{
-              fontSize: "0.75rem",
-              color: "rgba(44,31,20,0.35)",
-              fontWeight: 300,
-            }}
-          >
-            © 2025{" "}
-            <a
-              href="https://nexwebit.in"
-              style={{
-                color: "#c16b4a",
-                textDecoration: "none",
-                fontWeight: 500,
-              }}
-            >
-              NextWebIt
-            </a>{" "}
-            · nexwebit.in · All rights reserved.
-          </span>
-          <div style={{ display: "flex", gap: "24px" }}>
-            {["Privacy Policy", "Terms", "Cookies"].map((p) => (
-              <a
-                key={p}
-                href="#"
-                className={dmSans.className}
-                style={{
-                  fontSize: "0.72rem",
-                  color: "rgba(44,31,20,0.35)",
-                  textDecoration: "none",
-                  fontWeight: 300,
-                  whiteSpace: "nowrap",
-                  transition: "color 0.2s",
-                }}
-                onMouseEnter={(e) => {
-                  (e.target as HTMLElement).style.color = "#c16b4a";
-                }}
-                onMouseLeave={(e) => {
-                  (e.target as HTMLElement).style.color = "rgba(44,31,20,0.35)";
-                }}
-              >
-                {p}
-              </a>
+        {/* Divider */}
+        <div style={{ height: 1, background: "rgba(44,62,45,0.1)", margin: "40px 0 20px" }} />
+
+        {/* Bottom */}
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }} className="me-footer-bottom">
+          <p style={{ fontSize: "0.78rem", color: "#8A9E8B" }}>
+            © 2025 <span style={{ color: "#2C3E2D", fontWeight: 500 }}>NextWebIt</span> · nexwebit.in · All rights reserved.
+          </p>
+          <div style={{ display: "flex", gap: 20, flexWrap: "wrap" }}>
+            {["Privacy Policy", "Terms of Service", "Refund Policy"].map((l) => (
+              <Link key={l} href="#" style={{ fontSize: "0.78rem", color: "#8A9E8B", textDecoration: "none", transition: "color 0.2s" }}
+                onMouseEnter={e => (e.currentTarget.style.color = "#C4735A")}
+                onMouseLeave={e => (e.currentTarget.style.color = "#8A9E8B")}
+              >{l}</Link>
             ))}
           </div>
         </div>
       </div>
 
       <style>{`
-        @media (max-width: 1024px) {
-          .me-footer-grid {
-            grid-template-columns: 1fr 1fr !important;
-            gap: 40px !important;
-          }
+        @media(max-width:1024px){
+          .me-footer-grid{grid-template-columns:1fr 1fr!important;gap:36px!important;}
         }
-        @media (max-width: 640px) {
-          .me-footer-grid {
-            grid-template-columns: 1fr !important;
-          }
-          .me-footer-bottom {
-            flex-direction: column !important;
-            gap: 16px !important;
-            text-align: center !important;
-          }
+        @media(max-width:600px){
+          .me-footer-grid{grid-template-columns:1fr!important;}
+          .me-footer-bottom{flex-direction:column;align-items:flex-start!important;}
         }
       `}</style>
     </footer>
