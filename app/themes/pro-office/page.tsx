@@ -14,37 +14,37 @@ const inter = Inter({
 
 const serviceCards = [
   {
-    icon: "??",
+    icon: "\u{1F4CA}",
     title: "Business Strategy",
     text: "We analyse your market, build growth plans and help you outpace competition.",
     tag: "Most Popular",
   },
   {
-    icon: "??",
+    icon: "\u{1F4BC}",
     title: "GST & Compliance",
     text: "Complete GST filing, ITR, ROC compliance and legal documentation handled.",
     tag: "For CAs",
   },
   {
-    icon: "???",
+    icon: "\u{1F5A5}",
     title: "Website & Digital",
     text: "Professional websites, Google presence and social media setup for your firm.",
-    tag: "From ?4,999",
+    tag: "From \u20B94,999",
   },
   {
-    icon: "??",
+    icon: "\u{1F4C8}",
     title: "HR & Recruitment",
     text: "Hire the right people. We handle JD writing, screening and onboarding.",
     tag: "B2B",
   },
   {
-    icon: "??",
+    icon: "\u{1F3AF}",
     title: "Corporate Training",
     text: "Leadership, sales and communication workshops for your entire team.",
     tag: "On-site",
   },
   {
-    icon: "??",
+    icon: "\u{1F91D}",
     title: "Business Partnerships",
     text: "We connect you with vendors, investors and distribution partners.",
     tag: "Network",
@@ -73,7 +73,7 @@ const steps = [
 const pricing = [
   {
     name: "Starter",
-    price: "?15,000/month",
+    price: "\u20B915,000/month",
     featured: false,
     button: "Get Starter",
     buttonStyle: "ghost",
@@ -86,7 +86,7 @@ const pricing = [
   },
   {
     name: "Professional",
-    price: "?35,000/month",
+    price: "\u20B935,000/month",
     featured: true,
     button: "Choose Professional",
     buttonStyle: "light",
@@ -490,12 +490,12 @@ export default function ProOfficePage() {
                     e.currentTarget.style.background = "transparent";
                   }}
                 >
-                  Watch Demo ?
+                  Watch Demo {"\u2192"}
                 </Link>
               </div>
 
               <div className="flex flex-wrap items-center gap-5">
-                {["500+ Clients", "12 Years", "4.9? Rating"].map((badge) => (
+                {["500+ Clients", "12 Years", "4.9\u2605 Rating"].map((badge) => (
                   <div
                     key={badge}
                     style={{
@@ -507,7 +507,7 @@ export default function ProOfficePage() {
                       fontWeight: 500,
                     }}
                   >
-                    <span style={{ color: "#22C55E" }}>?</span>
+                    <span style={{ color: "#22C55E" }}>{"\u2713"}</span>
                     <span>{badge}</span>
                   </div>
                 ))}
@@ -693,7 +693,7 @@ export default function ProOfficePage() {
                   whiteSpace: "nowrap",
                 }}
               >
-                {item} <span style={{ margin: "0 14px", opacity: 0.9 }}>?</span>
+                {item} <span style={{ margin: "0 14px", opacity: 0.9 }}>{"\u2726"}</span>
               </span>
             ))}
           </div>
@@ -917,7 +917,7 @@ export default function ProOfficePage() {
                 label: "Satisfied Clients",
               },
               {
-                value: `?${counts.revenue}Cr+`,
+                value: `\u20B9${counts.revenue}Cr+`,
                 label: "Revenue Generated for Clients",
               },
               {
@@ -925,7 +925,7 @@ export default function ProOfficePage() {
                 label: "Years of Experience",
               },
               {
-                value: `${(counts.rating / 10).toFixed(1)}?`,
+                value: `${(counts.rating / 10).toFixed(1)}\u2605`,
                 label: "Average Client Rating",
               },
             ].map((item, idx) => (
@@ -1059,7 +1059,7 @@ export default function ProOfficePage() {
                             : "#4A4A6A",
                         }}
                       >
-                        ? {feature}
+                        {"\u2713"} {feature}
                       </li>
                     ))}
                   </ul>
@@ -1195,7 +1195,7 @@ export default function ProOfficePage() {
                         textDecoration: "none",
                       }}
                     >
-                      LinkedIn ?
+                      LinkedIn {"\u2197"}
                     </Link>
                   </div>
                 </article>
@@ -1252,7 +1252,7 @@ export default function ProOfficePage() {
                       color: "rgba(59,61,184,0.1)",
                     }}
                   >
-                    �
+                    {"\u201C"}
                   </p>
                   <p
                     style={{
@@ -1403,121 +1403,6 @@ export default function ProOfficePage() {
           </div>
         </section>
 
-        <section
-          style={{
-            background: "linear-gradient(135deg, #3B3DB8 0%, #6366F1 100%)",
-            padding: "100px 24px",
-            textAlign: "center",
-            position: "relative",
-            overflow: "hidden",
-          }}
-        >
-          <div
-            style={{
-              position: "absolute",
-              width: 260,
-              height: 260,
-              borderRadius: "50%",
-              background: "rgba(255,255,255,0.16)",
-              filter: "blur(60px)",
-              top: -70,
-              left: 80,
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              width: 320,
-              height: 320,
-              borderRadius: "50%",
-              background: "rgba(255,255,255,0.12)",
-              filter: "blur(60px)",
-              bottom: -80,
-              right: 120,
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              width: 220,
-              height: 220,
-              borderRadius: "50%",
-              background: "rgba(255,255,255,0.12)",
-              filter: "blur(60px)",
-              top: 90,
-              right: "40%",
-            }}
-          />
-
-          <div className="po-reveal relative z-[1] mx-auto max-w-[860px]">
-            <h2
-              style={{
-                margin: 0,
-                color: "#FFFFFF",
-                fontSize: "clamp(2.5rem, 6vw, 5rem)",
-                fontWeight: 800,
-                lineHeight: 0.95,
-              }}
-            >
-              Ready to grow <span className="block">your business?</span>
-            </h2>
-            <p
-              style={{
-                marginTop: 16,
-                color: "rgba(255,255,255,0.75)",
-                fontSize: "1rem",
-                fontWeight: 300,
-                lineHeight: 1.8,
-              }}
-            >
-              Let&apos;s build the next phase of your company with clarity, speed and
-              measurable outcomes.
-            </p>
-
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <Link
-                href="#"
-                style={{
-                  borderRadius: 999,
-                  background: "#FFFFFF",
-                  color: "#3B3DB8",
-                  padding: "12px 24px",
-                  textDecoration: "none",
-                  fontWeight: 600,
-                  fontSize: "0.9rem",
-                }}
-              >
-                Book Free Consultation
-              </Link>
-              <Link
-                href="#"
-                style={{
-                  borderRadius: 999,
-                  border: "1px solid rgba(255,255,255,0.65)",
-                  color: "#FFFFFF",
-                  padding: "12px 24px",
-                  textDecoration: "none",
-                  fontWeight: 600,
-                  fontSize: "0.9rem",
-                }}
-              >
-                Call Us Now
-              </Link>
-            </div>
-
-            <p
-              style={{
-                marginTop: 20,
-                marginBottom: 0,
-                color: "rgba(255,255,255,0.5)",
-                fontSize: "0.8rem",
-                fontWeight: 400,
-              }}
-            >
-              +91 98765 43210 � hello@nexwebit.in
-            </p>
-          </div>
-        </section>
       </main>
 
       <POFooter />
