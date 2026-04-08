@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
 
 function BrowserChrome({ children, className = "" }: { children: ReactNode; className?: string }) {
   return <div className={`h-32 overflow-hidden rounded-t-2xl ${className}`}>{children}</div>;
@@ -124,20 +125,20 @@ function PreviewProOffice() {
 
 function PreviewNewAesthetic() {
   return (
-    <BrowserChrome className="relative bg-[#FFF5F0]">
+    <BrowserChrome className="relative bg-[#0F172A]">
       <div
-        className="pointer-events-none absolute -right-1 top-5 h-12 w-12 bg-[#FF6B6B]/10"
-        style={{ borderRadius: "40% 60% 70% 30% / 40% 50% 60% 50%" }}
+        className="pointer-events-none absolute -right-1 top-5 h-12 w-12 bg-[#7DF9FF]/20"
+        style={{ borderRadius: "6px" }}
       />
-      <NavBarRow className="bg-[#FF6B6B] text-white">
-        <span className="flex h-2.5 w-2.5 shrink-0 items-center justify-center rounded-full bg-white text-[4px] text-[#FF6B6B]">
-          ●
+      <NavBarRow className="bg-[#131D34] text-[#D3E7FF]">
+        <span className="flex h-2.5 w-2.5 shrink-0 items-center justify-center rounded-sm bg-[#7DF9FF] text-[4px] text-[#0F172A]">
+          +
         </span>
       </NavBarRow>
       <FakeHeroBlock
-        h1Class="text-[9px] font-bold leading-tight text-[#D63031]"
-        subClass="text-[#888]"
-        ctaClass="rounded-full bg-[#FF6B6B] text-white"
+        h1Class="text-[9px] font-bold leading-tight text-[#EAF2FF]"
+        subClass="text-[#A8B8D8]"
+        ctaClass="rounded-sm bg-[#7DF9FF] text-[#0F172A]"
       />
     </BrowserChrome>
   );
@@ -272,12 +273,12 @@ const THEMES: ThemeDef[] = [
     preview: <PreviewProOffice />,
   },
   {
-    id: "new-aesthetic",
-    name: "New Aesthetic",
+    id: "new-asthetic",
+    name: "New Asthetic",
     description:
-      "Warm coral and peach tones with friendly shapes. Great for salons, cafes, and boutiques.",
-    tagClass: "bg-[#FFF3E0] text-[#E65100]",
-    tagLabel: "Light · Warm",
+      "Dark editorial design with cyan accents and crisp structure for premium modern brands.",
+    tagClass: "bg-[#E8F2FF] text-[#1C3E6D]",
+    tagLabel: "Dark · Editorial",
     preview: <PreviewNewAesthetic />,
   },
   {
@@ -339,12 +340,12 @@ function ThemeCard({ theme }: { theme: ThemeDef }) {
           <span className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${theme.tagClass}`}>
             {theme.tagLabel}
           </span>
-          <button
-            type="button"
+          <Link
+            href={`/themes/${theme.id}`}
             className={`rounded-md px-3.5 py-1.5 text-xs font-medium text-white transition-colors ${btnClass}`}
           >
             {theme.buttonLabel ?? "Preview"}
-          </button>
+          </Link>
         </div>
       </div>
     </article>

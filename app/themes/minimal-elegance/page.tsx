@@ -16,7 +16,6 @@ const TERRA = "#C4735A";
 const MUTED = "#5C6B5D";
 const SOFT = "#8A9E8B";
 const BG2 = "#EDE8DF";
-const PINK = "rgba(196,115,90,0.12)";
 
 const packages = [
   { name: "The Intimate", price: "₹85,000", guests: "Up to 50 guests", features: ["Venue styling", "Floral arrangements", "Day-of coordination", "Photography 4hrs"], popular: false },
@@ -43,6 +42,21 @@ const testimonials = [
   { name: "Priya & Arjun", date: "November 2024", text: "True Romance ne hamare wedding ko ekdum dream jaisa bana diya. Har ek detail perfect thi. Hum shukriyada hain!", img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=200&q=80" },
   { name: "Sneha & Rahul", date: "February 2024", text: "From the mandap flowers to the last dance, everything was exactly as we had imagined. Worth every rupee!", img: "https://images.unsplash.com/photo-1622495966027-e0173192c728?w=200&q=80" },
   { name: "Meera & Karan", date: "December 2023", text: "The team was so calm and organised on the day — we didn't worry about a single thing. Pure magic!", img: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=200&q=80" },
+];
+
+const STARBURST_RAYS = [
+  { x2: 115, y2: 60, thick: true },
+  { x2: 107.631, y2: 87.5, thick: false },
+  { x2: 87.5, y2: 107.631, thick: false },
+  { x2: 60, y2: 115, thick: true },
+  { x2: 32.5, y2: 107.631, thick: false },
+  { x2: 12.369, y2: 87.5, thick: false },
+  { x2: 5, y2: 60, thick: true },
+  { x2: 12.369, y2: 32.5, thick: false },
+  { x2: 32.5, y2: 12.369, thick: false },
+  { x2: 60, y2: 5, thick: true },
+  { x2: 87.5, y2: 12.369, thick: false },
+  { x2: 107.631, y2: 32.5, thick: false },
 ];
 
 const Sparkle = ({ size = 14, style = {} }: { size?: number; style?: React.CSSProperties }) => (
@@ -127,12 +141,17 @@ export default function MinimalElegancePage() {
         {/* Starburst decoration bottom-left like image */}
         <div style={{ position: "absolute", bottom: 80, left: 60, opacity: 0.18, pointerEvents: "none" }}>
           <svg width="120" height="120" viewBox="0 0 120 120">
-            {Array.from({ length: 12 }).map((_, i) => {
-              const angle = (i * 30) * Math.PI / 180;
-              const x2 = 60 + 55 * Math.cos(angle);
-              const y2 = 60 + 55 * Math.sin(angle);
-              return <line key={i} x1="60" y1="60" x2={x2} y2={y2} stroke={TERRA} strokeWidth={i % 3 === 0 ? 1.5 : 0.8} />;
-            })}
+            {STARBURST_RAYS.map((ray, i) => (
+              <line
+                key={i}
+                x1="60"
+                y1="60"
+                x2={ray.x2}
+                y2={ray.y2}
+                stroke={TERRA}
+                strokeWidth={ray.thick ? 1.5 : 0.8}
+              />
+            ))}
           </svg>
         </div>
 
@@ -177,7 +196,7 @@ export default function MinimalElegancePage() {
             {/* Arch / pill image frame — exactly like reference */}
             <div style={{ position: "relative", width: "100%", maxWidth: 320 }}>
               <div style={{ width: "100%", aspectRatio: "3/4", borderRadius: "160px 160px 80px 80px", overflow: "hidden", border: "1px solid rgba(44,62,45,0.1)", position: "relative" }}>
-                <Image src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=80" alt="Happy couple" fill style={{ objectFit: "cover", objectPosition: "center top" }} priority />
+                <Image src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=80" alt="Happy couple" fill sizes="(max-width: 900px) 92vw, 320px" style={{ objectFit: "cover", objectPosition: "center top" }} priority />
               </div>
               {/* Date card floating bottom-right — like reference */}
               <div style={{ position: "absolute", bottom: -16, right: -16, background: CREAM, border: "1px solid rgba(44,62,45,0.1)", borderRadius: 10, padding: "12px 16px", boxShadow: "0 4px 24px rgba(44,62,45,0.08)" }}>
@@ -202,11 +221,11 @@ export default function MinimalElegancePage() {
         <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 72, alignItems: "center" }} className="me-2col">
           <div className="me-reveal" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
             <div style={{ aspectRatio: "3/4", borderRadius: "80px 80px 20px 20px", overflow: "hidden", position: "relative" }}>
-              <Image src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=600&q=80" alt="Wedding" fill style={{ objectFit: "cover" }} />
+              <Image src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=600&q=80" alt="Wedding" fill sizes="(max-width: 900px) 92vw, 260px" style={{ objectFit: "cover" }} />
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 12, paddingTop: 40 }}>
               <div style={{ aspectRatio: "1/1", borderRadius: "50%", overflow: "hidden", position: "relative" }}>
-                <Image src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=400&q=80" alt="Wedding detail" fill style={{ objectFit: "cover" }} />
+                <Image src="https://images.unsplash.com/photo-1606800052052-a08af7148866?w=400&q=80" alt="Wedding detail" fill sizes="(max-width: 900px) 88vw, 180px" style={{ objectFit: "cover" }} />
               </div>
               <div style={{ background: "#2C3E2D", borderRadius: 16, padding: "20px 16px", textAlign: "center" }}>
                 <div className={cormorant.className} style={{ fontSize: "2rem", fontWeight: 600, color: TERRA, fontStyle: "italic" }}>500+</div>
@@ -263,7 +282,7 @@ export default function MinimalElegancePage() {
                 onMouseLeave={e => { const img = e.currentTarget.querySelector(".me-img") as HTMLElement; if (img) img.style.transform = "scale(1)"; }}
               >
                 <div className="me-img" style={{ position: "absolute", inset: 0, transition: "transform 0.5s ease" }}>
-                  <Image src={img} alt={`Wedding ${i + 1}`} fill style={{ objectFit: "cover" }} />
+                  <Image src={img} alt={`Wedding ${i + 1}`} fill sizes="(max-width: 900px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: "cover" }} />
                 </div>
                 <div style={{ position: "absolute", inset: 0, background: "rgba(44,62,45,0)", transition: "background 0.3s" }} />
               </div>
@@ -366,7 +385,7 @@ export default function MinimalElegancePage() {
                 <p style={{ fontSize: "0.9rem", color: MUTED, lineHeight: 1.8, marginBottom: 20, fontStyle: "italic" }}>&ldquo;{t.text}&rdquo;</p>
                 <div style={{ display: "flex", alignItems: "center", gap: 12, paddingTop: 16, borderTop: "1px solid rgba(44,62,45,0.06)" }}>
                   <div style={{ width: 44, height: 44, borderRadius: "50%", overflow: "hidden", position: "relative", flexShrink: 0 }}>
-                    <Image src={t.img} alt={t.name} fill style={{ objectFit: "cover" }} />
+                    <Image src={t.img} alt={t.name} fill sizes="44px" style={{ objectFit: "cover" }} />
                   </div>
                   <div>
                     <p className={cormorant.className} style={{ fontSize: "1rem", fontWeight: 500, color: GREEN, margin: 0 }}>{t.name}</p>
@@ -395,7 +414,7 @@ export default function MinimalElegancePage() {
               onMouseEnter={e => { const c = e.currentTarget.querySelector(".ig-overlay") as HTMLElement; if (c) c.style.opacity = "1"; }}
               onMouseLeave={e => { const c = e.currentTarget.querySelector(".ig-overlay") as HTMLElement; if (c) c.style.opacity = "0"; }}
             >
-              <Image src={img} alt="" fill style={{ objectFit: "cover", transition: "transform 0.5s ease" }} />
+              <Image src={img} alt="" fill sizes="(max-width: 900px) 50vw, 20vw" style={{ objectFit: "cover", transition: "transform 0.5s ease" }} />
               <div className="ig-overlay" style={{ position: "absolute", inset: 0, background: "rgba(44,62,45,0.45)", display: "flex", alignItems: "center", justifyContent: "center", opacity: 0, transition: "opacity 0.3s" }}>
                 <span style={{ color: CREAM, fontSize: 22 }}>♡</span>
               </div>
