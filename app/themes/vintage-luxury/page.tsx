@@ -489,7 +489,7 @@ export default function VintageLuxuryThemePage() {
               </p>
               <div className="vl-hero-cta mt-10 flex flex-wrap items-center justify-center gap-4">
                 <Link
-                  href="/#contact"
+                  href="/contact-us"
                   className="rounded-full bg-[#C9A84C] px-8 py-[13px] text-sm font-bold text-black transition-transform hover:-translate-y-0.5 hover:bg-[#e2c074] hover:shadow-[0_12px_40px_rgba(201,168,76,0.35)]"
                 >
                   Start Your Project
@@ -762,7 +762,7 @@ export default function VintageLuxuryThemePage() {
                 web.
               </p>
               <Link
-                href="/#contact"
+                href="/contact-us"
                 className="mt-10 inline-block rounded-full bg-[#C9A84C] px-11 py-4 text-lg font-bold text-black transition-all hover:-translate-y-0.5 hover:bg-[#e2c074] hover:shadow-[0_8px_32px_rgba(201,168,76,0.4)]"
               >
                 Book Your Free Discovery Call

@@ -44,7 +44,7 @@ export function Hero() {
 
         <div className="mt-10 flex flex-wrap gap-4">
           <Link
-            href="#contact"
+            href="/contact-us"
             className="inline-flex items-center justify-center rounded-md bg-accent px-6 py-3.5 text-[15px] font-semibold text-white shadow-lg hover:bg-[#e64a19] transition-colors duration-300"
           >
             Book a Free Visit Today

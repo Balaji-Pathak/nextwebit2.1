@@ -83,7 +83,7 @@ export default function AboutPage() {
               onMouseEnter={e => { e.currentTarget.style.background = "#2B2D8A"; e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 24px rgba(59,61,184,0.3)"; }}
               onMouseLeave={e => { e.currentTarget.style.background = IND; e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}
             >See Our Themes</Link>
-            <Link href="/#contact" style={{ padding: "13px 32px", background: "transparent", border: "1px solid rgba(59,61,184,0.3)", color: DARK, borderRadius: 999, fontSize: "0.95rem", textDecoration: "none", transition: "all .2s" }}
+            <Link href="/contact-us" style={{ padding: "13px 32px", background: "transparent", border: "1px solid rgba(59,61,184,0.3)", color: DARK, borderRadius: 999, fontSize: "0.95rem", textDecoration: "none", transition: "all .2s" }}
               onMouseEnter={e => { e.currentTarget.style.borderColor = IND; e.currentTarget.style.color = IND; }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(59,61,184,0.3)"; e.currentTarget.style.color = DARK; }}
             >Book a Free Visit</Link>
@@ -253,7 +253,7 @@ export default function AboutPage() {
           </h2>
           <p style={{ fontSize: "1rem", color: "rgba(255,255,255,0.7)", marginBottom: 40, fontWeight: 300 }}>Book a free consultation — we come to you, no cost, no commitment.</p>
           <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-            <Link href="/#contact" style={{ padding: "14px 40px", background: "#fff", color: IND, borderRadius: 999, fontWeight: 700, fontSize: "0.95rem", textDecoration: "none", transition: "all .2s" }}
+            <Link href="/contact-us" style={{ padding: "14px 40px", background: "#fff", color: IND, borderRadius: 999, fontWeight: 700, fontSize: "0.95rem", textDecoration: "none", transition: "all .2s" }}
               onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.15)"; }}
               onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}
             >Book Free Visit</Link>

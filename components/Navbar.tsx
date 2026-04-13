@@ -6,11 +6,11 @@ import { useEffect, useState } from "react";
 
 const links = [
   { href: "/#services", label: "Services" },
-  { href: "/#portfolio", label: "Portfolio" },
+  { href: "/about", label: "About Us" },
   { href: "/themes", label: "Themes" },
   { href: "/#process", label: "Process" },
   { href: "/#reviews", label: "Reviews" },
-  { href: "/#contact", label: "Contact" },
+  { href: "/contact-us", label: "Contact" },
 ];
 
 export function Navbar() {
@@ -70,7 +70,7 @@ export function Navbar() {
 
         <div className="flex items-center gap-3">
           <Link
-            href="/#contact"
+            href="/contact-us"
             className="hidden sm:inline-flex items-center justify-center rounded-md bg-accent px-4 py-2.5 text-[13px] font-semibold text-white shadow-md hover:bg-[#e64a19] transition-colors duration-300"
           >
             Get Free Visit
@@ -116,7 +116,7 @@ export function Navbar() {
             })}
             <li>
               <Link
-                href="/#contact"
+                href="/contact-us"
                 className="inline-flex mt-2 rounded-md bg-accent px-4 py-2.5 text-[13px] font-semibold text-white"
                 onClick={() => setOpen(false)}
               >
