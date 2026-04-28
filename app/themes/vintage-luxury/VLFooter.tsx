@@ -20,7 +20,7 @@ const socialLinks = ["f", "in", "yt", "wa", "tw"];
 
 const contactItems = [
   "Jaipur, Rajasthan",
-  "+91 98765 43210",
+  "+91 73573 67085",
   "hello@nexwebit.in",
 ];
 
@@ -37,7 +37,7 @@ export default function VLFooter() {
 
           {/* ── Brand col ── */}
           <div className="sm:col-span-2 lg:col-span-1">
-            {/* Vela wordmark — Ve white, la gold */}
+            {/* Vela wordmark - Ve white, la gold */}
             <Link
               href="/themes/vintage-luxury"
               className={`${playfair.className} font-black text-[1.9rem] tracking-[-0.02em] text-[#f0ece4] block mb-5`}

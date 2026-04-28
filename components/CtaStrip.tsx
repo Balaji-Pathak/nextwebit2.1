@@ -2,18 +2,18 @@ import { WHATSAPP_DISPLAY, WHATSAPP_E164 } from "@/lib/site";
 
 export function CtaStrip() {
   const href = `https://wa.me/${WHATSAPP_E164}?text=${encodeURIComponent(
-    "Namaste NextWebIt, mujhe free visit book karni hai."
+    "Namaste NextWebIT, mujhe free visit book karni hai."
   )}`;
 
   return (
     <section className="bg-accent py-14 md:py-16">
       <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
         <h2 className="text-[26px] md:text-[28px] font-semibold text-white leading-tight">
-          Aaj hi baat karein — free visit book karein
+          Aaj hi baat karein - free visit book karein
         </h2>
         <p className="mt-4 max-w-xl mx-auto text-[15px] leading-[1.7] text-white/90">
           WhatsApp par message bhejein, hum aapke area mein visit ka time fix kar lenge. Koi obligation
-          nahi — pehle mil kar decide karenge.
+          nahi - pehle mil kar decide karenge.
         </p>
         <a
           href={href}

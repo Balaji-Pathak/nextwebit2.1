@@ -8,17 +8,17 @@ const contactMethods = [
   {
     icon: "📞",
     title: "Call Us",
-    value: "+91 98765 43210",
+    value: "+91 73573 67085",
     sub: "Mon–Sat, 9am – 7pm",
-    href: "tel:+919876543210",
+    href: "tel:+917357367085",
     cta: "Call Now",
   },
   {
     icon: "💬",
     title: "WhatsApp",
-    value: "+91 98765 43210",
+    value: "+91 73573 67085",
     sub: "Usually replies within 1 hour",
-    href: "https://wa.me/919876543210",
+    href: "https://wa.me/917357367085",
     cta: "Open WhatsApp",
   },
   {
@@ -69,11 +69,11 @@ const faqs = [
   },
   {
     q: "Is the consultation really free?",
-    a: "100% free. No hidden charges, no obligation to buy. We meet, we understand your needs, and if you like what we offer — we move forward.",
+    a: "100% free. No hidden charges, no obligation to buy. We meet, we understand your needs, and if you like what we offer - we move forward.",
   },
   {
     q: "Can I contact you in Hindi?",
-    a: "Bilkul! Aap Hindi mein baat kar sakte hain — call pe, WhatsApp pe, ya form mein bhi. Hum dono Hindi aur English mein support dete hain.",
+    a: "Bilkul! Aap Hindi mein baat kar sakte hain - call pe, WhatsApp pe, ya form mein bhi. Hum dono Hindi aur English mein support dete hain.",
   },
 ];
 
@@ -135,7 +135,7 @@ export default function ContactPage() {
           </h1>
 
           <p className="text-white/70 text-[15px] leading-[1.8] max-w-xl mx-auto mb-10">
-            Book a free visit, ask a question, or just say hello. We are a real team based in Jaipur — not a chatbot. We will get back to you fast.
+            Book a free visit, ask a question, or just say hello. We are a real team based in Jaipur - not a chatbot. We will get back to you fast.
           </p>
 
           <div className="flex flex-wrap gap-3 justify-center">
@@ -146,7 +146,7 @@ export default function ContactPage() {
               Send a Message
             </Link>
             <Link
-              href="https://wa.me/919876543210"
+              href="https://wa.me/917357367085"
               target="_blank"
               className="inline-flex items-center justify-center rounded-full border-2 border-white/40 px-7 py-3.5 text-[15px] font-semibold text-white hover:bg-white/10 transition-all duration-200"
             >
@@ -192,7 +192,7 @@ export default function ContactPage() {
               Tell us about your <span className="italic text-[#FF5722]">project</span>
             </h2>
             <p className="text-gray-500 text-sm mt-3 max-w-md mx-auto">
-              Fill this form and our team will call you within 24 hours — free consultation, no commitment.
+              Fill this form and our team will call you within 24 hours - free consultation, no commitment.
             </p>
           </div>
 
@@ -231,7 +231,7 @@ export default function ContactPage() {
                     <input
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                      placeholder="+91 98765 43210"
+                      placeholder="+91 73573 67085"
                       className={inputCls}
                     />
                   </div>
@@ -342,15 +342,15 @@ export default function ContactPage() {
 
               {/* Why us card */}
               <div className="cp-rv bg-[#0A1F5C] rounded-2xl p-7 text-white">
-                <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FFD700] mb-4">Why NextWebIt?</p>
+                <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FFD700] mb-4">Why NextWebIT?</p>
                 <ul className="flex flex-col gap-4">
                   {[
-                    { icon: "🏪", text: "We visit your shop — anywhere in Rajasthan" },
+                    { icon: "🏪", text: "We visit your shop - anywhere in Rajasthan" },
                     { icon: "⚡", text: "Website live in 5 working days" },
                     { icon: "💰", text: "Transparent pricing from ₹4,999" },
                     { icon: "🔁", text: "Free changes until you are 100% happy" },
                     { icon: "📲", text: "WhatsApp support after launch" },
-                    { icon: "🌟", text: "4.9★ Google rating — 120+ happy clients" },
+                    { icon: "🌟", text: "4.9★ Google rating - 120+ happy clients" },
                   ].map((item) => (
                     <li key={item.text} className="flex items-start gap-3 text-sm text-white/80 leading-snug">
                       <span className="text-base shrink-0 mt-0.5">{item.icon}</span>
@@ -377,7 +377,7 @@ export default function ContactPage() {
                 </div>
                 <div className="mt-4 pt-4 border-t border-[#0A1F5C]/10">
                   <p className="text-xs text-gray-400">
-                    For urgent queries, WhatsApp is the fastest way to reach us — even on weekends.
+                    For urgent queries, WhatsApp is the fastest way to reach us - even on weekends.
                   </p>
                 </div>
               </div>
@@ -420,7 +420,7 @@ export default function ContactPage() {
             <p className="text-gray-500 text-sm mt-3">We operate across Jaipur, Jodhpur, Ajmer, Kota and surrounding areas.</p>
           </div>
 
-          {/* Map embed placeholder — replace src with real Google Maps embed URL */}
+          {/* Map embed placeholder - replace src with real Google Maps embed URL */}
           <div className="cp-rv rounded-2xl overflow-hidden border border-[#0A1F5C]/10 shadow-sm aspect-[16/6] bg-[#EEF0FF] flex items-center justify-center relative">
             <div className="text-center z-10">
               <span className="text-5xl block mb-3">📍</span>
@@ -486,7 +486,7 @@ export default function ContactPage() {
         <div className="relative z-10 max-w-2xl mx-auto cp-rv">
           <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FFD700] mb-5">Still thinking?</p>
           <h2 className="text-white text-[clamp(2rem,5vw,3.8rem)] font-bold leading-tight tracking-tight mb-4">
-            Book a free visit —<br />
+            Book a free visit -<br />
             <span className="text-[#FFD700] italic">we come to you</span>
           </h2>
           <p className="text-white/65 text-[15px] leading-relaxed mb-10 max-w-md mx-auto">
@@ -500,14 +500,14 @@ export default function ContactPage() {
               📲 Book Free Visit Today
             </Link>
             <Link
-              href="https://wa.me/919876543210"
+              href="https://wa.me/917357367085"
               target="_blank"
               className="inline-flex items-center justify-center rounded-full border-2 border-white/35 px-8 py-4 text-[15px] font-semibold text-white hover:bg-white/10 transition-all duration-200"
             >
               WhatsApp Us
             </Link>
           </div>
-          <p className="text-white/40 text-xs mt-6 tracking-wide">+91 98765 43210 · hello@nexwebit.in · Jaipur, Rajasthan</p>
+          <p className="text-white/40 text-xs mt-6 tracking-wide">+91 73573 67085 · hello@nexwebit.in · Jaipur, Rajasthan</p>
         </div>
       </section>
 

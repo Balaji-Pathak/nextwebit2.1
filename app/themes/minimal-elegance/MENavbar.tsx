@@ -39,13 +39,13 @@ export default function MENavbar() {
       }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 40px", height: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
 
-          {/* Brand — stacked like image */}
+          {/* Brand - stacked like image */}
           <Link href="/themes/minimal-elegance" style={{ textDecoration: "none" }}>
             <div className={cormorant.className} style={{ fontSize: "1rem", fontWeight: 600, color: "#2C3E2D", letterSpacing: "0.02em", lineHeight: 1.2 }}>True Romance</div>
             <div style={{ fontFamily: dmSans.style.fontFamily, fontSize: "0.65rem", color: "#8A9E8B", letterSpacing: "0.12em", textTransform: "uppercase" }}>Wedding Planners</div>
           </Link>
 
-          {/* Desktop nav — clean text only, no pills */}
+          {/* Desktop nav - clean text only, no pills */}
           <ul className="me-nav-links" style={{ display: "flex", listStyle: "none", gap: 36, margin: 0, padding: 0 }}>
             {navItems.map((item) => (
               <li key={item}>

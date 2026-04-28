@@ -33,15 +33,15 @@ const gallery = [
 ];
 
 const steps = [
-  { num: "01", title: "First Consultation", desc: "We meet you over chai — at your home or our Jaipur studio. We listen to your love story and understand your dream day." },
-  { num: "02", title: "Crafting Your Vision", desc: "Our team curates venue options, mood boards, floral concepts and a custom timeline — all presented in a beautiful proposal." },
+  { num: "01", title: "First Consultation", desc: "We meet you over chai - at your home or our Jaipur studio. We listen to your love story and understand your dream day." },
+  { num: "02", title: "Crafting Your Vision", desc: "Our team curates venue options, mood boards, floral concepts and a custom timeline - all presented in a beautiful proposal." },
   { num: "03", title: "Bringing It to Life", desc: "From vendor coordination to day-of management, we handle everything so you can simply be present in every moment." },
 ];
 
 const testimonials = [
   { name: "Priya & Arjun", date: "November 2024", text: "True Romance ne hamare wedding ko ekdum dream jaisa bana diya. Har ek detail perfect thi. Hum shukriyada hain!", img: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=200&q=80" },
   { name: "Sneha & Rahul", date: "February 2024", text: "From the mandap flowers to the last dance, everything was exactly as we had imagined. Worth every rupee!", img: "https://images.unsplash.com/photo-1622495966027-e0173192c728?w=200&q=80" },
-  { name: "Meera & Karan", date: "December 2023", text: "The team was so calm and organised on the day — we didn't worry about a single thing. Pure magic!", img: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=200&q=80" },
+  { name: "Meera & Karan", date: "December 2023", text: "The team was so calm and organised on the day - we didn't worry about a single thing. Pure magic!", img: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=200&q=80" },
 ];
 
 const STARBURST_RAYS = [
@@ -68,7 +68,7 @@ const Sparkle = ({ size = 14, style = {} }: { size?: number; style?: React.CSSPr
 export default function MinimalElegancePage() {
   const pageRef = useRef<HTMLDivElement>(null);
 
-  // Soft blush cursor — completely different from other themes
+  // Soft blush cursor - completely different from other themes
   useEffect(() => {
     const cursor = document.createElement("div");
     cursor.style.cssText = `
@@ -171,7 +171,7 @@ export default function MinimalElegancePage() {
             <p style={{ fontSize: "0.95rem", color: MUTED, lineHeight: 1.85, maxWidth: 400, marginBottom: 36 }}>
               Every love story is unique. We craft bespoke wedding experiences that reflect your personalities, honour your traditions, and create memories that last a lifetime.
             </p>
-            {/* Email subscribe — like the image */}
+            {/* Email subscribe - like the image */}
             <div style={{ display: "flex", gap: 0, marginBottom: 16, maxWidth: 380, borderRadius: 999, overflow: "hidden", border: "1px solid rgba(44,62,45,0.18)", background: "#fff" }}>
               <input type="email" placeholder="your email address" style={{ flex: 1, border: "none", outline: "none", padding: "13px 20px", fontSize: "0.875rem", color: GREEN, background: "transparent", fontFamily: dmSans.style.fontFamily }} />
               <button style={{ background: TERRA, color: "#fff", border: "none", borderRadius: 999, padding: "13px 24px", fontSize: "0.875rem", fontWeight: 500, cursor: "pointer", whiteSpace: "nowrap", margin: 3, fontFamily: dmSans.style.fontFamily, transition: "background 0.2s" }}
@@ -185,7 +185,7 @@ export default function MinimalElegancePage() {
             >Confirm your attendance</Link>
           </div>
 
-          {/* Right — arch image like the reference */}
+          {/* Right - arch image like the reference */}
           <div style={{ display: "flex", justifyContent: "center", alignItems: "center", position: "relative" }}>
             {/* Scattered sparkles around image */}
             <Sparkle size={14} style={{ position: "absolute", top: "10%", left: "8%", opacity: 0.6 }} />
@@ -193,12 +193,12 @@ export default function MinimalElegancePage() {
             <Sparkle size={12} style={{ position: "absolute", bottom: "20%", right: "10%", opacity: 0.5 }} />
             <Sparkle size={7} style={{ position: "absolute", bottom: "10%", left: "20%", opacity: 0.35 }} />
 
-            {/* Arch / pill image frame — exactly like reference */}
+            {/* Arch / pill image frame - exactly like reference */}
             <div style={{ position: "relative", width: "100%", maxWidth: 320 }}>
               <div style={{ width: "100%", aspectRatio: "3/4", borderRadius: "160px 160px 80px 80px", overflow: "hidden", border: "1px solid rgba(44,62,45,0.1)", position: "relative" }}>
                 <Image src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=80" alt="Happy couple" fill sizes="(max-width: 900px) 92vw, 320px" style={{ objectFit: "cover", objectPosition: "center top" }} priority />
               </div>
-              {/* Date card floating bottom-right — like reference */}
+              {/* Date card floating bottom-right - like reference */}
               <div style={{ position: "absolute", bottom: -16, right: -16, background: CREAM, border: "1px solid rgba(44,62,45,0.1)", borderRadius: 10, padding: "12px 16px", boxShadow: "0 4px 24px rgba(44,62,45,0.08)" }}>
                 <p style={{ fontFamily: dmMono.style.fontFamily, fontSize: "0.7rem", letterSpacing: "0.1em", color: TERRA, margin: 0, marginBottom: 3 }}>06/22/2025</p>
                 <p className={cormorant.className} style={{ fontSize: "0.95rem", fontStyle: "italic", color: GREEN, margin: 0 }}>Christopher &amp; Elena</p>
@@ -215,7 +215,7 @@ export default function MinimalElegancePage() {
       </section>
 
       {/* ══════════════════════════
-          ABOUT STRIP — horizontal with image
+          ABOUT STRIP - horizontal with image
       ══════════════════════════ */}
       <section style={{ background: BG2, padding: "88px 40px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 72, alignItems: "center" }} className="me-2col">
@@ -242,7 +242,7 @@ export default function MinimalElegancePage() {
               Founded in Jaipur with a love for love itself, True Romance has spent over a decade turning wedding dreams into extraordinary realities. We are a team of passionate planners, designers, and storytellers.
             </p>
             <p style={{ fontSize: "0.9rem", color: MUTED, lineHeight: 1.85, marginBottom: 28 }}>
-              From intimate court marriages to 1000-guest grand celebrations — we bring the same meticulous attention to every single detail of every single day.
+              From intimate court marriages to 1000-guest grand celebrations - we bring the same meticulous attention to every single detail of every single day.
             </p>
             <div style={{ display: "flex", gap: 32 }}>
               {[["500+","Weddings"],["12","Years"],["4.9★","Rating"]].map(([num, label]) => (
@@ -257,7 +257,7 @@ export default function MinimalElegancePage() {
       </section>
 
       {/* ══════════════════════════
-          GALLERY — Masonry grid
+          GALLERY - Masonry grid
       ══════════════════════════ */}
       <section style={{ background: CREAM, padding: "88px 40px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
@@ -298,7 +298,7 @@ export default function MinimalElegancePage() {
       </section>
 
       {/* ══════════════════════════
-          HOW WE WORK — elegant numbered steps
+          HOW WE WORK - elegant numbered steps
       ══════════════════════════ */}
       <section style={{ background: BG2, padding: "88px 40px" }}>
         <div style={{ maxWidth: 960, margin: "0 auto" }}>
@@ -323,7 +323,7 @@ export default function MinimalElegancePage() {
       </section>
 
       {/* ══════════════════════════
-          PACKAGES — Pricing cards
+          PACKAGES - Pricing cards
       ══════════════════════════ */}
       <section style={{ background: CREAM, padding: "88px 40px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
@@ -364,7 +364,7 @@ export default function MinimalElegancePage() {
       </section>
 
       {/* ══════════════════════════
-          TESTIMONIALS — soft cards
+          TESTIMONIALS - soft cards
       ══════════════════════════ */}
       <section style={{ background: BG2, padding: "88px 40px" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
@@ -399,7 +399,7 @@ export default function MinimalElegancePage() {
       </section>
 
       {/* ══════════════════════════
-          INSTAGRAM WALL — decorative photo strip
+          INSTAGRAM WALL - decorative photo strip
       ══════════════════════════ */}
       <section style={{ background: CREAM, padding: "72px 0 0", overflow: "hidden" }}>
         <div className="me-reveal" style={{ textAlign: "center", padding: "0 40px 40px" }}>

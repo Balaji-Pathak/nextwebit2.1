@@ -1,34 +1,36 @@
 "use client";
 
-import Link from "next/link";
-import { Space_Grotesk, Sora } from "next/font/google";
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { DM_Sans, Playfair_Display } from "next/font/google";
 
-const heading = Sora({
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
 });
 
-const body = Space_Grotesk({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["300", "400", "500"],
 });
 
-const navLinks = [
-  { label: "Home", href: "#" },
-  { label: "Collections", href: "#collections" },
+const navItems = [
+  { label: "Home", href: "/themes/new-asthetic", active: true },
   { label: "Plans", href: "#plans" },
-  { label: "Showcase", href: "#showcase" },
+  { label: "Portfolio", href: "#portfolio" },
+  { label: "About Us", href: "#about" },
 ];
 
 export default function NANavbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 30);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 40);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -40,135 +42,98 @@ export default function NANavbar() {
 
   return (
     <>
-      <nav
-        className={body.className}
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 70,
-          borderBottom: "1px solid rgba(125,249,255,0.2)",
-          background: scrolled ? "rgba(15,23,42,0.92)" : "#0F172A",
-          backdropFilter: scrolled ? "blur(10px)" : "none",
-          transition: "all 0.25s ease",
-        }}
+      <header
+        className={`fixed inset-x-0 top-0 z-50 h-16 border-b border-[#6B4226]/10 bg-white transition-all duration-300 ${
+          scrolled ? "shadow-sm" : ""
+        }`}
       >
-        <div className="mx-auto flex h-[70px] w-full max-w-[1200px] items-center justify-between px-5 lg:px-8">
-          <Link href="/themes/new-asthetic" className="no-underline">
-            <div className="flex items-center gap-2">
-              <span
-                style={{
-                  width: 12,
-                  height: 12,
-                  borderRadius: 2,
-                  background: "#7DF9FF",
-                  boxShadow: "0 0 14px rgba(125,249,255,0.65)",
-                }}
-              />
-              <p
-                className={heading.className}
-                style={{
-                  margin: 0,
-                  color: "#EAF2FF",
-                  letterSpacing: "0.08em",
-                  fontSize: "1rem",
-                }}
-              >
-                New Asthetic
-              </p>
-            </div>
+        <div className="mx-auto flex h-full max-w-6xl items-center gap-8 px-6 md:px-10">
+          <Link
+            href="/themes/new-asthetic"
+            className="flex cursor-pointer items-center shrink-0"
+          >
+            <span
+              className={`${playfair.className} text-[1.3rem] font-semibold italic text-[#6B4226]`}
+            >
+              Wedding &amp; Co.
+            </span>
+            <span className="mx-2 h-5 w-px bg-[#6B4226]/25" />
           </Link>
 
-          <ul className="hidden items-center gap-8 md:flex">
-            {navLinks.map((item) => (
-              <li key={item.label}>
+          <nav className={`${dmSans.className} hidden flex-1 items-center justify-center md:flex`}>
+            <div className="flex items-center gap-8">
+              {navItems.map((item) => (
                 <Link
+                  key={item.label}
                   href={item.href}
-                  style={{
-                    color: "#A8B8D8",
-                    fontSize: "0.76rem",
-                    textDecoration: "none",
-                    letterSpacing: "0.2em",
-                    textTransform: "uppercase",
-                    fontWeight: 500,
-                  }}
+                  className={`cursor-pointer text-[0.8rem] uppercase tracking-[0.1em] transition-colors ${
+                    item.active
+                      ? "font-medium text-[#6B4226]"
+                      : "font-normal text-[#6B4226]/60 hover:font-medium hover:text-[#6B4226]"
+                  }`}
                 >
                   {item.label}
                 </Link>
-              </li>
-            ))}
-          </ul>
+              ))}
+            </div>
+          </nav>
 
-          <Link
-            href="#plans"
-            className="hidden md:inline-block"
-            style={{
-              background: "#7DF9FF",
-              color: "#0F172A",
-              textDecoration: "none",
-              borderRadius: 8,
-              padding: "8px 18px",
-              fontSize: "0.75rem",
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-              fontWeight: 600,
-              border: "1px solid rgba(125,249,255,0.4)",
-            }}
-          >
-            Pricing
-          </Link>
+          <div className="ml-auto hidden items-center gap-2 md:flex">
+            {["f", "t", "ig"].map((icon) => (
+              <Link
+                key={icon}
+                href="#"
+                aria-label={`${icon} social link`}
+                className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-[#6B4226] text-[10px] font-bold text-white transition-colors hover:bg-[#4A2E1A]"
+              >
+                {icon}
+              </Link>
+            ))}
+          </div>
 
           <button
             type="button"
             aria-label="Toggle menu"
-            className="md:hidden"
-            onClick={() => setMenuOpen((prev) => !prev)}
-            style={{
-              border: "none",
-              background: "transparent",
-              color: "#7DF9FF",
-              fontSize: "1.2rem",
-            }}
+            onClick={() => setMenuOpen((value) => !value)}
+            className="ml-auto flex h-10 w-10 cursor-pointer flex-col items-center justify-center gap-1.5 md:hidden"
           >
-            {menuOpen ? "x" : "+"}
+            <span
+              className={`block h-0.5 w-5 bg-[#6B4226] transition-all duration-300 ${
+                menuOpen ? "translate-y-2 rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`block h-0.5 w-5 bg-[#6B4226] transition-all duration-300 ${
+                menuOpen ? "opacity-0" : ""
+              }`}
+            />
+            <span
+              className={`block h-0.5 w-5 bg-[#6B4226] transition-all duration-300 ${
+                menuOpen ? "-translate-y-2 -rotate-45" : ""
+              }`}
+            />
           </button>
         </div>
-      </nav>
+      </header>
 
       <div
-        className={body.className}
-        style={{
-          position: "fixed",
-          inset: 0,
-          zIndex: 65,
-          background: "#0A1222",
-          opacity: menuOpen ? 1 : 0,
-          pointerEvents: menuOpen ? "auto" : "none",
-          transition: "opacity 0.25s ease",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 26,
-        }}
+        className={`fixed inset-0 z-40 flex items-center justify-center bg-white transition-all duration-300 md:hidden ${
+          menuOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+        }`}
       >
-        {navLinks.map((item) => (
-          <Link
-            key={item.label}
-            href={item.href}
-            onClick={() => setMenuOpen(false)}
-            style={{
-              color: "#D3E7FF",
-              textDecoration: "none",
-              letterSpacing: "0.2em",
-              textTransform: "uppercase",
-              fontSize: "0.86rem",
-            }}
-          >
-            {item.label}
-          </Link>
-        ))}
+        <div className="flex flex-col items-center gap-6 text-center">
+          {navItems.map((item, index) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              onClick={() => setMenuOpen(false)}
+              className={`${playfair.className} cursor-pointer text-[2rem] font-medium italic text-[#6B4226] transition-opacity hover:opacity-70`}
+              style={{ transitionDelay: `${index * 80}ms` }}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
       </div>
     </>
   );

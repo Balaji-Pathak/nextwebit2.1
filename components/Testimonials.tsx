@@ -1,14 +1,14 @@
 const testimonials = [
   {
     quote:
-      "Pehle humein lagta tha website sirf bade logo ke liye hai. NextWebIt ne dukaan par aa kar sab samjhaya aur 5 din mein site live kar di. Ab phone par zyada calls aati hain.",
+      "Pehle humein lagta tha website sirf bade logo ke liye hai. NextWebIT ne dukaan par aa kar sab samjhaya aur 5 din mein site live kar di. Ab phone par zyada calls aati hain.",
     initials: "RS",
     name: "Ramesh Soni",
     biz: "Soni General Store, Jaipur",
   },
   {
     quote:
-      "Menu aur location WhatsApp par baar baar bhejna padta tha. Ab customer seedha link khol leta hai. Kaam seedha, daam clear — koi chakkar nahi.",
+      "Menu aur location WhatsApp par baar baar bhejna padta tha. Ab customer seedha link khol leta hai. Kaam seedha, daam clear - koi chakkar nahi.",
     initials: "MK",
     name: "Mahendra Khichar",
     biz: "Highway Dhaba, Ajmer Road",
@@ -50,7 +50,7 @@ export function Testimonials() {
           Rajasthan ke business owners kya kehte hain
         </h2>
         <p className="mt-4 max-w-2xl text-[15px] leading-[1.7] text-[#444]">
-          Asli dukaan, asli feedback — zyada nahi, bas jo kaam par utarta hai.
+          Asli dukaan, asli feedback - zyada nahi, bas jo kaam par utarta hai.
         </p>
 
         <div className="mt-12 grid md:grid-cols-2 gap-6 md:gap-8">

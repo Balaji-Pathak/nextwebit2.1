@@ -305,7 +305,7 @@ export default function POFooter() {
                 <span style={{ color: "#3B3DB8", marginRight: 6 }}>
                   {"\u25B8"}
                 </span>
-                +91 98765 43210
+                +91 73573 67085
               </p>
               <p
                 style={{
@@ -338,7 +338,7 @@ export default function POFooter() {
               fontSize: "0.8rem",
             }}
           >
-            Copyright © 2026 <span style={{ color: "#3B3DB8" }}>NextWebIt</span>.
+            Copyright © 2026 <span style={{ color: "#3B3DB8" }}>NextWebIT</span>.
             All rights reserved.
           </p>
           <div className="flex items-center justify-center gap-4 sm:justify-end">

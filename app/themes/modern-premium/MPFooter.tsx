@@ -8,7 +8,7 @@ const dmMono = DM_Mono({ subsets: ["latin"], weight: ["400"] });
 const navLinks = ["Home", "Shop", "Collections", "About", "Contact"];
 const serviceLinks = ["Design & Build", "E-Commerce", "Content & Copy", "Google Presence", "Photography", "Maintenance"];
 const socialLinks = ["f", "in", "yt", "wa", "tw"];
-const contactItems = ["Jaipur, Rajasthan", "+91 98765 43210", "hello@nexwebit.in"];
+const contactItems = ["Jaipur, Rajasthan", "+91 73573 67085", "hello@nexwebit.in"];
 
 export default function MPFooter() {
   return (
@@ -109,7 +109,7 @@ export default function MPFooter() {
 
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }} className="mp-footer-bottom">
           <p style={{ fontSize: "0.78rem", color: "rgba(245,237,224,0.3)" }}>
-            © 2025 <span style={{ color: "#c9a96e" }}>NextWebIt</span> · nexwebit.in · All rights reserved.
+            © 2025 <span style={{ color: "#c9a96e" }}>NextWebIT</span> · nexwebit.in · All rights reserved.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 20 }}>
             {["Privacy Policy", "Terms of Service", "Refund Policy"].map((l) => (

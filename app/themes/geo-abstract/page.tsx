@@ -17,10 +17,10 @@ const W = "#ffffff";
 const MUT = "rgba(255,255,255,0.55)";
 
 const services = [
-  { icon: "◈", title: "Abstract Branding", desc: "Visual identities that are impossible to ignore — logos, colours, motion.", tag: "Identity" },
+  { icon: "◈", title: "Abstract Branding", desc: "Visual identities that are impossible to ignore - logos, colours, motion.", tag: "Identity" },
   { icon: "⬡", title: "Web Experiences", desc: "Websites that move and react. Interactive digital experiences that convert.", tag: "Digital" },
-  { icon: "◭", title: "Motion Design", desc: "From hero animations to full brand motion systems — we make content alive.", tag: "Motion" },
-  { icon: "⬟", title: "UI/UX Strategy", desc: "User-first design thinking — journeys, wireframes and interfaces people love.", tag: "Design" },
+  { icon: "◭", title: "Motion Design", desc: "From hero animations to full brand motion systems - we make content alive.", tag: "Motion" },
+  { icon: "⬟", title: "UI/UX Strategy", desc: "User-first design thinking - journeys, wireframes and interfaces people love.", tag: "Design" },
   { icon: "◉", title: "Creative Direction", desc: "We direct visual storytelling across digital and print for big campaigns.", tag: "Direction" },
   { icon: "⬢", title: "3D & Generative", desc: "Procedural art and 3D renders that make your brand feel from the future.", tag: "Emerging" },
 ];
@@ -36,9 +36,9 @@ const works = [
 
 const stats = [["240+", "Projects"], ["18", "Awards"], ["98%", "Satisfaction"], ["6", "Years"]];
 const process = [
-  { n: "01", t: "Brief & Discovery", d: "We deep-dive into your brand, audience and goals. No templates — every project starts from scratch." },
-  { n: "02", t: "Concept Development", d: "We generate 3 radically different directions. You pick the energy you want — we push it further." },
-  { n: "03", t: "Build & Animate", d: "Design, code, motion — all in-house. You get weekly previews and real-time feedback loops." },
+  { n: "01", t: "Brief & Discovery", d: "We deep-dive into your brand, audience and goals. No templates - every project starts from scratch." },
+  { n: "02", t: "Concept Development", d: "We generate 3 radically different directions. You pick the energy you want - we push it further." },
+  { n: "03", t: "Build & Animate", d: "Design, code, motion - all in-house. You get weekly previews and real-time feedback loops." },
   { n: "04", t: "Launch & Evolve", d: "We don't disappear after launch. We monitor, iterate and keep your brand ahead of the curve." },
 ];
 const testi = [
@@ -50,7 +50,7 @@ const faqs = [
   { q: "What makes Geo Abstract different?", a: "We don't do generic. Every project is a bespoke creative exploration combining generative art, motion and strategy." },
   { q: "How long does a typical project take?", a: "Brand identities: 2–3 weeks. Full web experiences: 4–6 weeks. Motion systems are custom scoped." },
   { q: "Do you work with early-stage startups?", a: "Absolutely. Some of our best work has been with startups who trusted us to define their visual language from day one." },
-  { q: "Can I see your process before committing?", a: "Yes — book a free 30-min discovery call. We walk you through methodology and case studies before any commitment." },
+  { q: "Can I see your process before committing?", a: "Yes - book a free 30-min discovery call. We walk you through methodology and case studies before any commitment." },
   { q: "What is your pricing like?", a: "Projects start at ₹15,000 for brand marks. We offer milestone-based billing so you are always in control." },
 ];
 
@@ -461,7 +461,7 @@ export default function GeoAbstractPage() {
               onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.22)")}
             >See Case Studies</Link>
           </div>
-          <p style={{ fontSize: "0.72rem", color: MUT, marginTop: 28, letterSpacing: "0.1em" }}>+91 98765 43210 · hello@nexwebit.in</p>
+          <p style={{ fontSize: "0.72rem", color: MUT, marginTop: 28, letterSpacing: "0.1em" }}>+91 73573 67085 · hello@nexwebit.in</p>
         </div>
       </section>
 

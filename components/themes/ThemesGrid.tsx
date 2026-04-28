@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 function BrowserChrome({ children, className = "" }: { children: ReactNode; className?: string }) {
   return <div className={`h-32 overflow-hidden rounded-t-2xl ${className}`}>{children}</div>;
@@ -52,152 +53,113 @@ function FakeHeroBlock({
 
 function PreviewVintageLuxury() {
   return (
-    <BrowserChrome className="relative bg-[#1a0a00]">
-      <div className="pointer-events-none absolute right-1 top-6 h-10 w-10 rounded-full border border-[#C9A84C]/25" />
-      <div className="pointer-events-none absolute right-2 top-7 h-6 w-6 rounded-full border border-[#C9A84C]/35" />
-      <NavBarRow className="bg-[#2d1600] text-[#C9A84C]">
-        <span className="h-2.5 w-2.5 shrink-0 rounded-sm bg-[#C9A84C]" />
-      </NavBarRow>
-      <FakeHeroBlock
-        h1Class="text-[9px] font-bold leading-tight text-[#C9A84C]"
-        subClass="text-[#C9A84C]/60"
-        ctaClass="rounded-sm bg-[#C9A84C] text-[#1a0a00]"
-      />
+    <BrowserChrome>
+      <div className="relative w-full" style={{ aspectRatio: "16/10" }}>
+        <Image
+          src="/theme-previews/vintage-luxury.png"
+          alt="Modern Premium theme preview"
+          fill
+          className="object-cover object-top"
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
+      </div>
     </BrowserChrome>
   );
 }
 
 function PreviewModernPremium() {
   return (
-    <BrowserChrome className="relative bg-[#0f0f0f]">
-      <div className="pointer-events-none absolute -right-2 top-4 h-8 w-8 rounded-full bg-[#6C63FF]/25" />
-      <div className="pointer-events-none absolute right-3 top-8 h-5 w-5 rounded-full bg-[#9B59B6]/30" />
-      <NavBarRow className="border-b border-white/[0.08] bg-white/[0.04] text-white">
-        <span className="h-2.5 w-2.5 shrink-0 rounded-sm bg-gradient-to-br from-[#6C63FF] to-[#9B59B6]" />
-      </NavBarRow>
-      <FakeHeroBlock
-        h1Class="text-[9px] font-bold leading-tight text-white"
-        subClass="text-white/50"
-        ctaClass="rounded-sm bg-[#6C63FF] text-white"
-      />
+    <BrowserChrome>
+      <div className="relative w-full" style={{ aspectRatio: "16/10" }}>
+        <Image
+          src="/theme-previews/modern-premium.png"
+          alt="Modern Premium theme preview"
+          fill
+          className="object-cover object-top"
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
+      </div>
     </BrowserChrome>
   );
 }
 
 function PreviewMinimalElegance() {
   return (
-    <BrowserChrome className="relative bg-[#fafaf8]">
-      <div className="pointer-events-none absolute right-1 top-6 w-8 space-y-0.5">
-        <div className="h-px bg-gray-200" />
-        <div className="ml-1 h-px bg-gray-200" />
-        <div className="ml-2 h-px bg-gray-200" />
+    <BrowserChrome>
+      <div className="relative w-full" style={{ aspectRatio: "16/10" }}>
+        <Image
+          src="/theme-previews/minimal-elegance.png"
+          alt="Modern Premium theme preview"
+          fill
+          className="object-cover object-top"
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
       </div>
-      <NavBarRow className="border-b border-gray-100 bg-white text-black">
-        <span className="h-2.5 w-2.5 shrink-0 bg-black" />
-      </NavBarRow>
-      <FakeHeroBlock
-        h1Class="text-[9px] font-bold leading-tight text-[#111]"
-        subClass="text-[#888]"
-        ctaClass="rounded-sm bg-[#111] text-white"
-      />
     </BrowserChrome>
   );
 }
 
 function PreviewProOffice() {
   return (
-    <BrowserChrome className="relative bg-[#F0F4FF]">
-      <div className="pointer-events-none absolute right-1 top-5 flex gap-0.5">
-        <div className="h-6 w-5 rounded-sm border border-[#1B3A8F]/15 bg-white shadow-sm" />
-        <div className="h-6 w-5 rounded-sm border border-[#1B3A8F]/10 bg-[#E8EEFF]" />
+    <BrowserChrome>
+      <div className="relative w-full" style={{ aspectRatio: "16/10" }}>
+        <Image
+          src="/theme-previews/pro-office.png"
+          alt="Modern Premium theme preview"
+          fill
+          className="object-cover object-top"
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
       </div>
-      <NavBarRow className="bg-[#1B3A8F] text-white">
-        <span className="h-2.5 w-2.5 shrink-0 rounded-sm bg-white" />
-      </NavBarRow>
-      <FakeHeroBlock
-        h1Class="text-[9px] font-bold leading-tight text-[#1B3A8F]"
-        subClass="text-[#555]"
-        ctaClass="rounded-sm bg-[#1B3A8F] text-white"
-      />
     </BrowserChrome>
   );
 }
 
 function PreviewNewAesthetic() {
   return (
-    <BrowserChrome className="relative bg-[#0F172A]">
-      <div
-        className="pointer-events-none absolute -right-1 top-5 h-12 w-12 bg-[#7DF9FF]/20"
-        style={{ borderRadius: "6px" }}
-      />
-      <NavBarRow className="bg-[#131D34] text-[#D3E7FF]">
-        <span className="flex h-2.5 w-2.5 shrink-0 items-center justify-center rounded-sm bg-[#7DF9FF] text-[4px] text-[#0F172A]">
-          +
-        </span>
-      </NavBarRow>
-      <FakeHeroBlock
-        h1Class="text-[9px] font-bold leading-tight text-[#EAF2FF]"
-        subClass="text-[#A8B8D8]"
-        ctaClass="rounded-sm bg-[#7DF9FF] text-[#0F172A]"
-      />
+   <BrowserChrome>
+      <div className="relative w-full" style={{ aspectRatio: "16/10" }}>
+        <Image
+          src="/theme-previews/new-asthetic.png"
+          alt="Modern Premium theme preview"
+          fill
+          className="object-cover object-top"
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
+      </div>
     </BrowserChrome>
   );
 }
 
 function PreviewGeoAbstract() {
   return (
-    <BrowserChrome className="relative bg-[#0D0D1A]">
-      <div className="pointer-events-none absolute right-1 top-5 opacity-40">
-        <div
-          className="absolute h-0 w-0 border-b-[10px] border-l-[6px] border-r-[6px] border-b-[#00FFC8] border-l-transparent border-r-transparent"
-          style={{ top: 0, right: 0 }}
-        />
-        <div
-          className="absolute h-0 w-0 border-b-[6px] border-l-[4px] border-r-[4px] border-b-[#00FFC8] border-l-transparent border-r-transparent"
-          style={{ top: 6, right: 8 }}
+    <BrowserChrome>
+      <div className="relative w-full" style={{ aspectRatio: "16/10" }}>
+        <Image
+          src="/theme-previews/geo-abstract.png"
+          alt="Modern Premium theme preview"
+          fill
+          className="object-cover object-top"
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>
-      <NavBarRow className="border-b border-[rgba(0,255,200,0.15)] bg-white/[0.03] text-[#00FFC8]">
-        <span
-          className="h-2 w-2 shrink-0 bg-[#00FFC8]"
-          style={{ clipPath: "polygon(50% 0%, 100% 100%, 0% 100%)" }}
-        />
-      </NavBarRow>
-      <FakeHeroBlock
-        h1Class="text-[9px] font-bold leading-tight text-[#00FFC8]"
-        subClass="text-[#00FFC8]/50"
-        ctaClass="rounded-sm border border-[#00FFC8] bg-transparent text-[#00FFC8]"
-      />
     </BrowserChrome>
   );
 }
 
 function PreviewExtremeShow() {
   return (
-    <div className="flex h-32 flex-col overflow-hidden rounded-t-2xl">
-      <div className="flex h-8 shrink-0 items-center gap-1 bg-black px-2">
-        <span className="flex h-3 w-3 shrink-0 items-center justify-center bg-[#FF0000] text-[5px] font-black tracking-widest text-white">
-          X
-        </span>
-        <span className="text-[6px] font-black tracking-widest text-[#FF0000]">BRAND NAME</span>
+    <BrowserChrome>
+      <div className="relative w-full" style={{ aspectRatio: "16/10" }}>
+        <Image
+          src="/theme-previews/extreme-show.png"
+          alt="Modern Premium theme preview"
+          fill
+          className="object-cover object-top"
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
       </div>
-      <div className="relative min-h-0 flex-1 overflow-hidden bg-[#FF0000] px-2 pb-2 pt-1">
-        <div className="pointer-events-none absolute bottom-0 right-0 top-2 w-3 origin-top-right rotate-12 bg-black" />
-        <div className="pointer-events-none absolute bottom-0 right-1 top-3 w-1.5 origin-top-right rotate-12 bg-black/40" />
-        <div className="text-[9px] font-black uppercase leading-tight text-white">
-          <div>BOLD.</div>
-          <div>POWERFUL.</div>
-          <div>UNSTOPPABLE.</div>
-        </div>
-        <p className="mt-0.5 text-[6px] text-white/70">Short supporting text.</p>
-        <button
-          type="button"
-          className="mt-1 border border-[#FF0000] bg-black px-1.5 py-0.5 text-[6px] font-black text-[#FF0000]"
-        >
-          GO
-        </button>
-      </div>
-    </div>
+    </BrowserChrome>
   );
 }
 

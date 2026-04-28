@@ -8,9 +8,9 @@ import { ThemesFilter } from "@/components/themes/ThemesFilter";
 import { ThemesGrid } from "@/components/themes/ThemesGrid";
 
 export const metadata: Metadata = {
-  title: "Website Themes — NextWebIt | nexwebit.in",
+  title: "Website Themes - NextWebIT | nexwebit.in",
   description:
-    "Eight design styles we show during your free visit. Dark, light, bold, minimal — pick what fits your Rajasthan business.",
+    "Eight design styles we show during your free visit. Dark, light, bold, minimal - pick what fits your Rajasthan business.",
 };
 
 export default function ThemesPage() {

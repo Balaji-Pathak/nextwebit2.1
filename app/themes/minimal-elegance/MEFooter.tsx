@@ -27,7 +27,7 @@ export default function MEFooter() {
           Your perfect day <span style={{ color: "#C4735A" }}>awaits</span>
         </h2>
         <p style={{ fontSize: "0.9rem", color: "rgba(245,240,232,0.6)", marginBottom: 28, maxWidth: 400, margin: "0 auto 28px" }}>
-          From intimate ceremonies to grand celebrations — we handle every detail with love.
+          From intimate ceremonies to grand celebrations - we handle every detail with love.
         </p>
         <Link href="#" style={{ display: "inline-block", padding: "13px 36px", background: "#C4735A", color: "#fff", borderRadius: 999, fontSize: "0.875rem", fontWeight: 500, textDecoration: "none", transition: "all 0.2s" }}
           onMouseEnter={e => { e.currentTarget.style.background = "#d4856c"; e.currentTarget.style.transform = "translateY(-2px)"; }}
@@ -96,7 +96,7 @@ export default function MEFooter() {
           <div>
             <p style={{ fontFamily: dmMono.style.fontFamily, fontSize: "0.6rem", letterSpacing: "0.18em", textTransform: "uppercase", color: "#8A9E8B", marginBottom: 20 }}>Stay Inspired</p>
             <p style={{ fontSize: "0.875rem", color: "#5C6B5D", lineHeight: 1.75, marginBottom: 18 }}>
-              Wedding inspiration, planning tips and real love stories — straight to your inbox.
+              Wedding inspiration, planning tips and real love stories - straight to your inbox.
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 16 }}>
               <input type="email" placeholder="your@email.com" style={{ background: "#fff", border: "1px solid rgba(44,62,45,0.15)", borderRadius: 999, padding: "11px 18px", fontSize: "0.85rem", color: "#2C3E2D", outline: "none", fontFamily: dmSans.style.fontFamily, transition: "border-color 0.2s" }}
@@ -110,7 +110,7 @@ export default function MEFooter() {
             </div>
             <p style={{ fontFamily: dmMono.style.fontFamily, fontSize: "0.6rem", color: "#8A9E8B", letterSpacing: "0.06em" }}>No spam · Unsubscribe anytime</p>
             <div style={{ marginTop: 20, display: "flex", flexDirection: "column", gap: 8 }}>
-              {["Jaipur, Rajasthan", "+91 98765 43210", "hello@nexwebit.in"].map((item) => (
+              {["Jaipur, Rajasthan", "+91 73573 67085", "hello@nexwebit.in"].map((item) => (
                 <div key={item} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.8rem", color: "#5C6B5D" }}>
                   <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#C4735A", flexShrink: 0 }} />
                   {item}
@@ -126,7 +126,7 @@ export default function MEFooter() {
         {/* Bottom */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }} className="me-footer-bottom">
           <p style={{ fontSize: "0.78rem", color: "#8A9E8B" }}>
-            © 2025 <span style={{ color: "#2C3E2D", fontWeight: 500 }}>NextWebIt</span> · nexwebit.in · All rights reserved.
+            © 2025 <span style={{ color: "#2C3E2D", fontWeight: 500 }}>NextWebIT</span> · nexwebit.in · All rights reserved.
           </p>
           <div style={{ display: "flex", gap: 20, flexWrap: "wrap" }}>
             {["Privacy Policy", "Terms of Service", "Refund Policy"].map((l) => (

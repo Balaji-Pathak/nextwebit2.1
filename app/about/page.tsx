@@ -10,21 +10,21 @@ const inter = Inter({ subsets: ["latin"], weight: ["300","400","500","600","700"
 const playfair = Playfair_Display({ subsets: ["latin"], weight: ["400","500","600","700"], style: ["normal","italic"] });
 
 const team = [
-  { name: "Balaji Pathak", role: "Founder", init: "BP",desc: "Co-founder of NextWebIt, leading development and technical excellence.",  color: "#3B3DB8" },
-  { name: "Nandish Taylor", role: "Founder", init: "NT",desc: "Co-founder of NextWebIt, driving innovation and client relationships." , color: "#7B2FFF" },
+  { name: "Balaji Pathak", role: "Founder", init: "BP",desc: "Co-founder of NextWebIT, leading development and technical excellence.",  color: "#3B3DB8" },
+  { name: "Nandish Taylor", role: "Founder", init: "NT",desc: "Co-founder of NextWebIT, driving innovation and client relationships." , color: "#7B2FFF" },
 ];
 
 const values = [
-  { icon: "🏪", title: "We Come To You", desc: "We visit your shop or office anywhere in Rajasthan. No zoom calls, no long emails — just a real conversation over chai." },
+  { icon: "🏪", title: "We Come To You", desc: "We visit your shop or office anywhere in Rajasthan. No zoom calls, no long emails - just a real conversation over chai." },
   { icon: "🤝", title: "Honest Pricing", desc: "No hidden fees. No surprise invoices. What we quote is what you pay. Always." },
   { icon: "⚡", title: "Fast Delivery", desc: "We know your time is money. Most websites are live within 5–7 working days of design approval." },
   { icon: "📞", title: "WhatsApp Support", desc: "After launch you have our WhatsApp number. Text us any time for updates, changes or questions." },
   { icon: "🌟", title: "Local Understanding", desc: "We are from Jaipur. We understand the local market, Indian business culture and what your customers actually look for." },
-  { icon: "🔁", title: "Long Term Partners", desc: "We don't disappear after launch. We grow with you — updating your website as your business evolves." },
+  { icon: "🔁", title: "Long Term Partners", desc: "We don't disappear after launch. We grow with you - updating your website as your business evolves." },
 ];
 
 const milestones = [
-  { year: "2022", title: "NextWebIt Founded", desc: "Started with one laptop and one belief — every local business deserves a professional online presence." },
+  { year: "2022", title: "NextWebIT Founded", desc: "Started with one laptop and one belief - every local business deserves a professional online presence." },
   { year: "2023", title: "50 Websites Delivered", desc: "Crossed 50 clients in Jaipur and expanded to Jodhpur, Ajmer and Kota. First 5-star Google review." },
   { year: "2024", title: "Themes Platform Launched", desc: "Introduced 8 pre-designed themes so clients could choose their style before we start building." },
   { year: "2025", title: "120+ Clients & Growing", desc: "Today we serve 120+ businesses across Rajasthan with websites, Google presence and digital support." },
@@ -72,7 +72,7 @@ export default function AboutPage() {
             <span style={{ fontSize: "0.75rem", color: IND, fontWeight: 600, letterSpacing: "0.06em" }}>Based in Jaipur, Rajasthan</span>
           </div>
           <h1 className={playfair.className} style={{ fontSize: "clamp(2.8rem,7vw,5.5rem)", fontWeight: 700, color: DARK, lineHeight: 1.05, margin: "0 0 20px", letterSpacing: "-0.02em" }}>
-            We are NextWebIt.<br />
+            We are NextWebIT.<br />
             <span style={{ fontStyle: "italic", color: IND }}>We come to you.</span>
           </h1>
           <p style={{ fontSize: "1.05rem", color: MUT, lineHeight: 1.85, maxWidth: 560, margin: "0 auto 40px" }}>
@@ -118,10 +118,10 @@ export default function AboutPage() {
               <span style={{ fontStyle: "italic", color: IND }}>observation</span>
             </h2>
             <p style={{ fontSize: "0.95rem", color: MUT, lineHeight: 1.85, marginBottom: 16 }}>
-              In 2022, our founders Balaji Pathak and Nandish Taylor noticed something — hundreds of brilliant local businesses in Jaipur had no online presence. A jeweller with 30 years of heritage. A sweet shop with the best mithai in the city. A clinic trusted by thousands. All invisible on Google.
+              In 2022, our founders Balaji Pathak and Nandish Taylor noticed something - hundreds of brilliant local businesses in Jaipur had no online presence. A jeweller with 30 years of heritage. A sweet shop with the best mithai in the city. A clinic trusted by thousands. All invisible on Google.
             </p>
             <p style={{ fontSize: "0.95rem", color: MUT, lineHeight: 1.85, marginBottom: 24 }}>
-              So they started NextWebIt with one rule: <strong style={{ color: DARK }}>we go to them.</strong> No complicated forms, no cold emails. We walk into your shop, have a conversation, and build something that truly represents your business.
+              So they started NextWebIT with one rule: <strong style={{ color: DARK }}>we go to them.</strong> No complicated forms, no cold emails. We walk into your shop, have a conversation, and build something that truly represents your business.
             </p>
             <div style={{ display: "flex", gap: 28 }}>
               {[["120+","Clients"],["5 Days","Avg. Delivery"],["₹4,999","Starting"]].map(([num, label]) => (
@@ -251,7 +251,7 @@ export default function AboutPage() {
             We&apos;d love to visit<br />
             <span style={{ fontStyle: "italic" }}>your shop</span>
           </h2>
-          <p style={{ fontSize: "1rem", color: "rgba(255,255,255,0.7)", marginBottom: 40, fontWeight: 300 }}>Book a free consultation — we come to you, no cost, no commitment.</p>
+          <p style={{ fontSize: "1rem", color: "rgba(255,255,255,0.7)", marginBottom: 40, fontWeight: 300 }}>Book a free consultation - we come to you, no cost, no commitment.</p>
           <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/contact-us" style={{ padding: "14px 40px", background: "#fff", color: IND, borderRadius: 999, fontWeight: 700, fontSize: "0.95rem", textDecoration: "none", transition: "all .2s" }}
               onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.15)"; }}

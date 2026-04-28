@@ -32,13 +32,13 @@ export function Hero() {
             Professional Website
           </span>
           <span className="block text-[clamp(22px,4vw,42px)] font-semibold leading-[1.25] mt-1">
-            — Hum Aate Hain Aapke Paas
+            - Hum Aate Hain Aapke Paas
           </span>
         </h1>
 
         <p className="mt-6 max-w-2xl text-[15px] leading-[1.7] text-white/[0.72]">
-          NextWebIt aapke dukaan ya clinic tak khud aata hai, samajhta hai aapka kaam, aur 5 din mein
-          ek saaf, mobile-friendly website tayar karta hai — bina tension ke, seedhe Hindi / English
+          NextWebIT aapke dukaan ya clinic tak khud aata hai, samajhta hai aapka kaam, aur 5 din mein
+          ek saaf, mobile-friendly website tayar karta hai - bina tension ke, seedhe Hindi / English
           mein support ke sath.
         </p>
 

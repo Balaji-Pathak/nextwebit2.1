@@ -62,7 +62,7 @@ export default function ESFooter() {
             </div>
           </div>
           <p style={{ fontSize: "0.875rem", color: "rgba(255,255,255,0.45)", lineHeight: 1.9, fontWeight: 300, maxWidth: "320px", marginBottom: "28px" }}>
-            We bring the world&apos;s most electrifying live performances to you. From underground gigs to stadium spectacles — ExtremeShow is your front-row pass.
+            We bring the world&apos;s most electrifying live performances to you. From underground gigs to stadium spectacles - ExtremeShow is your front-row pass.
           </p>
           <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
             {socials.map((s) => (
@@ -172,7 +172,7 @@ export default function ESFooter() {
           <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
             {[
               { icon: "📍", text: "Mumbai · Delhi · Bangalore · Jaipur" },
-              { icon: "📞", text: "+91 98765 43210" },
+              { icon: "📞", text: "+91 73573 67085" },
               { icon: "✉️", text: "hello@extremeshow.in" },
             ].map((c) => (
               <div key={c.text} style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>

@@ -40,7 +40,7 @@ const SERVICES = [
   {
     icon: "🏺",
     title: "Design & Build",
-    desc: "Bespoke sites crafted around your brand, voice, and goals — not a template.",
+    desc: "Bespoke sites crafted around your brand, voice, and goals - not a template.",
     tag: "From ₹4,999",
   },
   {
@@ -52,7 +52,7 @@ const SERVICES = [
   {
     icon: "🛒",
     title: "E-Commerce",
-    desc: "Full online store in days. UPI, card, COD. Inventory, checkout, delivery — built to scale.",
+    desc: "Full online store in days. UPI, card, COD. Inventory, checkout, delivery - built to scale.",
     tag: "From ₹9,999",
   },
   {
@@ -406,7 +406,7 @@ export default function VintageLuxuryThemePage() {
         </div>
 
         <main className="vl-font-body">
-          {/* SECTION 1 — HERO */}
+          {/* SECTION 1 - HERO */}
           <section
             className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6"
             style={{
@@ -511,7 +511,7 @@ export default function VintageLuxuryThemePage() {
             </div>
           </section>
 
-          {/* SECTION 2 — AI SEARCH */}
+          {/* SECTION 2 - AI SEARCH */}
           <section
             className="relative px-6 py-[120px]"
             style={{
@@ -587,7 +587,7 @@ export default function VintageLuxuryThemePage() {
             </div>
           </section>
 
-          {/* SECTION 3 — SERVICES */}
+          {/* SECTION 3 - SERVICES */}
           <section className="mx-auto max-w-[1280px] px-6 py-[120px]">
             <div className="text-center" data-vl-reveal>
               <p className="vl-font-mono text-xs uppercase tracking-widest text-[#C9A84C]">
@@ -635,7 +635,7 @@ export default function VintageLuxuryThemePage() {
             </div>
           </section>
 
-          {/* SECTION 4 — MARQUEE */}
+          {/* SECTION 4 - MARQUEE */}
           <section id="vl-work" className="overflow-hidden py-[120px]">
             <div className="px-6 text-center" data-vl-reveal>
               <p className="vl-font-mono text-xs uppercase tracking-widest text-[#C9A84C]">
@@ -670,7 +670,7 @@ export default function VintageLuxuryThemePage() {
             </div>
           </section>
 
-          {/* SECTION 5 — PROCESS */}
+          {/* SECTION 5 - PROCESS */}
           <section className="mx-auto max-w-[1000px] px-6 py-[120px]">
             <div className="text-center" data-vl-reveal>
               <p className="vl-font-mono text-xs uppercase tracking-widest text-[#C9A84C]">
@@ -691,7 +691,7 @@ export default function VintageLuxuryThemePage() {
                 {
                   n: "02",
                   t: "Design & Build",
-                  p: "We present concepts in 48 hours. You approve, we build — live in 5–7 working days.",
+                  p: "We present concepts in 48 hours. You approve, we build - live in 5–7 working days.",
                 },
                 {
                   n: "03",
@@ -734,7 +734,7 @@ export default function VintageLuxuryThemePage() {
             </div>
           </section>
 
-          {/* SECTION 6 — CTA */}
+          {/* SECTION 6 - CTA */}
           <section
             className="relative overflow-hidden px-6 py-[140px] text-center"
             style={{ backgroundColor: "var(--bg2)" }}

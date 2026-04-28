@@ -26,7 +26,7 @@ export function ThemesHero() {
         </h1>
         <p className="mx-auto mt-5 max-w-[520px] text-[15px] leading-relaxed text-white/70">
           We show you these design styles when we visit your shop. Pick what feels right for your
-          business — we build it exactly the way you like.
+          business - we build it exactly the way you like.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
           {pills.map((t) => (

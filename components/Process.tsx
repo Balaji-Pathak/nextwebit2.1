@@ -2,13 +2,13 @@ const steps = [
   {
     n: 1,
     title: "We visit your shop",
-    desc: "Team aapke time ke hisaab se aati hai — bina advance payment ke consultation.",
+    desc: "Team aapke time ke hisaab se aati hai - bina advance payment ke consultation.",
     badge: "Free visit",
   },
   {
     n: 2,
     title: "We understand your requirements",
-    desc: "Products, photos, timings, location — sab note karte hain seedhi boli mein.",
+    desc: "Products, photos, timings, location - sab note karte hain seedhi boli mein.",
   },
   {
     n: 3,
@@ -18,19 +18,19 @@ const steps = [
   {
     n: 4,
     title: "You approve the design",
-    desc: "Colours, text, photos — jitni baar change chahiye, tab tak free revision.",
+    desc: "Colours, text, photos - jitni baar change chahiye, tab tak free revision.",
     badge: "Free changes till satisfied",
   },
   {
     n: 5,
-    title: "We go live — within 5 days",
-    desc: "Domain, hosting setup aur launch — aapke approval ke baad turant online.",
+    title: "We go live - within 5 days",
+    desc: "Domain, hosting setup aur launch - aapke approval ke baad turant online.",
     badge: "Live",
   },
   {
     n: 6,
     title: "Ongoing WhatsApp support",
-    desc: "Chhota update ho ya sawaal — WhatsApp par seedha jawab.",
+    desc: "Chhota update ho ya sawaal - WhatsApp par seedha jawab.",
     badge: "Support",
   },
 ];

@@ -127,7 +127,7 @@ const testimonials = [
     name: "Ramesh Agarwal",
     type: "CA Office, Jaipur",
     quote:
-      "NextWebIt ne hamare CA firm ka website banaya aur GST compliance system set up kiya. Ab paperwork 60% kam ho gayi hai!",
+      "NextWebIT ne hamare CA firm ka website banaya aur GST compliance system set up kiya. Ab paperwork 60% kam ho gayi hai!",
   },
   {
     initials: "SM",

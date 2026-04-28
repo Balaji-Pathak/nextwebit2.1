@@ -196,10 +196,10 @@ const artists = [
 
 // ── FAQ data ────────────────────────────────────────────────────────────────
 const faqs = [
-  { q: "Can I get a refund if a show is cancelled?", a: "Yes — if a show is cancelled by us, you receive a full refund within 5–7 working days. Rescheduled shows allow a 48-hour refund window." },
-  { q: "Are tickets transferable?", a: "Tickets are non-transferable by default. Exceptions apply for medical emergencies — contact support with documentation." },
+  { q: "Can I get a refund if a show is cancelled?", a: "Yes - if a show is cancelled by us, you receive a full refund within 5–7 working days. Rescheduled shows allow a 48-hour refund window." },
+  { q: "Are tickets transferable?", a: "Tickets are non-transferable by default. Exceptions apply for medical emergencies - contact support with documentation." },
   { q: "Is there an age restriction?", a: "Most shows are 18+. All-ages events are clearly marked on the ticket page. Valid ID is required at the gate." },
-  { q: "What is the entry policy?", a: "Gates open 90 minutes before showtime. Entry is QR-code based. No physical tickets are needed — just your phone." },
+  { q: "What is the entry policy?", a: "Gates open 90 minutes before showtime. Entry is QR-code based. No physical tickets are needed - just your phone." },
   { q: "Can I bring my camera?", a: "Point-and-shoot cameras are allowed. DSLRs and cameras with detachable lenses require a media pass. No professional recording equipment." },
   { q: "How do I access my tickets?", a: "Tickets are emailed instantly after purchase. You can also find them in your ExtremeShow account dashboard anytime." },
 ];
@@ -344,7 +344,7 @@ export default function ExtremeShowPage() {
                 transitionDelay: "0.2s",
               }}
             >
-              India&apos;s most electrifying live event platform. From metal nights to EDM raves — book your seats, feel the energy, live the moment.
+              India&apos;s most electrifying live event platform. From metal nights to EDM raves - book your seats, feel the energy, live the moment.
             </p>
 
             <div
@@ -398,7 +398,7 @@ export default function ExtremeShowPage() {
             </div>
           </div>
 
-          {/* Right — Ticket card */}
+          {/* Right - Ticket card */}
           <div className="es-reveal" style={{ ...revealStyle, transitionDelay: "0.3s" }}>
             <div
               style={{
@@ -553,7 +553,7 @@ export default function ExtremeShowPage() {
             UPCOMING <span style={{ color: "#DC2626" }}>SHOWS</span>
           </h2>
           <p style={{ fontSize: "0.95rem", color: "rgba(255,255,255,0.45)", maxWidth: "480px", margin: "0 auto" }}>
-            Catch the biggest names live before they sell out. Tickets go fast — grab yours now.
+            Catch the biggest names live before they sell out. Tickets go fast - grab yours now.
           </p>
         </div>
 
@@ -778,7 +778,7 @@ export default function ExtremeShowPage() {
             />
             {[
               { num: "01", title: "Browse Shows", desc: "Explore hundreds of live events across genres and cities on our platform." },
-              { num: "02", title: "Choose Seats", desc: "Pick your category — General, VIP, or Front Row. All shown on our live map." },
+              { num: "02", title: "Choose Seats", desc: "Pick your category - General, VIP, or Front Row. All shown on our live map." },
               { num: "03", title: "Secure Payment", desc: "Pay via UPI, card or net banking. Your ticket is emailed instantly." },
               { num: "04", title: "Show Up & Rock", desc: "Scan the QR at the gate and walk straight in. No queues, no hassle." },
             ].map((step, i) => (
@@ -924,8 +924,8 @@ export default function ExtremeShowPage() {
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "24px" }} className="es-testimonials-grid">
             {[
-              { initials: "RK", name: "Rahul K.", city: "Mumbai", text: "Loud Fest was INSANE. Front row tickets through ExtremeShow — no hassle, no scammers. Scanned my phone and walked in. 10/10 every time!" },
-              { initials: "PS", name: "Priya S.", city: "Delhi", text: "Bought merch and tickets together in one order. The hoodie arrived before the show — quality is legit. ExtremeShow really gets it." },
+              { initials: "RK", name: "Rahul K.", city: "Mumbai", text: "Loud Fest was INSANE. Front row tickets through ExtremeShow - no hassle, no scammers. Scanned my phone and walked in. 10/10 every time!" },
+              { initials: "PS", name: "Priya S.", city: "Delhi", text: "Bought merch and tickets together in one order. The hoodie arrived before the show - quality is legit. ExtremeShow really gets it." },
               { initials: "AV", name: "Arjun V.", city: "Bangalore", text: "The VIP experience at Voltage 2025 was unreal. Premium bar, best views, zero crowd chaos. Worth every rupee. Already booked for next year." },
             ].map((t, i) => (
               <div
@@ -1107,7 +1107,7 @@ export default function ExtremeShowPage() {
                 BROWSE ALL SHOWS
               </a>
               <a
-                href="tel:+919876543210"
+                href="tel:+917357367085"
                 style={{
                   fontFamily: bebas.style.fontFamily,
                   fontSize: "1.1rem",
@@ -1123,7 +1123,7 @@ export default function ExtremeShowPage() {
               </a>
             </div>
             <div style={{ marginTop: "32px", fontSize: "0.8rem", color: "rgba(255,255,255,0.4)" }}>
-              +91 98765 43210 · hello@extremeshow.in
+              +91 73573 67085 · hello@extremeshow.in
             </div>
           </div>
         </div>

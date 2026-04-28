@@ -35,7 +35,7 @@ export default function VLNavbar() {
       >
         <div className="max-w-[1280px] mx-auto px-6 md:px-8 h-full flex items-center justify-between gap-6">
 
-          {/* Wordmark — Ve white, la gold, exactly like image */}
+          {/* Wordmark - Ve white, la gold, exactly like image */}
           <Link
             href="/themes/vintage-luxury"
             className={`${playfair.className} font-black text-[1.55rem] tracking-[-0.02em] text-[#f0ece4] shrink-0`}
@@ -118,7 +118,7 @@ export default function VLNavbar() {
           className="absolute bottom-8 text-[0.72rem] text-[rgba(240,236,228,0.25)] text-center px-6"
           style={{ fontFamily: dmMono.style.fontFamily }}
         >
-          +91 98765 43210 · hello@nexwebit.in
+          +91 73573 67085 · hello@nexwebit.in
         </p>
       </div>
     </>

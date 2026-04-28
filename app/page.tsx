@@ -3,7 +3,7 @@ import { Hero } from "@/components/Hero";
 import { StatsBar } from "@/components/StatsBar";
 import { ClientLogos } from "@/components/ClientLogos";
 import { Services } from "@/components/Services";
-import { Portfolio } from "@/components/Portfolio";
+// import { Portfolio } from "@/components/Portfolio";
 import { Process } from "@/components/Process";
 import { Testimonials } from "@/components/Testimonials";
 import { CtaStrip } from "@/components/CtaStrip";
@@ -19,7 +19,7 @@ export default function Home() {
         <StatsBar />
         <ClientLogos />
         <Services />
-        <Portfolio />
+        {/* <Portfolio /> */}
         <Process />
         <Testimonials />
         <CtaStrip />

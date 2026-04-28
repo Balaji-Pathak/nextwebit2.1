@@ -162,7 +162,7 @@ export default function GAFooter() {
               <p style={{ fontSize: "0.7rem", letterSpacing: "0.2em", textTransform: "uppercase", color: ACCENT, fontWeight: 600, margin: 0 }}>Stay in the Loop</p>
             </div>
             <p style={{ fontSize: "0.9rem", color: TEXT, lineHeight: 1.7, marginBottom: 24 }}>
-              Creative drops, design inspiration and exclusive early access — straight to your inbox.
+              Creative drops, design inspiration and exclusive early access - straight to your inbox.
             </p>
             
             <form onSubmit={handleSubscribe} style={{ marginBottom: 24 }}>
@@ -239,7 +239,7 @@ export default function GAFooter() {
             <div style={{ display: "flex", flexDirection: "column", gap: 12, paddingTop: 8, borderTop: "1px solid rgba(255,255,255,0.06)" }}>
               {[
                 { icon: "📍", text: "Jaipur, Rajasthan" },
-                { icon: "📞", text: "+91 98765 43210" },
+                { icon: "📞", text: "+91 73573 67085" },
                 { icon: "✉️", text: "hello@nexwebit.in" }
               ].map(item => (
                 <div key={item.text} style={{ 
@@ -276,7 +276,7 @@ export default function GAFooter() {
               WebkitBackgroundClip: "text", 
               WebkitTextFillColor: "transparent",
               fontWeight: 600
-            }}>NextWebIt</span> 
+            }}>NextWebIT</span> 
             · nexwebit.in · All rights reserved.
           </p>
           <div style={{ display: "flex", gap: 28, flexWrap: "wrap" }}>

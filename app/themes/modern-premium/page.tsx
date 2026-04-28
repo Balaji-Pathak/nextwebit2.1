@@ -106,7 +106,7 @@ export default function ModernPremiumPage() {
       <MPNavbar />
 
       {/* ══════════════════════════════
-          HERO — Split layout with giant serif headline
+          HERO - Split layout with giant serif headline
       ══════════════════════════════ */}
       <section style={{ position: "relative", minHeight: "100vh", background: BG, backgroundImage: tex, display: "flex", alignItems: "center", overflow: "hidden", paddingTop: 72 }}>
         <div style={{ position: "absolute", left: 28, top: "50%", transform: "translateY(-50%)", opacity: 0.15, pointerEvents: "none" }}>
@@ -174,7 +174,7 @@ export default function ModernPremiumPage() {
       </section>
 
       {/* ══════════════════════════════
-          MARQUEE — fabric names scrolling
+          MARQUEE - fabric names scrolling
       ══════════════════════════════ */}
       <section style={{ background: GOLD, overflow: "hidden", padding: "18px 0", borderTop: `1px solid rgba(201,169,110,0.3)` }}>
         <div style={{ display: "flex", gap: 48, animation: "marquee 20s linear infinite", width: "max-content" }}>
@@ -189,7 +189,7 @@ export default function ModernPremiumPage() {
       </section>
 
       {/* ══════════════════════════════
-          NEW ARRIVALS — Product grid with hover overlay
+          NEW ARRIVALS - Product grid with hover overlay
       ══════════════════════════════ */}
       <section style={{ background: BG, padding: "100px 24px" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
@@ -240,7 +240,7 @@ export default function ModernPremiumPage() {
       </section>
 
       {/* ══════════════════════════════
-          EDITORIAL — Two full-bleed story cards
+          EDITORIAL - Two full-bleed story cards
       ══════════════════════════════ */}
       <section style={{ background: BG2, padding: "100px 24px" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
@@ -273,7 +273,7 @@ export default function ModernPremiumPage() {
       </section>
 
       {/* ══════════════════════════════
-          LOOKBOOK STRIP — horizontal masonry of photos
+          LOOKBOOK STRIP - horizontal masonry of photos
       ══════════════════════════════ */}
       <section style={{ background: BG, padding: "80px 0 0" }}>
         <div className="mp-reveal" style={{ textAlign: "center", padding: "0 24px 48px" }}>
@@ -302,7 +302,7 @@ export default function ModernPremiumPage() {
       </section>
 
       {/* ══════════════════════════════
-          CRAFT — Materials & heritage
+          CRAFT - Materials & heritage
       ══════════════════════════════ */}
       <section style={{ background: BG2, padding: "100px 24px" }}>
         <div style={{ maxWidth: 1280, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 72, alignItems: "center" }} className="mp-2col">
@@ -334,7 +334,7 @@ export default function ModernPremiumPage() {
       </section>
 
       {/* ══════════════════════════════
-          PRESS — As seen in
+          PRESS - As seen in
       ══════════════════════════════ */}
       <section style={{ background: BG3, padding: "72px 24px", borderTop: `1px solid ${BORDER}`, borderBottom: `1px solid ${BORDER}` }}>
         <div style={{ maxWidth: 1280, margin: "0 auto" }}>
@@ -351,7 +351,7 @@ export default function ModernPremiumPage() {
       </section>
 
       {/* ══════════════════════════════
-          BESPOKE SERVICE — Full width dark CTA
+          BESPOKE SERVICE - Full width dark CTA
       ══════════════════════════════ */}
       <section style={{ background: BG, padding: "120px 24px", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", width: 600, height: 600, borderRadius: "50%", background: "rgba(201,169,110,0.05)", filter: "blur(100px)", top: -200, right: -200, pointerEvents: "none" }} />
@@ -364,7 +364,7 @@ export default function ModernPremiumPage() {
             <span style={{ display: "block", color: CREAM }}>for you</span>
           </h2>
           <p className={dmSans.className} style={{ fontSize: "1rem", color: MUTED, lineHeight: 1.8, marginBottom: 44, fontWeight: 300 }}>
-            Book a private consultation with our master tailor. We measure, we design, we craft — a garment made exclusively for your body, your occasion, your story.
+            Book a private consultation with our master tailor. We measure, we design, we craft - a garment made exclusively for your body, your occasion, your story.
           </p>
           <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="#" style={{ padding: "15px 44px", background: GOLD, color: "#0f2419", borderRadius: 3, fontFamily: dmSans.style.fontFamily, fontWeight: 700, fontSize: "1rem", textDecoration: "none", letterSpacing: "0.02em", transition: "all 0.2s" }}

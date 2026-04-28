@@ -18,7 +18,7 @@ export function Portfolio() {
           Recent work from Rajasthan
         </h2>
         <p className="mt-4 max-w-2xl text-[15px] leading-[1.7] text-[#444]">
-          Har project local business ke liye custom — aapki pehchan, aapke customers ke liye asaan.
+          Har project local business ke liye custom - aapki pehchan, aapke customers ke liye asaan.
         </p>
 
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

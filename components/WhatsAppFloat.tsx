@@ -2,7 +2,7 @@ import { WHATSAPP_E164 } from "@/lib/site";
 
 export function WhatsAppFloat() {
   const href = `https://wa.me/${WHATSAPP_E164}?text=${encodeURIComponent(
-    "Namaste NextWebIt, mujhe website ke baare mein jaanna hai."
+    "Namaste NextWebIT, mujhe website ke baare mein jaanna hai."
   )}`;
 
   return (

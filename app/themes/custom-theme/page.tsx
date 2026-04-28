@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"], weight: ["300","400","500","600","700"
 const playfair = Playfair_Display({ subsets: ["latin"], weight: ["400","500","600","700"], style: ["normal","italic"] });
 
 const steps = [
-  { num: "01", icon: "💬", title: "Tell Us Your Vision", desc: "Share your business type, target audience, brand personality and any inspirations you already love. No technical knowledge needed — just describe your dream." },
+  { num: "01", icon: "💬", title: "Tell Us Your Vision", desc: "Share your business type, target audience, brand personality and any inspirations you already love. No technical knowledge needed - just describe your dream." },
   { num: "02", icon: "🎨", title: "Choose Your Style", desc: "We present you 3 mood boards with different colour palettes, font pairings and layout directions. You pick what resonates with you most." },
   { num: "03", icon: "✏️", title: "We Design For You", desc: "Our team builds a full design prototype based on your choices. You review it, give feedback and we refine until every pixel feels right." },
   { num: "04", icon: "🚀", title: "We Build & Launch", desc: "Once the design is approved, we develop the full website and launch it live within 5–7 working days." },
@@ -17,19 +17,19 @@ const steps = [
 
 const options = [
   { icon: "🌈", title: "Any Colour Palette", desc: "Your brand colours, your logo colours, or we pick the perfect palette based on your industry and mood." },
-  { icon: "✍️", title: "Any Font Style", desc: "Classic serif, modern sans-serif, playful rounded, elegant script — we match the typography to your brand voice." },
-  { icon: "📐", title: "Any Layout", desc: "Minimal clean, visually heavy, full-width, grid-based — whatever layout works best for your content." },
-  { icon: "✨", title: "Any Animation", desc: "Subtle hover effects, scroll reveals, bold entrance animations — we calibrate the motion to your personality." },
-  { icon: "📱", title: "Fully Responsive", desc: "Your custom design looks perfect on mobile, tablet and desktop — always." },
+  { icon: "✍️", title: "Any Font Style", desc: "Classic serif, modern sans-serif, playful rounded, elegant script - we match the typography to your brand voice." },
+  { icon: "📐", title: "Any Layout", desc: "Minimal clean, visually heavy, full-width, grid-based - whatever layout works best for your content." },
+  { icon: "✨", title: "Any Animation", desc: "Subtle hover effects, scroll reveals, bold entrance animations - we calibrate the motion to your personality." },
+  { icon: "📱", title: "Fully Responsive", desc: "Your custom design looks perfect on mobile, tablet and desktop - always." },
   { icon: "🔒", title: "Yours Forever", desc: "Your theme is built exclusively for you. No templates. No recycling. It belongs only to your business." },
 ];
 
 const faqs = [
-  { q: "How is a custom theme different from your other themes?", a: "Our other themes (Vintage Luxury, Modern Premium, etc.) are pre-designed styles you pick from. A custom theme is built from scratch around your specific brand — your colours, fonts, layout and personality. Nothing is borrowed from another design." },
-  { q: "Do I need to know about design or coding?", a: "Not at all. You just describe what you like — in simple words, in Hindi or English — and we handle everything. You only need to tell us about your business and your taste." },
+  { q: "How is a custom theme different from your other themes?", a: "Our other themes (Vintage Luxury, Modern Premium, etc.) are pre-designed styles you pick from. A custom theme is built from scratch around your specific brand - your colours, fonts, layout and personality. Nothing is borrowed from another design." },
+  { q: "Do I need to know about design or coding?", a: "Not at all. You just describe what you like - in simple words, in Hindi or English - and we handle everything. You only need to tell us about your business and your taste." },
   { q: "How long does a custom theme take?", a: "We typically deliver the design prototype within 3–4 days and the full live website within 7–10 working days after approval." },
   { q: "What if I don't like the first design?", a: "We offer unlimited revisions until you are 100% happy. We don't launch anything without your full approval." },
-  { q: "How much does a custom theme cost?", a: "Custom themes start at ₹8,999. The final price depends on the complexity and number of pages. We will give you a clear quote after the free consultation — no surprises." },
+  { q: "How much does a custom theme cost?", a: "Custom themes start at ₹8,999. The final price depends on the complexity and number of pages. We will give you a clear quote after the free consultation - no surprises." },
   { q: "Can I switch to a custom theme later?", a: "Absolutely. If you start with one of our standard themes and later want a fully custom one, we can upgrade you at any time." },
 ];
 
@@ -99,14 +99,14 @@ export default function CustomThemePage() {
         <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center", position: "relative", zIndex: 2 }}>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: BG2, border: `1px solid rgba(59,61,184,0.2)`, borderRadius: 999, padding: "5px 16px", marginBottom: 28 }}>
             <span style={{ width: 6, height: 6, borderRadius: "50%", background: IND, display: "inline-block" }} />
-            <span style={{ fontSize: "0.75rem", color: IND, fontWeight: 600, letterSpacing: "0.06em" }}>100% Bespoke — Built Just For You</span>
+            <span style={{ fontSize: "0.75rem", color: IND, fontWeight: 600, letterSpacing: "0.06em" }}>100% Bespoke - Built Just For You</span>
           </div>
           <h1 className={playfair.className} style={{ fontSize: "clamp(2.8rem,7vw,5.5rem)", fontWeight: 700, color: DARK, lineHeight: 1.05, margin: "0 0 20px", letterSpacing: "-0.02em" }}>
             Your website,<br />
             <span style={{ fontStyle: "italic", color: IND }}>your rules.</span>
           </h1>
           <p style={{ fontSize: "1.05rem", color: MUT, lineHeight: 1.85, maxWidth: 580, margin: "0 auto 40px" }}>
-            Not happy with the standard themes? Tell us exactly what you want and we will design and build a completely unique website from scratch — tailored to your business, your brand and your customers.
+            Not happy with the standard themes? Tell us exactly what you want and we will design and build a completely unique website from scratch - tailored to your business, your brand and your customers.
           </p>
           <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="#consult-form" style={{ padding: "14px 36px", background: IND, color: "#fff", borderRadius: 999, fontWeight: 700, fontSize: "0.95rem", textDecoration: "none", transition: "all .2s" }}
@@ -150,7 +150,7 @@ export default function CustomThemePage() {
             ))}
           </div>
           <p style={{ textAlign: "center", fontSize: "0.85rem", color: SOFTM, marginTop: 20 }}>
-            ✦ Or bring your own inspiration — a photo, a website you love, a colour you like. We work with anything.
+            ✦ Or bring your own inspiration - a photo, a website you love, a colour you like. We work with anything.
           </p>
         </div>
       </section>
@@ -267,7 +267,7 @@ export default function CustomThemePage() {
               Let&apos;s start building<br />
               <span style={{ fontStyle: "italic", color: IND }}>your dream website</span>
             </h2>
-            <p style={{ fontSize: "0.9rem", color: MUT, margin: 0 }}>Fill this form and we will call you within 24 hours to discuss your vision — for free, no commitment.</p>
+            <p style={{ fontSize: "0.9rem", color: MUT, margin: 0 }}>Fill this form and we will call you within 24 hours to discuss your vision - for free, no commitment.</p>
           </div>
 
           {sent ? (
@@ -296,7 +296,7 @@ export default function CustomThemePage() {
               </div>
               <div style={{ marginBottom: 16 }}>
                 <label style={{ fontSize: "0.72rem", fontWeight: 600, color: MUT, letterSpacing: "0.06em", textTransform: "uppercase", display: "block", marginBottom: 8 }}>Phone / WhatsApp *</label>
-                <input value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })} placeholder="+91 98765 43210" style={inputStyle}
+                <input value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })} placeholder="+91 73573 67085" style={inputStyle}
                   onFocus={e => (e.currentTarget.style.borderColor = IND)}
                   onBlur={e => (e.currentTarget.style.borderColor = "rgba(59,61,184,0.18)")}
                 />

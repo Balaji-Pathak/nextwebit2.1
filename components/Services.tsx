@@ -2,7 +2,7 @@ const services = [
   {
     icon: "🏪",
     title: "Business Website",
-    desc: "Single-page ya multi-page site — products, timings, map, call buttons. Mobile pe perfect.",
+    desc: "Single-page ya multi-page site - products, timings, map, call buttons. Mobile pe perfect.",
     price: "₹4,999",
   },
   {
@@ -14,25 +14,25 @@ const services = [
   {
     icon: "🏥",
     title: "Clinic Website",
-    desc: "Doctor profile, timings, services, appointment CTA — patients ko bharosa milta hai.",
+    desc: "Doctor profile, timings, services, appointment CTA - patients ko bharosa milta hai.",
     price: "₹6,999",
   },
   {
     icon: "🍽️",
     title: "Restaurant Page",
-    desc: "Menu, photos, location, table booking hint — dhaba aur restaurant dono ke liye.",
+    desc: "Menu, photos, location, table booking hint - dhaba aur restaurant dono ke liye.",
     price: "₹5,999",
   },
   {
     icon: "📍",
     title: "Google My Business",
-    desc: "Profile setup / optimize, photos, categories — local search mein upar aane mein madad.",
+    desc: "Profile setup / optimize, photos, categories - local search mein upar aane mein madad.",
     price: "₹1,499",
   },
   {
     icon: "🔧",
     title: "Maintenance",
-    desc: "Monthly updates, small text changes, backup — tension-free chalta rahe.",
+    desc: "Monthly updates, small text changes, backup - tension-free chalta rahe.",
     price: "₹499/month",
   },
 ];
@@ -48,7 +48,7 @@ export function Services() {
           Services for every local business
         </h2>
         <p className="mt-4 max-w-2xl text-[15px] leading-[1.7] text-[#444]">
-          Sab packages clear pricing ke sath — pehle free visit, phir aap decide karein. Hum
+          Sab packages clear pricing ke sath - pehle free visit, phir aap decide karein. Hum
           Rajasthan ke hisaab se simple, tez aur reliable websites banate hain.
         </p>
 
