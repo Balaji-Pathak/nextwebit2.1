@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import {Navbar} from "@/components/Navbar";
-import {Footer} from "@/components/Footer";
+import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
 
 const contactMethods = [
   {
@@ -96,9 +96,10 @@ export default function ContactPage() {
     const obs = new IntersectionObserver(
       (entries) =>
         entries.forEach((e) => {
-          if (e.isIntersecting) (e.target as HTMLElement).classList.add("cp-visible");
+          if (e.isIntersecting)
+            (e.target as HTMLElement).classList.add("cp-visible");
         }),
-      { threshold: 0.08 }
+      { threshold: 0.08 },
     );
     els.forEach((el) => obs.observe(el));
     return () => obs.disconnect();
@@ -130,12 +131,14 @@ export default function ContactPage() {
           </span>
 
           <h1 className="text-white text-[clamp(2.4rem,6vw,4.5rem)] font-bold leading-[1.05] tracking-tight mb-6">
-            Let&apos;s talk about<br />
+            Let&apos;s talk about
+            <br />
             <span className="text-[#FFD700] italic">your business</span>
           </h1>
 
           <p className="text-white/70 text-[15px] leading-[1.8] max-w-xl mx-auto mb-10">
-            Book a free visit, ask a question, or just say hello. We are a real team based in Jaipur - not a chatbot. We will get back to you fast.
+            Book a free visit, ask a question, or just say hello. We are a real
+            team based in Jaipur - not a chatbot. We will get back to you fast.
           </p>
 
           <div className="flex flex-wrap gap-3 justify-center">
@@ -167,8 +170,12 @@ export default function ContactPage() {
                 style={{ transitionDelay: `${i * 70}ms` }}
               >
                 <span className="text-3xl block mb-4">{m.icon}</span>
-                <p className="text-[11px] font-semibold uppercase tracking-widest text-[#888] mb-1">{m.title}</p>
-                <p className="text-[#0A1F5C] font-bold text-[0.95rem] mb-1 break-all">{m.value}</p>
+                <p className="text-[11px] font-semibold uppercase tracking-widest text-[#888] mb-1">
+                  {m.title}
+                </p>
+                <p className="text-[#0A1F5C] font-bold text-[0.95rem] mb-1 break-all">
+                  {m.value}
+                </p>
                 <p className="text-gray-400 text-xs mb-4">{m.sub}</p>
                 <Link
                   href={m.href}
@@ -187,24 +194,31 @@ export default function ContactPage() {
       <section id="contact-form" className="bg-white py-20 px-6 md:px-12">
         <div className="max-w-5xl mx-auto">
           <div className="cp-rv text-center mb-14">
-            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FF5722] mb-3">Book a free visit</p>
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FF5722] mb-3">
+              Book a free visit
+            </p>
             <h2 className="text-[#0A1F5C] text-[clamp(1.8rem,4vw,3rem)] font-bold leading-tight tracking-tight">
-              Tell us about your <span className="italic text-[#FF5722]">project</span>
+              Tell us about your{" "}
+              <span className="italic text-[#FF5722]">project</span>
             </h2>
             <p className="text-gray-500 text-sm mt-3 max-w-md mx-auto">
-              Fill this form and our team will call you within 24 hours - free consultation, no commitment.
+              Fill this form and our team will call you within 24 hours - free
+              consultation, no commitment.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-10 items-start">
-
             {/* ── FORM ── */}
             {sent ? (
               <div className="cp-rv bg-[#F4F6FB] rounded-2xl border-2 border-[#0A1F5C] p-12 text-center">
                 <span className="text-6xl block mb-5">🎉</span>
-                <h3 className="text-[#0A1F5C] font-bold text-2xl mb-3">Message Received!</h3>
+                <h3 className="text-[#0A1F5C] font-bold text-2xl mb-3">
+                  Message Received!
+                </h3>
                 <p className="text-gray-500 text-sm leading-relaxed mb-6">
-                  Thank you! Our team will call or WhatsApp you within 24 hours to discuss your project. Get ready to take your business online!
+                  Thank you! Our team will call or WhatsApp you within 24 hours
+                  to discuss your project. Get ready to take your business
+                  online!
                 </p>
                 <Link
                   href="/"
@@ -221,7 +235,9 @@ export default function ContactPage() {
                     <label className={labelCls}>Your Name *</label>
                     <input
                       value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      onChange={(e) =>
+                        setForm({ ...form, name: e.target.value })
+                      }
                       placeholder="Ramesh Sharma"
                       className={inputCls}
                     />
@@ -230,7 +246,9 @@ export default function ContactPage() {
                     <label className={labelCls}>Phone / WhatsApp *</label>
                     <input
                       value={form.phone}
-                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                      onChange={(e) =>
+                        setForm({ ...form, phone: e.target.value })
+                      }
                       placeholder="+91 73573 67085"
                       className={inputCls}
                     />
@@ -243,7 +261,9 @@ export default function ContactPage() {
                     <label className={labelCls}>Email (optional)</label>
                     <input
                       value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      onChange={(e) =>
+                        setForm({ ...form, email: e.target.value })
+                      }
                       placeholder="you@example.com"
                       className={inputCls}
                     />
@@ -252,7 +272,9 @@ export default function ContactPage() {
                     <label className={labelCls}>Business Name</label>
                     <input
                       value={form.business}
-                      onChange={(e) => setForm({ ...form, business: e.target.value })}
+                      onChange={(e) =>
+                        setForm({ ...form, business: e.target.value })
+                      }
                       placeholder="Sharma Jewellers"
                       className={inputCls}
                     />
@@ -314,10 +336,14 @@ export default function ContactPage() {
 
                 {/* Message */}
                 <div className="mb-8">
-                  <label className={labelCls}>Anything else you want to tell us?</label>
+                  <label className={labelCls}>
+                    Anything else you want to tell us?
+                  </label>
                   <textarea
                     value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
+                    onChange={(e) =>
+                      setForm({ ...form, message: e.target.value })
+                    }
                     rows={4}
                     placeholder="Describe your business, what you sell, any special requirements... Hindi mein bhi likh sakte hain!"
                     className={`${inputCls} resize-y min-h-[100px]`}
@@ -332,28 +358,44 @@ export default function ContactPage() {
                 </button>
 
                 <p className="text-center text-xs text-gray-400 mt-3">
-                  We will call or WhatsApp you within 24 hours · No commitment required
+                  We will call or WhatsApp you within 24 hours · No commitment
+                  required
                 </p>
               </div>
             )}
 
             {/* ── SIDEBAR ── */}
             <div className="flex flex-col gap-5">
-
               {/* Why us card */}
               <div className="cp-rv bg-[#0A1F5C] rounded-2xl p-7 text-white">
-                <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FFD700] mb-4">Why NextWebIT?</p>
+                <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FFD700] mb-4">
+                  Why NextWebIT?
+                </p>
                 <ul className="flex flex-col gap-4">
                   {[
-                    { icon: "🏪", text: "We visit your shop - anywhere in Rajasthan" },
+                    {
+                      icon: "🏪",
+                      text: "We visit your shop - anywhere in Rajasthan",
+                    },
                     { icon: "⚡", text: "Website live in 5 working days" },
                     { icon: "💰", text: "Transparent pricing from ₹4,999" },
-                    { icon: "🔁", text: "Free changes until you are 100% happy" },
+                    {
+                      icon: "🔁",
+                      text: "Free changes until you are 100% happy",
+                    },
                     { icon: "📲", text: "WhatsApp support after launch" },
-                    { icon: "🌟", text: "4.9★ Google rating - 120+ happy clients" },
+                    {
+                      icon: "🌟",
+                      text: "4.9★ Google rating - 120+ happy clients",
+                    },
                   ].map((item) => (
-                    <li key={item.text} className="flex items-start gap-3 text-sm text-white/80 leading-snug">
-                      <span className="text-base shrink-0 mt-0.5">{item.icon}</span>
+                    <li
+                      key={item.text}
+                      className="flex items-start gap-3 text-sm text-white/80 leading-snug"
+                    >
+                      <span className="text-base shrink-0 mt-0.5">
+                        {item.icon}
+                      </span>
                       {item.text}
                     </li>
                   ))}
@@ -362,35 +404,65 @@ export default function ContactPage() {
 
               {/* Working hours */}
               <div className="cp-rv bg-[#F4F6FB] rounded-2xl p-6 border border-[#0A1F5C]/8">
-                <p className="text-[11px] font-semibold uppercase tracking-widest text-[#888] mb-4">Working Hours</p>
+                <p className="text-[11px] font-semibold uppercase tracking-widest text-[#888] mb-4">
+                  Working Hours
+                </p>
                 <div className="flex flex-col gap-3">
                   {[
                     { day: "Mon – Fri", time: "9:00 AM – 7:00 PM" },
-                    { day: "Saturday",  time: "10:00 AM – 5:00 PM" },
-                    { day: "Sunday",    time: "Closed (WhatsApp only)" },
+                    { day: "Saturday", time: "10:00 AM – 5:00 PM" },
+                    { day: "Sunday", time: "Closed (WhatsApp only)" },
                   ].map((r) => (
-                    <div key={r.day} className="flex justify-between items-center text-sm">
-                      <span className="text-[#0A1F5C] font-medium">{r.day}</span>
+                    <div
+                      key={r.day}
+                      className="flex justify-between items-center text-sm"
+                    >
+                      <span className="text-[#0A1F5C] font-medium">
+                        {r.day}
+                      </span>
                       <span className="text-gray-500">{r.time}</span>
                     </div>
                   ))}
                 </div>
                 <div className="mt-4 pt-4 border-t border-[#0A1F5C]/10">
                   <p className="text-xs text-gray-400">
-                    For urgent queries, WhatsApp is the fastest way to reach us - even on weekends.
+                    For urgent queries, WhatsApp is the fastest way to reach us
+                    - even on weekends.
                   </p>
                 </div>
               </div>
 
               {/* Social links */}
               <div className="cp-rv bg-white rounded-2xl p-6 border border-[#0A1F5C]/8">
-                <p className="text-[11px] font-semibold uppercase tracking-widest text-[#888] mb-4">Follow Us</p>
+                <p className="text-[11px] font-semibold uppercase tracking-widest text-[#888] mb-4">
+                  Follow Us
+                </p>
                 <div className="flex gap-3 flex-wrap">
                   {[
-                    { label: "Instagram", short: "ig", href: "#", color: "bg-gradient-to-br from-pink-500 to-orange-400" },
-                    { label: "Facebook",  short: "fb", href: "#", color: "bg-blue-600" },
-                    { label: "YouTube",   short: "yt", href: "#", color: "bg-red-500" },
-                    { label: "LinkedIn",  short: "li", href: "#", color: "bg-blue-700" },
+                    {
+                      label: "Instagram",
+                      short: "ig",
+                      href: "#",
+                      color: "bg-gradient-to-br from-pink-500 to-orange-400",
+                    },
+                    {
+                      label: "Facebook",
+                      short: "fb",
+                      href: "#",
+                      color: "bg-blue-600",
+                    },
+                    {
+                      label: "YouTube",
+                      short: "yt",
+                      href: "#",
+                      color: "bg-red-500",
+                    },
+                    {
+                      label: "LinkedIn",
+                      short: "li",
+                      href: "#",
+                      color: "bg-blue-700",
+                    },
                   ].map((s) => (
                     <Link
                       key={s.short}
@@ -402,7 +474,9 @@ export default function ContactPage() {
                     </Link>
                   ))}
                 </div>
-                <p className="text-xs text-gray-400 mt-3">See our latest work and client results on Instagram</p>
+                <p className="text-xs text-gray-400 mt-3">
+                  See our latest work and client results on Instagram
+                </p>
               </div>
             </div>
           </div>
@@ -413,18 +487,28 @@ export default function ContactPage() {
       <section className="bg-[#F4F6FB] py-16 px-6 md:px-12">
         <div className="max-w-5xl mx-auto">
           <div className="cp-rv text-center mb-10">
-            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FF5722] mb-3">Find us</p>
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FF5722] mb-3">
+              Find us
+            </p>
             <h2 className="text-[#0A1F5C] text-[clamp(1.8rem,4vw,2.8rem)] font-bold leading-tight tracking-tight">
-              Based in <span className="italic text-[#FF5722]">Jaipur, Rajasthan</span>
+              Based in{" "}
+              <span className="italic text-[#FF5722]">Jaipur, Rajasthan</span>
             </h2>
-            <p className="text-gray-500 text-sm mt-3">We operate across Jaipur, Jodhpur, Ajmer, Kota and surrounding areas.</p>
+            <p className="text-gray-500 text-sm mt-3">
+              We operate across Jaipur, Jodhpur, Ajmer, Kota and surrounding
+              areas.
+            </p>
           </div>
 
           {/* Map embed placeholder - replace src with real Google Maps embed URL */}
           <div className="cp-rv rounded-2xl overflow-hidden border border-[#0A1F5C]/10 shadow-sm aspect-[16/6] bg-[#EEF0FF] flex items-center justify-center relative">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.54172608755!2d75.76676549999999!3d26.8545246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db51e9b46a8d9%3A0xe051803a13e605c7!2sMansarover%20Plaza!5e0!3m2!1sen!2sin!4v1778319712473!5m2!1sen!2sin" 
-             className="w-full h-full border-0"
-              allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.54172608755!2d75.76676549999999!3d26.8545246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db51e9b46a8d9%3A0xe051803a13e605c7!2sMansarover%20Plaza!5e0!3m2!1sen!2sin!4v1778319712473!5m2!1sen!2sin"
+              className="w-full h-full border-0"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
             {/* <div className="text-center z-10">
               <span className="text-5xl block mb-3">📍</span>
               <p className="text-[#0A1F5C] font-bold text-lg mb-1">Jaipur, Rajasthan</p>
@@ -447,20 +531,29 @@ export default function ContactPage() {
       <section className="bg-white py-20 px-6 md:px-12">
         <div className="max-w-2xl mx-auto">
           <div className="cp-rv text-center mb-12">
-            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FF5722] mb-3">Quick answers</p>
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FF5722] mb-3">
+              Quick answers
+            </p>
             <h2 className="text-[#0A1F5C] text-[clamp(1.8rem,4vw,2.8rem)] font-bold leading-tight tracking-tight">
-              Before you <span className="italic text-[#FF5722]">reach out</span>
+              Before you{" "}
+              <span className="italic text-[#FF5722]">reach out</span>
             </h2>
           </div>
 
           <div className="flex flex-col">
             {faqs.map((f, i) => (
-              <div key={i} className="cp-rv border-b border-[#0A1F5C]/10" style={{ transitionDelay: `${i * 50}ms` }}>
+              <div
+                key={i}
+                className="cp-rv border-b border-[#0A1F5C]/10"
+                style={{ transitionDelay: `${i * 50}ms` }}
+              >
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   className="w-full flex justify-between items-center gap-4 py-5 text-left"
                 >
-                  <span className="text-[#0A1F5C] font-semibold text-[0.95rem] leading-snug">{f.q}</span>
+                  <span className="text-[#0A1F5C] font-semibold text-[0.95rem] leading-snug">
+                    {f.q}
+                  </span>
                   <span
                     className={`text-2xl text-[#FF5722] shrink-0 transition-transform duration-300 inline-block ${
                       openFaq === i ? "rotate-45" : "rotate-0"
@@ -487,13 +580,16 @@ export default function ContactPage() {
         <div className="pointer-events-none absolute -top-16 left-1/3 h-72 w-72 rounded-full bg-[#FF5722]/10 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-12 right-1/4 h-56 w-56 rounded-full bg-[#FFD700]/8 blur-3xl" />
         <div className="relative z-10 max-w-2xl mx-auto cp-rv">
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FFD700] mb-5">Still thinking?</p>
+          <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FFD700] mb-5">
+            Still thinking?
+          </p>
           <h2 className="text-white text-[clamp(2rem,5vw,3.8rem)] font-bold leading-tight tracking-tight mb-4">
             Book a free visit -<br />
             <span className="text-[#FFD700] italic">we come to you</span>
           </h2>
           <p className="text-white/65 text-[15px] leading-relaxed mb-10 max-w-md mx-auto">
-            No forms, no pressure. Just a conversation at your shop over chai. Let&apos;s talk about growing your business online.
+            No forms, no pressure. Just a conversation at your shop over chai.
+            Let&apos;s talk about growing your business online.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
@@ -510,7 +606,9 @@ export default function ContactPage() {
               WhatsApp Us
             </Link>
           </div>
-          <p className="text-white/40 text-xs mt-6 tracking-wide">+91 73573 67085 · hello@nexwebit.in · Jaipur, Rajasthan</p>
+          <p className="text-white/40 text-xs mt-6 tracking-wide">
+            +91 73573 67085 · hello@nexwebit.in · Jaipur, Rajasthan
+          </p>
         </div>
       </section>
 
