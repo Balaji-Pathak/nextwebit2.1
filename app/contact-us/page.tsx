@@ -422,7 +422,10 @@ export default function ContactPage() {
 
           {/* Map embed placeholder - replace src with real Google Maps embed URL */}
           <div className="cp-rv rounded-2xl overflow-hidden border border-[#0A1F5C]/10 shadow-sm aspect-[16/6] bg-[#EEF0FF] flex items-center justify-center relative">
-            <div className="text-center z-10">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.54172608755!2d75.76676549999999!3d26.8545246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db51e9b46a8d9%3A0xe051803a13e605c7!2sMansarover%20Plaza!5e0!3m2!1sen!2sin!4v1778319712473!5m2!1sen!2sin" 
+             className="w-full h-full border-0"
+              allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+            {/* <div className="text-center z-10">
               <span className="text-5xl block mb-3">📍</span>
               <p className="text-[#0A1F5C] font-bold text-lg mb-1">Jaipur, Rajasthan</p>
               <p className="text-gray-500 text-sm mb-4">Replace this with your Google Maps embed</p>
@@ -433,7 +436,7 @@ export default function ContactPage() {
               >
                 Open in Google Maps →
               </Link>
-            </div>
+            </div> */}
             {/* To add real map: replace this div with:
                 <iframe src="YOUR_GOOGLE_MAPS_EMBED_URL" className="w-full h-full" loading="lazy" /> */}
           </div>
