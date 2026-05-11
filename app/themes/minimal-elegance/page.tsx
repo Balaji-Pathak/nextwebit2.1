@@ -128,6 +128,7 @@ export default function MinimalElegancePage() {
   }, []);
 
   return (
+    <>
     <div ref={pageRef} style={{ background: CREAM, cursor: "none", overflowX: "hidden", fontFamily: dmSans.style.fontFamily }}>
       <MENavbar />
 
@@ -425,7 +426,7 @@ export default function MinimalElegancePage() {
 
       <MEFooter />
 
-      <style>{`
+      <style jsx>{`
         @keyframes scrollPulse { 0%,100%{opacity:.5;transform:scaleY(1)} 50%{opacity:1;transform:scaleY(.6)} }
         ::-webkit-scrollbar{width:5px}
         ::-webkit-scrollbar-track{background:${CREAM}}
@@ -440,5 +441,6 @@ export default function MinimalElegancePage() {
         }
       `}</style>
     </div>
+    </>
   );
 }
