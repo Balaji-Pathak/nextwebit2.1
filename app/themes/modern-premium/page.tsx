@@ -6,8 +6,8 @@ import MPNavbar from "./MPNavbar";
 import MPFooter from "./MPFooter";
 import { Cormorant_Garamond, DM_Sans, DM_Mono } from "next/font/google";
 
-const cormorant = Cormorant_Garamond({ subsets: ["latin"], weight: ["400","500","600","700"], style: ["normal","italic"] });
-const dmSans = DM_Sans({ subsets: ["latin"], weight: ["300","400","500"] });
+const cormorant = Cormorant_Garamond({ subsets: ["latin"], weight: ["400", "500", "600", "700"], style: ["normal", "italic"] });
+const dmSans = DM_Sans({ subsets: ["latin"], weight: ["300", "400", "500"] });
 const dmMono = DM_Mono({ subsets: ["latin"], weight: ["400"] });
 
 const GOLD = "#c9a96e";
@@ -102,127 +102,268 @@ export default function ModernPremiumPage() {
 
   return (
     <>
-        <style jsx>{`
-     @media (max-width: 1024px) {
+      <style jsx>{`
 
-        .mp-hero-grid{
-          grid-template-columns:1fr !important;
-          gap:50px !important;
-          padding:50px 40px !important;
-          text-align:center;
+        /* =========================
+            HERO SECTION
+        ========================== */
+
+        @media (max-width: 1024px) {
+
+          .mp-hero-section{
+            min-height:auto !important;
+          }
+
+          .mp-hero-grid{
+            grid-template-columns:1fr !important;
+            gap:50px !important;
+            padding:50px 40px !important;
+            text-align:center;
+          }
+
+          .mp-hero-content{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+          }
+
+          .mp-hero-description{
+            max-width:100% !important;
+          }
+
+          .mp-hero-title{
+            font-size:clamp(3rem,10vw,5.5rem) !important;
+            line-height:1 !important;
+          }
+
+          .mp-hero-image-wrapper{
+            justify-content:center !important;
+          }
+
+          .mp-hero-vertical-text{
+            right:-8px !important;
+          }
+
         }
 
-        .mp-hero-grid > div:first-child{
-          display:flex;
-          flex-direction:column;
-          align-items:center;
+        @media (max-width: 768px) {
+
+          .mp-hero-section{
+            min-height:auto !important;
+            padding-top:90px !important;
+            padding-bottom:120px !important;
+          }
+
+          .mp-hero-grid{
+            padding:40px 20px !important;
+            gap:40px !important;
+          }
+
+          .mp-hero-title{
+            font-size:clamp(2.4rem,12vw,4rem) !important;
+            margin-bottom:24px !important;
+          }
+
+          .mp-hero-description{
+            font-size:0.9rem !important;
+          }
+
+          .mp-hero-buttons{
+            width:100%;
+            flex-direction:column;
+          }
+
+          .mp-hero-btn{
+            width:100%;
+            text-align:center;
+          }
+
+          .mp-hero-image-wrapper{
+            width:100%;
+          }
+
+          .mp-hero-image-card{
+            max-width:100% !important;
+          }
+
+          .mp-hero-vertical-text{
+            display:none;
+          }
+
+          .mp-hero-side-shape-left,
+          .mp-hero-side-shape-right{
+            display:none;
+          }
+
+          .mp-hero-scroll{
+            bottom:20px !important;
+          }
+
         }
 
-        .mp-hero-grid p{
-          max-width:100% !important;
+        @media (max-width: 480px){
+
+          .mp-hero-grid{
+            padding:32px 16px !important;
+          }
+
+          .mp-hero-title{
+            font-size:2.5rem !important;
+          }
+
+          .mp-hero-description{
+            line-height:1.7 !important;
+          }
+
+          .mp-hero-product-card{
+            left:12px !important;
+            right:12px !important;
+            bottom:12px !important;
+            padding:12px !important;
+            flex-direction:column;
+            gap:10px;
+            text-align:center;
+          }
+
+          .mp-hero-image-bg{
+            top:12px !important;
+            left:12px !important;
+            right:-12px !important;
+            bottom:-12px !important;
+          }
+
         }
 
-        .mp-hero-grid h1{
-          font-size:clamp(3rem,10vw,5.5rem) !important;
-          line-height:1 !important;
+
+
+        /* =========================
+            LOOKBOOK SECTION
+        ========================== */
+
+        @media (max-width: 1200px){
+
+          .mp-lookbook-gallery{
+            height:360px !important;
+          }
+
         }
 
-        .mp-hero-grid > div:last-child{
-          justify-content:center !important;
+        @media (max-width: 992px){
+
+          .mp-lookbook-section{
+            padding-top:60px !important;
+          }
+
+          .mp-lookbook-header{
+            padding:0 20px 40px !important;
+          }
+
+          .mp-lookbook-title{
+            font-size:clamp(2rem,7vw,3.2rem) !important;
+          }
+
+          .mp-lookbook-gallery{
+            height:320px !important;
+            gap:3px !important;
+          }
+
+          .mp-lookbook-item{
+            flex:1 !important;
+          }
+
         }
 
-        .mp-hero-grid > div:last-child > div:last-child{
-          right:-8px !important;
-        }
-      }
+        @media (max-width: 768px){
 
-      @media (max-width: 768px) {
+          .mp-lookbook-section{
+            padding-top:50px !important;
+          }
 
-        section{
-          min-height:auto !important;
-          padding-top:90px !important;
-          padding-bottom:120px !important;
-        }
+          .mp-lookbook-header{
+            padding:0 16px 32px !important;
+          }
 
-        .mp-hero-grid{
-          padding:40px 20px !important;
-          gap:40px !important;
-        }
+          .mp-lookbook-subtitle{
+            font-size:0.62rem !important;
+            letter-spacing:0.16em !important;
+            margin-bottom:8px !important;
+          }
 
-        .mp-hero-grid h1{
-          font-size:clamp(2.4rem,12vw,4rem) !important;
-          margin-bottom:24px !important;
-        }
+          .mp-lookbook-title{
+            font-size:2.4rem !important;
+            line-height:1.1 !important;
+          }
 
-        .mp-hero-grid p{
-          font-size:0.9rem !important;
-        }
+          .mp-lookbook-gallery{
+            overflow-x:auto !important;
+            overflow-y:hidden !important;
+            height:280px !important;
+            padding-bottom:6px !important;
+            scroll-snap-type:x mandatory;
+            -webkit-overflow-scrolling:touch;
+          }
 
-        .mp-hero-grid a{
-          width:100%;
-          text-align:center;
-        }
+          .mp-lookbook-gallery::-webkit-scrollbar{
+            display:none;
+          }
 
-        .mp-hero-grid > div:first-child > div:nth-child(4){
-          width:100%;
-          flex-direction:column;
-        }
+          .mp-lookbook-item{
+            min-width:220px !important;
+            flex:none !important;
+            scroll-snap-align:center;
+          }
 
-        .mp-hero-grid > div:last-child{
-          width:100%;
-        }
+          .mp-lookbook-featured{
+            min-width:280px !important;
+          }
 
-        .mp-hero-grid > div:last-child > div:nth-child(2){
-          max-width:100% !important;
-        }
+          .mp-lookbook-footer{
+            padding:28px 16px 40px !important;
+          }
 
-        .mp-hero-grid > div:last-child > div:last-child{
-          display:none;
-        }
+          .mp-lookbook-btn{
+            width:100% !important;
+            text-align:center !important;
+            padding:14px 20px !important;
+          }
 
-        section > div:first-child,
-        section > div:nth-child(2){
-          display:none;
-        }
-
-        section > div:last-child{
-          bottom:20px !important;
-        }
-      }
-
-      @media (max-width: 480px){
-
-        .mp-hero-grid{
-          padding:32px 16px !important;
         }
 
-        .mp-hero-grid h1{
-          font-size:2.5rem !important;
+        @media (max-width: 480px){
+
+          .mp-lookbook-section{
+            padding-top:40px !important;
+          }
+
+          .mp-lookbook-title{
+            font-size:2rem !important;
+          }
+
+          .mp-lookbook-gallery{
+            height:240px !important;
+            gap:2px !important;
+          }
+
+          .mp-lookbook-item{
+            min-width:180px !important;
+          }
+
+          .mp-lookbook-featured{
+            min-width:220px !important;
+          }
+
+          .mp-lookbook-footer{
+            padding:24px 14px 36px !important;
+          }
+
+          .mp-lookbook-btn{
+            font-size:0.85rem !important;
+          }
+
         }
 
-        .mp-hero-grid p{
-          line-height:1.7 !important;
-        }
+      `}</style>
 
-        .mp-hero-grid > div:last-child > div:nth-child(2) > div{
-          left:12px !important;
-          right:12px !important;
-          bottom:12px !important;
-          padding:12px !important;
-          flex-direction:column;
-          gap:10px;
-          text-align:center;
-        }
-
-        .mp-hero-grid > div:last-child > div:first-child{
-          top:12px !important;
-          left:12px !important;
-          right:-12px !important;
-          bottom:-12px !important;
-        }
-      }
-    `}</style>
-    
       <div ref={pageRef} style={{ background: BG, cursor: "none", overflowX: "hidden" }}>
         <div style={noise} />
         <MPNavbar />
@@ -232,10 +373,10 @@ export default function ModernPremiumPage() {
         ══════════════════════════════ */}
         <section style={{ position: "relative", minHeight: "100vh", background: BG, backgroundImage: tex, display: "flex", alignItems: "center", overflow: "hidden", paddingTop: 72 }}>
           <div style={{ position: "absolute", left: 28, top: "50%", transform: "translateY(-50%)", opacity: 0.15, pointerEvents: "none" }}>
-            <svg width="36" height="110" viewBox="0 0 36 110" fill="none"><path d="M28 6 Q6 6 6 28 L6 82 Q6 104 28 104" stroke={CREAM} strokeWidth="1.2" fill="none" strokeLinecap="round"/></svg>
+            <svg width="36" height="110" viewBox="0 0 36 110" fill="none"><path d="M28 6 Q6 6 6 28 L6 82 Q6 104 28 104" stroke={CREAM} strokeWidth="1.2" fill="none" strokeLinecap="round" /></svg>
           </div>
           <div style={{ position: "absolute", right: 28, top: "50%", transform: "translateY(-50%)", opacity: 0.15, pointerEvents: "none" }}>
-            <svg width="36" height="110" viewBox="0 0 36 110" fill="none"><path d="M8 6 Q30 6 30 28 L30 82 Q30 104 8 104" stroke={CREAM} strokeWidth="1.2" fill="none" strokeLinecap="round"/></svg>
+            <svg width="36" height="110" viewBox="0 0 36 110" fill="none"><path d="M8 6 Q30 6 30 28 L30 82 Q30 104 8 104" stroke={CREAM} strokeWidth="1.2" fill="none" strokeLinecap="round" /></svg>
           </div>
 
           <div style={{ maxWidth: 1280, margin: "0 auto", padding: "60px 64px", width: "100%", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }} className="mp-hero-grid">
@@ -261,7 +402,7 @@ export default function ModernPremiumPage() {
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: 16, paddingTop: 24, borderTop: `1px solid ${BORDER}` }}>
                 <div style={{ display: "flex" }}>
-                  {["PS","MA","KR"].map((init, i) => (
+                  {["PS", "MA", "KR"].map((init, i) => (
                     <div key={init} style={{ width: 32, height: 32, borderRadius: "50%", background: BG3, border: `2px solid ${BG}`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10, color: GOLD, fontFamily: dmMono.style.fontFamily, marginLeft: i === 0 ? 0 : -10 }}>{init}</div>
                   ))}
                 </div>
