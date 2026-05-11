@@ -425,7 +425,7 @@ export default function MinimalElegancePage() {
 
       <MEFooter />
 
-      {/* <style>{`
+      <style>{`
         @keyframes scrollPulse { 0%,100%{opacity:.5;transform:scaleY(1)} 50%{opacity:1;transform:scaleY(.6)} }
         ::-webkit-scrollbar{width:5px}
         ::-webkit-scrollbar-track{background:${CREAM}}
@@ -465,7 +465,7 @@ export default function MinimalElegancePage() {
         @media(max-width:560px){
           .me-3col{grid-template-columns:1fr!important;}
         }
-      `}</style> */}
+      `}</style>
     
     </div>
   );
