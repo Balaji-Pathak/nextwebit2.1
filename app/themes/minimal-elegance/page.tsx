@@ -416,7 +416,7 @@ export default function MinimalElegancePage() {
             >
               <Image src={img} alt="" fill sizes="(max-width: 900px) 50vw, 20vw" style={{ objectFit: "cover", transition: "transform 0.5s ease" }} />
               <div className="ig-overlay" style={{ position: "absolute", inset: 0, background: "rgba(44,62,45,0.45)", display: "flex", alignItems: "center", justifyContent: "center", opacity: 0, transition: "opacity 0.3s" }}>
-                <span style={{ color: CREAM, fontSize: 22 }}>Hello</span>
+                <span style={{ color: CREAM, fontSize: 22 }}>♡</span>
               </div>
             </div>
           ))}
