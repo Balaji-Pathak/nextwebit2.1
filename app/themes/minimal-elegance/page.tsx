@@ -432,207 +432,41 @@ export default function MinimalElegancePage() {
         ::-webkit-scrollbar-thumb{background:rgba(196,115,90,0.3);border-radius:3px}
         @media(max-width:900px){
           .me-hero-grid{grid-template-columns:1fr!important;gap:40px!important;padding:40px 24px!important;}
-          .me-2col{grid-template-columns:1fr!important;gap:40px!important;}
+          
+          .me-hero-grid > div:first-child{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+
+    .me-hero-grid > div:first-child > div:first-child{
+      justify-content:center;
+    }
+
+    .me-hero-grid p{
+      max-width:100%!important;
+    }
+
+    .me-hero-grid input{
+      text-align:center;
+    }
+
+    .me-hero-grid > div:first-child > div:nth-child(5){
+      width:100%;
+      max-width:420px;
+      margin:0 auto 16px;
+    }
+
+    .me-hero-grid > div:last-child{
+      justify-content:center!important;
+    }.me-2col{grid-template-columns:1fr!important;gap:40px!important;}
           .me-3col{grid-template-columns:1fr 1fr!important;}
         }
         @media(max-width:560px){
           .me-3col{grid-template-columns:1fr!important;}
         }
       `}</style> */}
-      <style jsx>{`
-
-  /* =========================
-      WEDDING HERO SECTION
-  ========================== */
-
-  @media (max-width: 1100px){
-
-    .me-hero-grid{
-      gap:48px !important;
-      padding:50px 32px !important;
-    }
-
-    .me-hero-title{
-      font-size:clamp(2.8rem,7vw,4.8rem) !important;
-    }
-
-  }
-
-  @media (max-width: 900px){
-
-    .me-hero-section{
-      min-height:auto !important;
-      padding-top:90px !important;
-      padding-bottom:120px !important;
-    }
-
-    .me-hero-grid{
-      grid-template-columns:1fr !important;
-      gap:56px !important;
-      padding:40px 24px !important;
-      text-align:center;
-    }
-
-    .me-hero-content{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-    }
-
-    .me-hero-subtitle-wrap{
-      justify-content:center;
-      flex-wrap:wrap;
-    }
-
-    .me-hero-description{
-      max-width:100% !important;
-    }
-
-    .me-hero-form{
-      width:100%;
-      max-width:520px !important;
-    }
-
-    .me-hero-image-side{
-      width:100%;
-    }
-
-    .me-hero-image-wrap{
-      max-width:360px !important;
-      margin:0 auto;
-    }
-
-    .me-hero-decor-left{
-      display:none;
-    }
-
-  }
-
-  @media (max-width: 768px){
-
-    .me-hero-section{
-      padding-top:80px !important;
-      padding-bottom:100px !important;
-    }
-
-    .me-hero-grid{
-      padding:36px 20px !important;
-      gap:44px !important;
-    }
-
-    .me-hero-title{
-      font-size:clamp(2.3rem,11vw,3.8rem) !important;
-      line-height:1.08 !important;
-    }
-
-    .me-hero-description{
-      font-size:0.92rem !important;
-      line-height:1.8 !important;
-      margin-bottom:30px !important;
-    }
-
-    .me-hero-form{
-      flex-direction:column;
-      border-radius:24px !important;
-      overflow:hidden;
-      background:#fff !important;
-      padding:6px !important;
-      gap:6px !important;
-    }
-
-    .me-hero-input{
-      width:100%;
-      padding:14px 18px !important;
-      text-align:center;
-    }
-
-    .me-hero-btn{
-      width:100%;
-      padding:14px 18px !important;
-      margin:0 !important;
-    }
-
-    .me-hero-image-card{
-      border-radius:120px 120px 60px 60px !important;
-    }
-
-    .me-hero-floating-card{
-      right:50% !important;
-      transform:translateX(50%);
-      bottom:-22px !important;
-      width:max-content;
-      text-align:center;
-    }
-
-    .me-hero-scroll{
-      bottom:18px !important;
-    }
-
-    .me-hero-bg-circle-right,
-    .me-hero-bg-circle-left{
-      opacity:0.5;
-    }
-
-  }
-
-  @media (max-width: 480px){
-
-    .me-hero-section{
-      padding-top:74px !important;
-      padding-bottom:90px !important;
-    }
-
-    .me-hero-grid{
-      padding:32px 16px !important;
-      gap:36px !important;
-    }
-
-    .me-hero-title{
-      font-size:2.2rem !important;
-      letter-spacing:-0.02em !important;
-    }
-
-    .me-hero-subtitle{
-      font-size:0.58rem !important;
-      letter-spacing:0.16em !important;
-    }
-
-    .me-hero-description{
-      font-size:0.88rem !important;
-    }
-
-    .me-hero-image-wrap{
-      max-width:280px !important;
-    }
-
-    .me-hero-image-card{
-      border-radius:90px 90px 48px 48px !important;
-    }
-
-    .me-hero-floating-card{
-      padding:10px 14px !important;
-      bottom:-18px !important;
-    }
-
-    .me-hero-floating-date{
-      font-size:0.62rem !important;
-    }
-
-    .me-hero-floating-name{
-      font-size:0.85rem !important;
-    }
-
-    .me-hero-scroll-text{
-      font-size:0.5rem !important;
-    }
-
-    .me-hero-decor-star{
-      display:none;
-    }
-
-  }
-
-`}</style>
+    
     </div>
   );
 }
