@@ -426,7 +426,7 @@ export default function MinimalElegancePage() {
 
       <MEFooter />
 
-      <style jsx>{`
+      {/* <style jsx>{`
         @keyframes scrollPulse { 0%,100%{opacity:.5;transform:scaleY(1)} 50%{opacity:1;transform:scaleY(.6)} }
         ::-webkit-scrollbar{width:5px}
         ::-webkit-scrollbar-track{background:${CREAM}}
@@ -439,7 +439,60 @@ export default function MinimalElegancePage() {
         @media(max-width:560px){
           .me-3col{grid-template-columns:1fr!important;}
         }
-      `}</style>
+      `}</style> */}
+      <style jsx>{`
+  @keyframes scrollPulse {
+    0%,100%{
+      opacity:.5;
+      transform:scaleY(1)
+    }
+
+    50%{
+      opacity:1;
+      transform:scaleY(.6)
+    }
+  }
+
+  ::-webkit-scrollbar{
+    width:5px
+  }
+
+  ::-webkit-scrollbar-track{
+    background:${CREAM}
+  }
+
+  ::-webkit-scrollbar-thumb{
+    background:rgba(196,115,90,0.3);
+    border-radius:3px
+  }
+
+  @media(max-width:900px){
+
+    .me-hero-grid{
+      grid-template-columns:1fr!important;
+      gap:40px!important;
+      padding:40px 24px!important;
+    }
+
+    .me-2col{
+      grid-template-columns:1fr!important;
+      gap:40px!important;
+    }
+
+    .me-3col{
+      grid-template-columns:1fr 1fr!important;
+    }
+
+  }
+
+  @media(max-width:560px){
+
+    .me-3col{
+      grid-template-columns:1fr!important;
+    }
+
+  }
+`}</style>
     </div>
     </>
   );
