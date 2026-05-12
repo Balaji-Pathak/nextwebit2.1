@@ -94,36 +94,101 @@ export default function GeoAbstractPage() {
   const [hovWork, setHovWork] = useState<number | null>(null);
 
   /* Neon laser-trail cursor */
-  useEffect(() => {
+ useEffect(() => {
+
+  let cleanup: (() => void) | undefined;
+
+  const initCursor = () => {
+
+    if (window.innerWidth <= 990) {
+      document.body.style.cursor = "auto";
+      return;
+    }
+
+    document.body.style.cursor = "none";
+
     const mk = (sz: number, col: string, del: number) => {
       const d = document.createElement("div");
-      d.style.cssText = `width:${sz}px;height:${sz}px;border-radius:50%;background:${col};position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:left ${del}s linear,top ${del}s linear,transform .2s;`;
-      document.body.appendChild(d); return d;
+
+      d.style.cssText = `
+        width:${sz}px;
+        height:${sz}px;
+        border-radius:50%;
+        background:${col};
+        position:fixed;
+        top:0;
+        left:0;
+        pointer-events:none;
+        z-index:9999;
+        transform:translate(-50%,-50%);
+        transition:left ${del}s linear,top ${del}s linear,transform .2s;
+      `;
+
+      document.body.appendChild(d);
+
+      return d;
     };
+
     const dot = mk(8, ACC, 0.04);
     const t1 = mk(14, "rgba(233,30,140,0.55)", 0.12);
     const t2 = mk(22, "rgba(123,47,255,0.28)", 0.22);
+
     dot.style.boxShadow = `0 0 10px ${ACC},0 0 20px ${ACC}`;
     t1.style.boxShadow = `0 0 8px ${PINK}`;
     t2.style.boxShadow = `0 0 12px ${PUR}`;
 
     const move = (e: MouseEvent) => {
-      [dot, t1, t2].forEach(el => { el.style.left = e.clientX + "px"; el.style.top = e.clientY + "px"; });
+      [dot, t1, t2].forEach(el => {
+        el.style.left = e.clientX + "px";
+        el.style.top = e.clientY + "px";
+      });
     };
-    const grow = () => { dot.style.transform = "translate(-50%,-50%) scale(2.5)"; };
-    const shrink = () => { dot.style.transform = "translate(-50%,-50%) scale(1)"; };
+
+    const grow = () => {
+      dot.style.transform = "translate(-50%,-50%) scale(2.5)";
+    };
+
+    const shrink = () => {
+      dot.style.transform = "translate(-50%,-50%) scale(1)";
+    };
 
     document.addEventListener("mousemove", move);
-    document.querySelectorAll("a, button").forEach(el => {
+
+    document.querySelectorAll("a,button").forEach(el => {
       el.addEventListener("mouseenter", grow);
       el.addEventListener("mouseleave", shrink);
     });
 
-    return () => {
+    cleanup = () => {
+
+      document.body.style.cursor = "auto";
+
       document.removeEventListener("mousemove", move);
-      [dot, t1, t2].forEach(el => { if (document.body.contains(el)) document.body.removeChild(el); });
+
+      document.querySelectorAll("a,button").forEach(el => {
+        el.removeEventListener("mouseenter", grow);
+        el.removeEventListener("mouseleave", shrink);
+      });
+
+      [dot, t1, t2].forEach(el => el.remove());
     };
-  }, []);
+  };
+
+  initCursor();
+
+  const handleResize = () => {
+    cleanup?.();
+    initCursor();
+  };
+
+  window.addEventListener("resize", handleResize);
+
+  return () => {
+    cleanup?.();
+    window.removeEventListener("resize", handleResize);
+  };
+
+}, []);
 
   /* Scroll reveal */
   useEffect(() => {
@@ -156,7 +221,7 @@ export default function GeoAbstractPage() {
   });
 
   return (
-    <div style={{ background: BG, cursor: "none", overflowX: "hidden", fontFamily: inter.style.fontFamily }}>
+    <div style={{ background: BG, overflowX: "hidden", fontFamily: inter.style.fontFamily }}>
       <div style={noise} />
       <GANavbar />
 
@@ -171,16 +236,16 @@ export default function GeoAbstractPage() {
         <div style={{ position: "absolute", right: 0, top: 0, bottom: 0, width: "62%", pointerEvents: "none" }}>
           <HeroWave />
         </div>
-        <div style={{ position: "relative", zIndex: 2, maxWidth: 1280, margin: "0 auto", padding: "96px 64px", width: "100%" }} className="ga-hero-pad">
+        <div style={{ position: "relative", zIndex: 2, maxWidth: 1280, margin: "0 auto", padding: "96px 64px", width: "100%" }} className="ga-hero-pad flex flex-col items-center lg:items-start text-center lg:text-left">
           <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(255,255,255,0.05)", border: `1px solid rgba(255,69,0,0.35)`, borderRadius: 999, padding: "5px 16px 5px 10px", marginBottom: 36 }}>
             <span style={{ width: 7, height: 7, borderRadius: "50%", background: ACC, display: "inline-block", boxShadow: `0 0 8px ${ACC}` }} />
             <span style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.75)", letterSpacing: "0.06em" }}>Creative Studio · Jaipur, India</span>
           </div>
           <div style={{ marginBottom: 24 }}>
-            <div style={{ fontSize: "clamp(5rem,12vw,11rem)", fontWeight: 900, lineHeight: 0.88, letterSpacing: "-0.05em", color: W, display: "block" }}>
+            <div style={{ fontSize: "clamp(5rem,12vw,11rem)", fontWeight: 900, lineHeight: 1, letterSpacing: "-0.05em", color: W, display: "block" }}>
               Abstract
             </div>
-            <div style={{ fontSize: "clamp(5rem,12vw,11rem)", fontWeight: 900, lineHeight: 0.88, letterSpacing: "-0.05em", display: "block", ...gradTxt(`linear-gradient(90deg,${ACC} 0%,${PINK} 60%)`) }}>
+            <div style={{ fontSize: "clamp(5rem,12vw,11rem)", fontWeight: 900, lineHeight: 1, letterSpacing: "-0.05em", paddingBottom: "0.12em",display: "block", ...gradTxt(`linear-gradient(90deg,${ACC} 0%,${PINK} 60%)`) }}>
               landing page
             </div>
           </div>

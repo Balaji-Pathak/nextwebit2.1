@@ -56,9 +56,9 @@ export function Services() {
           {services.map((s) => (
             <article
               key={s.title}
-              className="group relative rounded-xl border border-navy/10 bg-white pt-[3px] shadow-sm hover:shadow-md hover:border-navy-mid/25 hover:-translate-y-0.5 transition-all duration-300"
+              className="group relative overflow-hidden rounded-xl border border-navy/10 bg-white pt-[3px] shadow-sm hover:shadow-md hover:border-navy-mid/25 hover:-translate-y-0.5 transition-all duration-500"
             >
-              <div className="absolute top-0 left-4 right-4 h-[3px] rounded-b-sm bg-navy-mid" />
+              <div className="absolute top-0 w-full h-[3px] rounded-t-xl bg-navy-mid" />
               <div className="p-6 pt-7">
                 <span className="text-3xl" aria-hidden>
                   {s.icon}

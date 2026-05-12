@@ -10,7 +10,6 @@ const navItems = ["About", "Download", "Pricing", "Features", "News", "Contact"]
 export default function GANavbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", fn);
@@ -21,6 +20,23 @@ export default function GANavbar() {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
+  useEffect(() => {
+
+  const handleResize = () => {
+
+    if (window.innerWidth > 1024) {
+      setMenuOpen(false);
+    }
+
+  };
+
+  window.addEventListener("resize", handleResize);
+
+  return () => {
+    window.removeEventListener("resize", handleResize);
+  };
+
+}, []);
 
   const nb: React.CSSProperties = {
     position: "fixed", top: 0, left: 0, right: 0, zIndex: 50,

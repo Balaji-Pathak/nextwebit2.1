@@ -36,12 +36,22 @@ function ESCursor() {
   const ringRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+  let raf = 0;
+
+  const setupCursor = () => {
+    const isDesktop = window.innerWidth > 1024;
+
+    document.body.style.cursor = isDesktop ? "none" : "auto";
+
+    if (!isDesktop) return;
+
     let mx = 0, my = 0;
     let rx = 0, ry = 0;
 
     const onMove = (e: MouseEvent) => {
       mx = e.clientX;
       my = e.clientY;
+
       if (dotRef.current) {
         dotRef.current.style.left = mx + "px";
         dotRef.current.style.top = my + "px";
@@ -51,43 +61,78 @@ function ESCursor() {
     const animate = () => {
       rx += (mx - rx) * 0.12;
       ry += (my - ry) * 0.12;
+
       if (ringRef.current) {
         ringRef.current.style.left = rx + "px";
         ringRef.current.style.top = ry + "px";
       }
-      requestAnimationFrame(animate);
+
+      raf = requestAnimationFrame(animate);
     };
 
-    window.addEventListener("mousemove", onMove);
-    const raf = requestAnimationFrame(animate);
-
     const onEnter = () => {
-      if (dotRef.current) dotRef.current.style.transform = "translate(-50%,-50%) scale(2.5)";
+      if (dotRef.current) {
+        dotRef.current.style.transform =
+          "translate(-50%,-50%) scale(2.5)";
+      }
+
       if (ringRef.current) {
         ringRef.current.style.width = "60px";
         ringRef.current.style.height = "60px";
         ringRef.current.style.borderColor = "#DC2626";
       }
     };
+
     const onLeave = () => {
-      if (dotRef.current) dotRef.current.style.transform = "translate(-50%,-50%) scale(1)";
+      if (dotRef.current) {
+        dotRef.current.style.transform =
+          "translate(-50%,-50%) scale(1)";
+      }
+
       if (ringRef.current) {
         ringRef.current.style.width = "36px";
         ringRef.current.style.height = "36px";
-        ringRef.current.style.borderColor = "rgba(220,38,38,0.6)";
+        ringRef.current.style.borderColor =
+          "rgba(220,38,38,0.6)";
       }
     };
+
+    window.addEventListener("mousemove", onMove);
 
     document.querySelectorAll("a, button").forEach((el) => {
       el.addEventListener("mouseenter", onEnter);
       el.addEventListener("mouseleave", onLeave);
     });
 
+    raf = requestAnimationFrame(animate);
+
     return () => {
       window.removeEventListener("mousemove", onMove);
+
+      document.querySelectorAll("a, button").forEach((el) => {
+        el.removeEventListener("mouseenter", onEnter);
+        el.removeEventListener("mouseleave", onLeave);
+      });
+
       cancelAnimationFrame(raf);
     };
-  }, []);
+  };
+
+  let cleanup = setupCursor();
+
+  const handleResize = () => {
+    cleanup?.();
+    cleanup = setupCursor();
+  };
+
+  window.addEventListener("resize", handleResize);
+
+  return () => {
+    cleanup?.();
+    window.removeEventListener("resize", handleResize);
+    document.body.style.cursor = "auto";
+  };
+}, []);
 
   return (
     <>
@@ -227,7 +272,6 @@ export default function ExtremeShowPage() {
       style={{
         background: "#080808",
         color: "#fff",
-        cursor: "none",
         fontFamily: inter.style.fontFamily,
         overflowX: "hidden",
       }}
@@ -252,6 +296,8 @@ export default function ExtremeShowPage() {
             src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=1600&q=90"
             alt="Concert crowd"
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            
             style={{ objectFit: "cover", objectPosition: "center top" }}
             priority
           />
@@ -293,7 +339,7 @@ export default function ExtremeShowPage() {
           className="es-hero-grid"
         >
           {/* Left */}
-          <div>
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
             {/* Badge */}
             <div
               className="es-reveal"
@@ -438,6 +484,8 @@ export default function ExtremeShowPage() {
                   src={upcomingShows[slideIndex].img}
                   alt={upcomingShows[slideIndex].title}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  
                   style={{ objectFit: "cover", transition: "opacity 0.5s" }}
                 />
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)" }} />
@@ -616,7 +664,9 @@ export default function ExtremeShowPage() {
               }}
             >
               <div style={{ position: "relative", height: "200px" }}>
-                <Image src={show.img} alt={show.title} fill style={{ objectFit: "cover" }} />
+                <Image src={show.img} alt={show.title} fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                 style={{ objectFit: "cover" }} />
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.8), transparent 50%)" }} />
                 <div
                   style={{
@@ -737,7 +787,9 @@ export default function ExtremeShowPage() {
                 (e.currentTarget.querySelector(".es-artist-overlay") as HTMLElement).style.opacity = "0";
               }}
             >
-              <Image src={artist.img} alt={artist.name} fill style={{ objectFit: "cover", filter: "grayscale(40%)" }} />
+              <Image src={artist.img} alt={artist.name} fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+               style={{ objectFit: "cover", filter: "grayscale(40%)" }} />
               <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%)" }} />
               <div className="es-artist-overlay" style={{ position: "absolute", inset: 0, background: "rgba(220,38,38,0.2)", transition: "opacity 0.3s", opacity: 0 }} />
               <div style={{ position: "absolute", bottom: "20px", left: "20px", right: "20px" }}>
@@ -867,7 +919,9 @@ export default function ExtremeShowPage() {
               }}
             >
               <div style={{ position: "relative", height: "220px" }}>
-                <Image src={item.img} alt={item.name} fill style={{ objectFit: "cover" }} />
+                <Image src={item.img} alt={item.name} fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                 style={{ objectFit: "cover" }} />
                 <div
                   style={{
                     position: "absolute",

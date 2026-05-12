@@ -1,17 +1,23 @@
 import Link from "next/link";
 import { Cormorant_Garamond, DM_Sans, DM_Mono } from "next/font/google";
+import {
+  FaInstagram,
+  FaPinterestP,
+  FaFacebookF,
+  FaWhatsapp
+} from "react-icons/fa6";
 
-const cormorant = Cormorant_Garamond({ subsets: ["latin"], weight: ["400","500","600"], style: ["normal","italic"] });
-const dmSans = DM_Sans({ subsets: ["latin"], weight: ["300","400","500"] });
+const cormorant = Cormorant_Garamond({ subsets: ["latin"], weight: ["400", "500", "600"], style: ["normal", "italic"] });
+const dmSans = DM_Sans({ subsets: ["latin"], weight: ["300", "400", "500"] });
 const dmMono = DM_Mono({ subsets: ["latin"], weight: ["400"] });
 
 const quickLinks = ["Home", "Gallery", "Schedule", "About", "Contact"];
 const services = ["Wedding Planning", "Event Decor", "Photography", "Catering", "Venue Booking", "Mehendi & Beauty"];
 const socialLinks = [
-  { label: "Instagram", short: "ig" },
-  { label: "Pinterest", short: "pt" },
-  { label: "Facebook", short: "fb" },
-  { label: "WhatsApp", short: "wa" },
+  { label: "Instagram", icon: <FaInstagram size={13} /> },
+  { label: "Pinterest", icon: <FaPinterestP size={13} /> },
+  { label: "Facebook", icon: <FaFacebookF size={13} /> },
+  { label: "WhatsApp", icon: <FaWhatsapp size={14} /> },
 ];
 
 export default function MEFooter() {
@@ -48,16 +54,40 @@ export default function MEFooter() {
             </p>
             {/* Sparkle decoration */}
             <div style={{ display: "flex", gap: 6, marginBottom: 24 }}>
-              {["✦","✧","✦"].map((s, i) => (
+              {["✦", "✧", "✦"].map((s, i) => (
                 <span key={i} style={{ color: "#C4735A", fontSize: i === 1 ? 10 : 14, opacity: i === 1 ? 0.5 : 0.8 }}>{s}</span>
               ))}
             </div>
             <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-              {socialLinks.map((s) => (
-                <Link key={s.short} href="#" style={{ width: 36, height: 36, borderRadius: "50%", border: "1px solid rgba(44,62,45,0.2)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, color: "#5C6B5D", textDecoration: "none", fontFamily: dmMono.style.fontFamily, transition: "all 0.2s" }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#C4735A"; e.currentTarget.style.color = "#C4735A"; e.currentTarget.style.background = "rgba(196,115,90,0.08)"; }}
-                  onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(44,62,45,0.2)"; e.currentTarget.style.color = "#5C6B5D"; e.currentTarget.style.background = "transparent"; }}
-                >{s.short}</Link>
+              {socialLinks.map((s, i) => (
+                <Link
+                  key={i}
+                  href="#"
+                  style={{
+                    width: 36,
+                    height: 36,
+                    borderRadius: "50%",
+                    border: "1px solid rgba(44,62,45,0.2)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "#5C6B5D",
+                    textDecoration: "none",
+                    transition: "all 0.2s"
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.borderColor = "#C4735A";
+                    e.currentTarget.style.color = "#C4735A";
+                    e.currentTarget.style.background = "rgba(196,115,90,0.08)";
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.borderColor = "rgba(44,62,45,0.2)";
+                    e.currentTarget.style.color = "#5C6B5D";
+                    e.currentTarget.style.background = "transparent";
+                  }}
+                >
+                  {s.icon}
+                </Link>
               ))}
             </div>
           </div>

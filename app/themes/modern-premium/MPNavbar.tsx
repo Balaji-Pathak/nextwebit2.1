@@ -23,6 +23,21 @@ export default function MPNavbar() {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
+  useEffect(() => {
+
+  const handleResize = () => {
+
+    if (window.innerWidth > 1024) {
+      setMenuOpen(false);
+    }
+
+  };
+  window.addEventListener("resize", handleResize);
+  return () => {
+    window.removeEventListener("resize", handleResize);
+  };
+
+}, []);
 
   return (
     <>
@@ -79,9 +94,9 @@ export default function MPNavbar() {
               className="show-mobile"
               aria-label="Toggle menu"
             >
-              <span style={{ display: "block", height: 1.5, width: 20, background: "#c9a96e", transition: "all 0.3s", transform: menuOpen ? "rotate(45deg) translateY(6.5px)" : "none" }} />
+              <span style={{ display: "block", height: 1.5, width: 25, background: "#c9a96e", transition: "all 0.3s", transform: menuOpen ? "rotate(45deg) translateY(8px)" : "none" }} />
               <span style={{ display: "block", height: 1.5, width: 16, background: "#c9a96e", transition: "all 0.3s", opacity: menuOpen ? 0 : 1 }} />
-              <span style={{ display: "block", height: 1.5, width: 20, background: "#c9a96e", transition: "all 0.3s", transform: menuOpen ? "rotate(-45deg) translateY(-6.5px)" : "none" }} />
+              <span style={{ display: "block", height: 1.5, width: 25, background: "#c9a96e", transition: "all 0.3s", transform: menuOpen ? "rotate(-45deg) translateY(-8px)" : "none" }} />
             </button>
           </div>
         </div>
@@ -100,7 +115,7 @@ export default function MPNavbar() {
         <p style={{ fontFamily: dmMono.style.fontFamily, fontSize: "0.65rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(201,169,110,0.4)", marginBottom: 24 }}>modern premium</p>
         {navItems.map((item, i) => (
           <Link key={item} href="#" onClick={() => setMenuOpen(false)}
-            style={{ fontFamily: cormorant.className, fontSize: "2.5rem", fontWeight: 600, fontStyle: "italic", color: "#f5ede0", textDecoration: "none", transitionDelay: `${i * 60}ms` }}
+            style={{ fontFamily: cormorant.style.fontFamily, fontSize: "1.5rem", fontWeight: 600, fontStyle: "italic", color: "#f5ede0", textDecoration: "none", transitionDelay: `${i * 60}ms` }}
             onMouseEnter={e => (e.currentTarget.style.color = "#c9a96e")}
             onMouseLeave={e => (e.currentTarget.style.color = "#f5ede0")}
           >{item}</Link>
@@ -108,9 +123,9 @@ export default function MPNavbar() {
         <Link href="#" onClick={() => setMenuOpen(false)} style={{ marginTop: 24, padding: "12px 32px", background: "#c9a96e", color: "#0f2419", borderRadius: 4, fontFamily: dmSans.style.fontFamily, fontWeight: 700, fontSize: "0.95rem", textDecoration: "none" }}>
           Book a Call
         </Link>
-        <p style={{ position: "absolute", bottom: 32, fontFamily: dmMono.style.fontFamily, fontSize: "0.7rem", color: "rgba(245,237,224,0.25)", textAlign: "center" }}>
+        {/* <p style={{ position: "absolute", bottom: 32, fontFamily: dmMono.style.fontFamily, fontSize: "0.7rem", color: "rgba(245,237,224,0.25)", textAlign: "center" }}>
           +91 73573 67085 · hello@nexwebit.in
-        </p>
+        </p> */}
       </div>
 
       <style>{`

@@ -3,6 +3,11 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { DM_Sans, Playfair_Display } from "next/font/google";
+import {
+  FaYoutube,
+  FaWhatsapp,
+  FaXTwitter
+} from "react-icons/fa6";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -20,6 +25,11 @@ const navItems = [
   { label: "Plans", href: "#plans" },
   { label: "Portfolio", href: "#portfolio" },
   { label: "About Us", href: "#about" },
+];
+const socialLinks = [
+  { name: "youtube", icon: <FaYoutube size={11} />, href: "#" },
+  { name: "whatsapp", icon: <FaWhatsapp size={11} />, href: "#" },
+  { name: "twitter", icon: <FaXTwitter size={10} />, href: "#" },
 ];
 
 export default function NANavbar() {
@@ -39,6 +49,20 @@ export default function NANavbar() {
       document.body.style.overflow = "";
     };
   }, [menuOpen]);
+  useEffect(() => {
+
+  const handleResize = () => {
+
+    if (window.innerWidth > 1024) {
+      setMenuOpen(false);
+    }
+
+  };
+  window.addEventListener("resize", handleResize);
+  return () => {
+    window.removeEventListener("resize", handleResize);
+  };
+}, []);
 
   return (
     <>
@@ -79,16 +103,16 @@ export default function NANavbar() {
           </nav>
 
           <div className="ml-auto hidden items-center gap-2 md:flex">
-            {["f", "t", "ig"].map((icon) => (
-              <Link
-                key={icon}
-                href="#"
-                aria-label={`${icon} social link`}
-                className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-[#6B4226] text-[10px] font-bold text-white transition-colors hover:bg-[#4A2E1A]"
-              >
-                {icon}
-              </Link>
-            ))}
+            {socialLinks.map((link) => (
+  <Link
+    key={link.name}
+    href={link.href}
+    aria-label={`${link.name} social link`}
+    className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-[#6B4226] text-[10px] font-bold text-white transition-colors hover:bg-[#4A2E1A]"
+  >
+    {link.icon}
+  </Link>
+))}
           </div>
 
           <button

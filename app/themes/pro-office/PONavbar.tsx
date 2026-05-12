@@ -28,6 +28,23 @@ export default function PONavbar() {
       document.body.style.overflow = "";
     };
   }, [menuOpen]);
+  useEffect(() => {
+
+  const handleResize = () => {
+
+    if (window.innerWidth > 1024) {
+      setMenuOpen(false);
+    }
+
+  };
+
+  window.addEventListener("resize", handleResize);
+
+  return () => {
+    window.removeEventListener("resize", handleResize);
+  };
+
+}, []);
 
   const closeMenu = () => setMenuOpen(false);
 

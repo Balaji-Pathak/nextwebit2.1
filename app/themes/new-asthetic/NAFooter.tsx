@@ -1,5 +1,12 @@
 import Link from "next/link";
 import { DM_Sans, Playfair_Display } from "next/font/google";
+import {
+  FaFacebookF,
+  FaLinkedinIn,
+  FaYoutube,
+  FaWhatsapp,
+  FaXTwitter
+} from "react-icons/fa6";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -20,6 +27,13 @@ const serviceLinks = [
   "Live Music",
   "Venue Styling",
   "Full Planning",
+];
+const socialLinks = [
+  { name: "facebook", icon: <FaFacebookF size={10} />, href: "#" },
+  { name: "linkedin", icon: <FaLinkedinIn size={10} />, href: "#" },
+  { name: "youtube", icon: <FaYoutube size={11} />, href: "#" },
+  { name: "whatsapp", icon: <FaWhatsapp size={11} />, href: "#" },
+  { name: "twitter", icon: <FaXTwitter size={10} />, href: "#" },
 ];
 
 export default function NAFooter() {
@@ -62,15 +76,16 @@ export default function NAFooter() {
               honour your traditions, and create memories that last a lifetime.
             </p>
             <div className="flex gap-3">
-              {["f", "tw", "ig", "yt", "wa"].map((social) => (
-                <Link
-                  key={social}
-                  href="#"
-                  className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border border-white/15 text-[11px] text-white/70 transition-colors hover:border-[#C4A882] hover:text-[#C4A882]"
-                >
-                  {social}
-                </Link>
-              ))}
+              {socialLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              aria-label={`${link.name} social link`}
+              className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full bg-[#6B4226] text-[10px] font-bold text-white transition-colors hover:bg-[#4A2E1A]"
+            >
+              {link.icon}
+            </Link>
+          ))}
             </div>
           </div>
 

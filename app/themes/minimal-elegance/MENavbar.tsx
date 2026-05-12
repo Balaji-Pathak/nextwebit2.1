@@ -26,6 +26,23 @@ export default function MENavbar() {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
+  useEffect(() => {
+
+  const handleResize = () => {
+
+    if (window.innerWidth > 1024) {
+      setMenuOpen(false);
+    }
+
+  };
+
+  window.addEventListener("resize", handleResize);
+
+  return () => {
+    window.removeEventListener("resize", handleResize);
+  };
+
+}, []); 
 
   return (
     <>
@@ -68,9 +85,9 @@ export default function MENavbar() {
             style={{ display: "none", background: "none", border: "none", cursor: "pointer", flexDirection: "column", gap: 5, alignItems: "center", width: 36, height: 36, justifyContent: "center" }}
             aria-label="Toggle menu"
           >
-            <span style={{ display: "block", width: 20, height: 1, background: "#2C3E2D", transition: "all 0.3s", transform: menuOpen ? "rotate(45deg) translateY(6px)" : "none" }} />
+            <span style={{ display: "block", width: 25, height: 1, background: "#2C3E2D", transition: "all 0.3s", transform: menuOpen ? "rotate(45deg) translateY(8px)" : "none" }} />
             <span style={{ display: "block", width: 14, height: 1, background: "#2C3E2D", transition: "all 0.3s", opacity: menuOpen ? 0 : 1 }} />
-            <span style={{ display: "block", width: 20, height: 1, background: "#2C3E2D", transition: "all 0.3s", transform: menuOpen ? "rotate(-45deg) translateY(-6px)" : "none" }} />
+            <span style={{ display: "block", width: 25, height: 1, background: "#2C3E2D", transition: "all 0.3s", transform: menuOpen ? "rotate(-45deg) translateY(-8px)" : "none" }} />
           </button>
         </div>
       </nav>

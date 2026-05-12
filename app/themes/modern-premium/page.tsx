@@ -57,6 +57,7 @@ export default function ModernPremiumPage() {
   const pageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (window.innerWidth <= 900) return;
     const ring = document.createElement("div");
     const dot = document.createElement("div");
     ring.style.cssText = `width:32px;height:32px;border:1.5px solid ${GOLD};border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s,border-color .2s;mix-blend-mode:normal;`;
@@ -102,7 +103,7 @@ export default function ModernPremiumPage() {
 
   return (
     <>
-     
+
 
       <div ref={pageRef} style={{ background: BG, cursor: "none", overflowX: "hidden" }}>
         <div style={noise} />
@@ -155,7 +156,9 @@ export default function ModernPremiumPage() {
             <div style={{ position: "relative", display: "flex", justifyContent: "center" }}>
               <div style={{ position: "absolute", top: 20, left: 20, right: -20, bottom: -20, background: BG2, borderRadius: "20px 20px 70px 20px", zIndex: 0 }} />
               <div style={{ position: "relative", zIndex: 1, width: "100%", maxWidth: 390, aspectRatio: "3/4", borderRadius: "20px 20px 70px 20px", overflow: "hidden", border: `1px solid rgba(201,169,110,0.2)` }}>
-                <Image src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80" alt="Premium fashion" fill style={{ objectFit: "cover", objectPosition: "center top" }} priority />
+                <Image src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=800&q=80" alt="Premium fashion" fill sizes="(max-width: 520px) 100vw,
+         (max-width: 900px) 50vw,
+         25vw" style={{ objectFit: "cover", objectPosition: "center top" }} priority />
                 <div style={{ position: "absolute", bottom: 20, left: 20, right: 20, background: "rgba(15,36,25,0.75)", backdropFilter: "blur(12px)", border: `1px solid rgba(201,169,110,0.2)`, borderRadius: 10, padding: "14px 18px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                   <div>
                     <p className={cormorant.className} style={{ fontSize: "1.1rem", color: CREAM, margin: 0, fontStyle: "italic" }}>The Heritage Silk</p>
@@ -217,7 +220,9 @@ export default function ModernPremiumPage() {
                 >
                   <div style={{ aspectRatio: "3/4", overflow: "hidden", borderRadius: 12, background: BG3, position: "relative" }}>
                     <div className="mp-img" style={{ position: "absolute", inset: 0, transition: "transform 0.5s ease" }}>
-                      <Image src={item.img} alt={item.label} fill style={{ objectFit: "cover" }} />
+                      <Image src={item.img} alt={item.label} fill sizes="(max-width: 520px) 100vw,
+         (max-width: 900px) 50vw,
+         25vw" style={{ objectFit: "cover" }} />
                     </div>
                     <div className="mp-ov" style={{ position: "absolute", inset: 0, background: "rgba(15,36,25,0.55)", display: "flex", alignItems: "center", justifyContent: "center", opacity: 0, transition: "opacity 0.3s", zIndex: 2 }}>
                       <span className={dmSans.className} style={{ padding: "10px 24px", background: GOLD, color: "#0f2419", borderRadius: 3, fontWeight: 700, fontSize: "0.85rem" }}>Quick View</span>
@@ -260,7 +265,9 @@ export default function ModernPremiumPage() {
                   onMouseLeave={e => { const img = e.currentTarget.querySelector(".ed-img") as HTMLElement; if (img) img.style.transform = "scale(1)"; }}
                 >
                   <div className="ed-img" style={{ position: "absolute", inset: 0, transition: "transform 0.6s ease" }}>
-                    <Image src={ed.img} alt={ed.headline} fill style={{ objectFit: "cover" }} />
+                    <Image src={ed.img} alt={ed.headline} fill sizes="(max-width: 520px) 100vw,
+                      (max-width: 900px) 50vw,
+                      25vw" style={{ objectFit: "cover" }} />
                   </div>
                   <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,20,14,0.92) 0%, rgba(10,20,14,0.2) 60%, transparent 100%)" }} />
                   <div style={{ position: "absolute", bottom: 32, left: 32, right: 32, zIndex: 2 }}>
@@ -291,7 +298,9 @@ export default function ModernPremiumPage() {
                 onMouseEnter={e => (e.currentTarget.style.flex = "2")}
                 onMouseLeave={e => (e.currentTarget.style.flex = i === 2 ? "1.6" : "1")}
               >
-                <Image src={img} alt={`Lookbook ${i + 1}`} fill style={{ objectFit: "cover", transition: "transform 0.5s ease" }} />
+                <Image src={img} alt={`Lookbook ${i + 1}`} fill sizes="(max-width: 520px) 100vw,
+         (max-width: 900px) 50vw,
+         25vw" style={{ objectFit: "cover", transition: "transform 0.5s ease" }} />
                 <div style={{ position: "absolute", inset: 0, background: "rgba(10,20,14,0.25)", transition: "background 0.3s" }} />
               </div>
             ))}
@@ -309,7 +318,7 @@ export default function ModernPremiumPage() {
         ══════════════════════════════ */}
         <section style={{ background: BG2, padding: "100px 24px" }}>
           <div style={{ maxWidth: 1280, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 72, alignItems: "center" }} className="mp-2col">
-            <div className="mp-reveal">
+            <div className="mp-reveal text-center lg:text-left">
               <p className={dmMono.className} style={{ fontSize: "0.68rem", letterSpacing: "0.2em", textTransform: "uppercase", color: GOLD, marginBottom: 12 }}>The craft</p>
               <h2 className={cormorant.className} style={{ fontSize: "clamp(2.2rem,4vw,3.8rem)", fontWeight: 600, color: CREAM, margin: 0, marginBottom: 20, lineHeight: 1.1 }}>
                 Sourced from the<br /><span style={{ fontStyle: "italic", color: GOLD }}>heart of India</span>
@@ -393,6 +402,41 @@ export default function ModernPremiumPage() {
           ::-webkit-scrollbar-thumb{background:rgba(201,169,110,0.28);border-radius:3px}
           @media(max-width:900px){
             .mp-hero-grid{grid-template-columns:1fr!important;padding:40px 24px!important;gap:40px!important;}
+             .mp-hero-grid > div:first-child{
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .mp-hero-grid > div:first-child p{
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+
+  .mp-hero-grid > div:first-child div{
+    justify-content:center;
+  }
+     * {
+    cursor: auto !important;
+  }
+    .mp-hero-grid h1,
+.mp-reveal h2{
+  line-height:1.05!important;
+}
+
+.mp-hero-grid h1 span,
+.mp-reveal h2 span{
+  display:inline!important;
+}
+
+.mp-hero-grid h1 span:not(:last-child)::after,
+.mp-reveal h2 span:not(:last-child)::after{
+  content:" ";
+}
+  section .mp-reveal:first-child{
+    text-align:center;
+  }
             .mp-4col{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
             .mp-3col{grid-template-columns:1fr!important;}
             .mp-2col{grid-template-columns:1fr!important;gap:40px!important;}
@@ -401,6 +445,7 @@ export default function ModernPremiumPage() {
             .mp-4col{grid-template-columns:1fr!important;}
           }
         `}</style>
+
       </div>
     </>
   );

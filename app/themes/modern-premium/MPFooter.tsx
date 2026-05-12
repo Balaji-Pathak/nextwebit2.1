@@ -1,13 +1,27 @@
 import Link from "next/link";
 import { Cormorant_Garamond, DM_Sans, DM_Mono } from "next/font/google";
+import {
+  FaFacebookF,
+  FaLinkedinIn,
+  FaYoutube,
+  FaWhatsapp,
+  FaXTwitter
+} from "react-icons/fa6";
 
-const cormorant = Cormorant_Garamond({ subsets: ["latin"], weight: ["400","600","700"], style: ["normal","italic"] });
-const dmSans = DM_Sans({ subsets: ["latin"], weight: ["300","400"] });
+
+const cormorant = Cormorant_Garamond({ subsets: ["latin"], weight: ["400", "600", "700"], style: ["normal", "italic"] });
+const dmSans = DM_Sans({ subsets: ["latin"], weight: ["300", "400"] });
 const dmMono = DM_Mono({ subsets: ["latin"], weight: ["400"] });
 
 const navLinks = ["Home", "Shop", "Collections", "About", "Contact"];
 const serviceLinks = ["Design & Build", "E-Commerce", "Content & Copy", "Google Presence", "Photography", "Maintenance"];
-const socialLinks = ["f", "in", "yt", "wa", "tw"];
+const socialLinks = [
+  { icon: <FaFacebookF size={13} />, href: "#" },
+  { icon: <FaLinkedinIn size={13} />, href: "#" },
+  { icon: <FaYoutube size={14} />, href: "#" },
+  { icon: <FaWhatsapp size={14} />, href: "#" },
+  { icon: <FaXTwitter size={13} />, href: "#" },
+];
 const contactItems = ["Jaipur, Rajasthan", "+91 73573 67085", "hello@nexwebit.in"];
 
 export default function MPFooter() {
@@ -28,18 +42,35 @@ export default function MPFooter() {
               We build stunning websites for boutiques, salons, and premium retailers. Your brand deserves a digital presence as refined as your products.
             </p>
             <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-              {socialLinks.map((s) => (
-                <Link key={s} href="#" style={{
-                  width: 36, height: 36, borderRadius: "50%",
-                  border: "1px solid rgba(245,237,224,0.1)",
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  color: "rgba(245,237,224,0.45)", fontSize: 13,
-                  textDecoration: "none", fontFamily: dmMono.style.fontFamily,
-                  transition: "all 0.2s",
-                }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#c9a96e"; e.currentTarget.style.color = "#c9a96e"; e.currentTarget.style.background = "rgba(201,169,110,0.08)"; }}
-                  onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(245,237,224,0.1)"; e.currentTarget.style.color = "rgba(245,237,224,0.45)"; e.currentTarget.style.background = "transparent"; }}
-                >{s}</Link>
+              {socialLinks.map((s, i) => (
+                <Link
+                  key={i}
+                  href={s.href}
+                  style={{
+                    width: 36,
+                    height: 36,
+                    borderRadius: "50%",
+                    border: "1px solid rgba(245,237,224,0.1)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "rgba(245,237,224,0.45)",
+                    textDecoration: "none",
+                    transition: "all 0.2s",
+                  }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.borderColor = "#c9a96e";
+                    e.currentTarget.style.color = "#c9a96e";
+                    e.currentTarget.style.background = "rgba(201,169,110,0.08)";
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.borderColor = "rgba(245,237,224,0.1)";
+                    e.currentTarget.style.color = "rgba(245,237,224,0.45)";
+                    e.currentTarget.style.background = "transparent";
+                  }}
+                >
+                  {s.icon}
+                </Link>
               ))}
             </div>
           </div>

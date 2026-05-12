@@ -266,16 +266,16 @@ export default function NewAestheticPage() {
                 />
               ))}
 
-              <div className="relative z-10 flex h-full flex-col justify-center">
+              <div className="relative z-10 flex h-full flex-col justify-center text-center md:text-left items-center md:items-start">
                 <p className="text-[1rem] font-normal italic text-[#9B7355]">We plan</p>
                 <h1
-                  className={`${playfair.className} mt-4 text-[clamp(3rem,7vw,6rem)] font-bold leading-[0.95] tracking-tight text-[#6B4226]`}
+                  className={`${playfair.className} mt-4 text-[clamp(3rem,7vw,6rem)] font-bold leading-[1] tracking-tight text-[#6B4226]`}
                 >
                   Magical
                   <br />
                   moments.
                 </h1>
-                <p className="mt-4 mb-8 max-w-[280px] text-[0.9rem] font-light leading-relaxed text-[#9B7355]">
+                <p className="mt-4 mb-8 max-w-full md:max-w-[280px] text-[0.9rem] font-light leading-relaxed text-[#9B7355]">
                   Bespoke wedding planning for intimate ceremonies, lavish celebrations,
                   and the once-in-a-lifetime details that make every memory glow.
                 </p>

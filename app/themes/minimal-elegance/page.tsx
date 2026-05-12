@@ -70,42 +70,93 @@ export default function MinimalElegancePage() {
 
   // Soft blush cursor - completely different from other themes
   useEffect(() => {
+
+  let cleanup: (() => void) | undefined;
+
+  const initCursor = () => {
+
+    if (window.innerWidth <= 900) {
+      document.body.style.cursor = "auto";
+      return;
+    }
+
+    document.body.style.cursor = "none";
+
     const cursor = document.createElement("div");
+
     cursor.style.cssText = `
-      width:14px;height:14px;
+      width:14px;
+      height:14px;
       background:rgba(196,115,90,0.55);
       border-radius:50%;
-      position:fixed;top:0;left:0;
-      pointer-events:none;z-index:9999;
+      position:fixed;
+      top:0;
+      left:0;
+      pointer-events:none;
+      z-index:9999;
       transform:translate(-50%,-50%);
       transition:width .25s ease,height .25s ease,background .25s ease,border .25s ease;
       mix-blend-mode:multiply;
     `;
+
     document.body.appendChild(cursor);
+
     const move = (e: MouseEvent) => {
       cursor.style.left = e.clientX + "px";
       cursor.style.top = e.clientY + "px";
     };
+
     const grow = () => {
-      cursor.style.width = "40px"; cursor.style.height = "40px";
+      cursor.style.width = "40px";
+      cursor.style.height = "40px";
       cursor.style.background = "transparent";
       cursor.style.border = `1.5px solid ${TERRA}`;
     };
+
     const shrink = () => {
-      cursor.style.width = "14px"; cursor.style.height = "14px";
+      cursor.style.width = "14px";
+      cursor.style.height = "14px";
       cursor.style.background = "rgba(196,115,90,0.55)";
       cursor.style.border = "none";
     };
+
     document.addEventListener("mousemove", move);
+
     document.querySelectorAll("a,button,input").forEach(el => {
       el.addEventListener("mouseenter", grow);
       el.addEventListener("mouseleave", shrink);
     });
-    return () => {
+
+    cleanup = () => {
+
+      document.body.style.cursor = "auto";
+
       document.removeEventListener("mousemove", move);
-      if (document.body.contains(cursor)) document.body.removeChild(cursor);
+
+      document.querySelectorAll("a,button,input").forEach(el => {
+        el.removeEventListener("mouseenter", grow);
+        el.removeEventListener("mouseleave", shrink);
+      });
+
+      cursor.remove();
     };
-  }, []);
+  };
+
+  initCursor();
+
+  const onResize = () => {
+    cleanup?.();
+    initCursor();
+  };
+
+  window.addEventListener("resize", onResize);
+
+  return () => {
+    cleanup?.();
+    window.removeEventListener("resize", onResize);
+  };
+
+}, []);
 
   // Scroll reveal
   useEffect(() => {
@@ -128,7 +179,7 @@ export default function MinimalElegancePage() {
   }, []);
 
   return (
-    <div ref={pageRef} style={{ background: CREAM, cursor: "none", overflowX: "hidden", fontFamily: dmSans.style.fontFamily }}>
+    <div ref={pageRef} style={{ background: CREAM, overflowX: "hidden", fontFamily: dmSans.style.fontFamily }}>
       <MENavbar />
 
       {/* ══════════════════════════
@@ -156,7 +207,7 @@ export default function MinimalElegancePage() {
         </div>
 
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "60px 40px", width: "100%", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }} className="me-hero-grid">
-          <div>
+          <div className="text-center lg:text-left">
             <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 20 }}>
               <Sparkle size={12} />
               <p style={{ fontFamily: dmMono.style.fontFamily, fontSize: "0.65rem", letterSpacing: "0.2em", textTransform: "uppercase", color: TERRA }}>Wedding Planners · Jaipur</p>
@@ -432,12 +483,6 @@ export default function MinimalElegancePage() {
         ::-webkit-scrollbar-thumb{background:rgba(196,115,90,0.3);border-radius:3px}
         @media(max-width:900px){
           .me-hero-grid{grid-template-columns:1fr!important;gap:40px!important;padding:40px 24px!important;}
-          
-          .me-hero-grid > div:first-child{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-    }
 
     .me-hero-grid > div:first-child > div:first-child{
       justify-content:center;
@@ -461,7 +506,7 @@ export default function MinimalElegancePage() {
       justify-content:center!important;
     }.me-2col{grid-template-columns:1fr!important;gap:40px!important;}
           .me-3col{grid-template-columns:1fr 1fr!important;}
-        }
+        } 
         @media(max-width:560px){
           .me-3col{grid-template-columns:1fr!important;}
         }

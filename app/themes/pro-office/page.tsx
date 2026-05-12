@@ -205,8 +205,21 @@ export default function ProOfficePage() {
   });
 
   useEffect(() => {
+
+  let cleanup: (() => void) | undefined;
+
+  const initCursor = () => {
+
+    if (window.innerWidth <= 1023) {
+      document.body.style.cursor = "auto";
+      return;
+    }
+
+    document.body.style.cursor = "none";
+
     const h = horizontalRef.current;
     const v = verticalRef.current;
+
     if (!h || !v) return;
 
     let targetX = window.innerWidth / 2;
@@ -225,28 +238,33 @@ export default function ProOfficePage() {
     const render = () => {
       currentX += (targetX - currentX) * 0.24;
       currentY += (targetY - currentY) * 0.24;
+
       h.style.left = `${currentX}px`;
       h.style.top = `${currentY}px`;
+
       v.style.left = `${currentX}px`;
       v.style.top = `${currentY}px`;
-      raf = window.requestAnimationFrame(render);
+
+      raf = requestAnimationFrame(render);
     };
 
-    const onMove = (event: MouseEvent) => {
-      targetX = event.clientX;
-      targetY = event.clientY;
+    const onMove = (e: MouseEvent) => {
+      targetX = e.clientX;
+      targetY = e.clientY;
     };
 
-    const onOver = (event: MouseEvent) => {
-      const target = event.target as Element | null;
+    const onOver = (e: MouseEvent) => {
+      const target = e.target as Element | null;
+
       if (target?.closest("a,button")) {
         setExpanded(true);
       }
     };
 
-    const onOut = (event: MouseEvent) => {
-      const from = (event.target as Element | null)?.closest("a,button");
-      const to = (event.relatedTarget as Element | null)?.closest("a,button");
+    const onOut = (e: MouseEvent) => {
+      const from = (e.target as Element | null)?.closest("a,button");
+      const to = (e.relatedTarget as Element | null)?.closest("a,button");
+
       if (from && !to) {
         setExpanded(false);
       }
@@ -255,16 +273,35 @@ export default function ProOfficePage() {
     document.addEventListener("mousemove", onMove);
     document.addEventListener("mouseover", onOver, true);
     document.addEventListener("mouseout", onOut, true);
-    raf = window.requestAnimationFrame(render);
 
-    return () => {
+    raf = requestAnimationFrame(render);
+
+    cleanup = () => {
+      document.body.style.cursor = "auto";
+
       document.removeEventListener("mousemove", onMove);
       document.removeEventListener("mouseover", onOver, true);
       document.removeEventListener("mouseout", onOut, true);
-      window.cancelAnimationFrame(raf);
-    };
-  }, []);
 
+      cancelAnimationFrame(raf);
+    };
+  };
+
+  initCursor();
+
+  const onResize = () => {
+    cleanup?.();
+    initCursor();
+  };
+
+  window.addEventListener("resize", onResize);
+
+  return () => {
+    cleanup?.();
+    window.removeEventListener("resize", onResize);
+  };
+
+}, []);
   useEffect(() => {
     const revealEls = document.querySelectorAll<HTMLElement>(".po-reveal");
     const observer = new IntersectionObserver(
@@ -348,7 +385,6 @@ export default function ProOfficePage() {
       className={inter.className}
       style={{
         background: "#F8F9FF",
-        cursor: "none",
         color: "#1A1A2E",
         overflowX: "hidden",
       }}
@@ -394,7 +430,7 @@ export default function ProOfficePage() {
           }}
         >
           <div className="relative z-[2] mx-auto grid w-full max-w-[1200px] grid-cols-1 items-center gap-10 px-6 lg:grid-cols-[1fr_1fr] lg:px-8">
-            <div className="po-reveal">
+            <div className="po-reveal text-center lg:text-left">
               <div
                 style={{
                   display: "inline-flex",
@@ -415,7 +451,7 @@ export default function ProOfficePage() {
               <h1
                 style={{
                   margin: 0,
-                  fontSize: "clamp(3rem, 7vw, 6rem)",
+                  fontSize: "clamp(2.5rem, 6vw, 6rem)",
                   lineHeight: 0.9,
                   letterSpacing: "-0.03em",
                   fontWeight: 800,
@@ -429,22 +465,13 @@ export default function ProOfficePage() {
                 <span className="block">WITH US</span>
               </h1>
 
-              <p
-                style={{
-                  marginTop: 20,
-                  marginBottom: 28,
-                  maxWidth: 420,
-                  fontSize: "0.95rem",
-                  lineHeight: 1.8,
-                  color: "#4A4A6A",
-                }}
-              >
+              <p className="mt-5 mb-7 max-w-full lg:max-w-[420px] text-[0.95rem] leading-[1.8] text-[#4A4A6A]">
                 We help Indian businesses scale with strategy, technology and
                 relentless execution. From CA offices to corporate training firms -
                 we make growth happen.
               </p>
 
-              <div className="mb-7 flex flex-wrap gap-3">
+              <div className="mb-7 flex flex-wrap gap-3 justify-center lg:justify-start">
                 <Link
                   href="#"
                   style={{
@@ -494,7 +521,7 @@ export default function ProOfficePage() {
                 </Link>
               </div>
 
-              <div className="flex flex-wrap items-center gap-5">
+              <div className="flex flex-wrap items-center gap-5 justify-center lg:justify-start">
                 {["500+ Clients", "12 Years", "4.9\u2605 Rating"].map((badge) => (
                   <div
                     key={badge}
@@ -1469,15 +1496,34 @@ export default function ProOfficePage() {
           background: rgba(59, 61, 184, 0.3);
           border-radius: 3px;
         }
-
         @media (max-width: 1023px) {
+         * {
+          cursor:auto!important;
+      }
           .po-stat-item {
             border-right: none !important;
             border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            
           }
+          .po-reveal h1{
+            line-height:1.05!important;
+            font-size:clamp(2rem, 5vw, 2.5rem)!important;
+          }
+
+          .po-reveal h1 span{
+            display:inline!important;
+          }
+
+          .po-reveal h1 span:not(:last-child)::after{
+            content:" ";
+          }
+           
         }
 
         @media (max-width: 767px) {
+        .po-reveal h1{
+          font-size:clamp(1.8rem, 5vw, 2.5rem)!important;
+        }
           .po-float-2 {
             right: 16px !important;
           }

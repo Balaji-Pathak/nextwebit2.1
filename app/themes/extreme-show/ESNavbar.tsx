@@ -112,7 +112,7 @@ export default function ESNavbar() {
         </div>
 
         {/* CTA Button */}
-        <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "16px" }} className="cta-div">
           <Link
             href="#tickets"
             style={{
@@ -240,6 +240,11 @@ export default function ESNavbar() {
       )}
 
       <style>{`
+       @media (max-width: 1024px) {
+       nav { padding: 0 20px !important; }
+       .es-desktop-nav { gap: 24px !important; }
+        .cta-div a { padding: 12px 13px !important;}
+      }
         @media (max-width: 768px) {
           .es-desktop-nav { display: none !important; }
           .es-hamburger { display: flex !important; }
