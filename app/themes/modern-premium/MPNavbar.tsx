@@ -124,7 +124,7 @@ export default function MPNavbar() {
           Book a Call
         </Link>
         {/* <p style={{ position: "absolute", bottom: 32, fontFamily: dmMono.style.fontFamily, fontSize: "0.7rem", color: "rgba(245,237,224,0.25)", textAlign: "center" }}>
-          +91 73573 67085 · hello@nexwebit.in
+          +91 73573 67085 · hello@nextwebit.in
         </p> */}
       </div>
 

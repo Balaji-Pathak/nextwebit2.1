@@ -140,7 +140,7 @@ export default function MEFooter() {
             </div>
             <p style={{ fontFamily: dmMono.style.fontFamily, fontSize: "0.6rem", color: "#8A9E8B", letterSpacing: "0.06em" }}>No spam · Unsubscribe anytime</p>
             <div style={{ marginTop: 20, display: "flex", flexDirection: "column", gap: 8 }}>
-              {["Jaipur, Rajasthan", "+91 73573 67085", "hello@nexwebit.in"].map((item) => (
+              {["Jaipur, Rajasthan", "+91 73573 67085", "hello@nextwebit.in"].map((item) => (
                 <div key={item} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.8rem", color: "#5C6B5D" }}>
                   <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#C4735A", flexShrink: 0 }} />
                   {item}
@@ -156,7 +156,7 @@ export default function MEFooter() {
         {/* Bottom */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }} className="me-footer-bottom">
           <p style={{ fontSize: "0.78rem", color: "#8A9E8B" }}>
-            © 2025 <span style={{ color: "#2C3E2D", fontWeight: 500 }}>NextWebIT</span> · nexwebit.in · All rights reserved.
+            © 2025 <span style={{ color: "#2C3E2D", fontWeight: 500 }}>NextWebIT</span> · nextwebit.in · All rights reserved.
           </p>
           <div style={{ display: "flex", gap: 20, flexWrap: "wrap" }}>
             {["Privacy Policy", "Terms of Service", "Refund Policy"].map((l) => (

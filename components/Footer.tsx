@@ -47,7 +47,7 @@ export function Footer() {
               </span>
               <span>
                 <span className="block font-semibold text-gold text-base">NextWebIT</span>
-                <span className="block text-[11px] text-gold/65">nexwebit.in</span>
+                <span className="block text-[11px] text-gold/65">nextwebit.in</span>
               </span>
             </Link>
             <p className="mt-6 text-[15px] leading-[1.7] text-white/70 max-w-md">
@@ -135,7 +135,7 @@ export function Footer() {
 
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-[13px] text-white/55">
-          <p>© {new Date().getFullYear()} NextWebIT · nexwebit.in. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} NextWebIT · nextwebit.in. All rights reserved.</p>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
             <Link href="#" className="hover:text-white transition-colors">
               Privacy Policy

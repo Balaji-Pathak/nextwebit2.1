@@ -21,15 +21,15 @@ export function Hero() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
         <p className="inline-flex items-center rounded-full border border-gold/80 px-4 py-2 text-sm text-gold font-medium mb-8">
-          Trusted by 120+ local businesses across Rajasthan
+          Trusted by 20+ local businesses across Rajasthan
         </p>
 
         <h1 className="text-white max-w-4xl">
           <span className="block text-[clamp(28px,5vw,42px)] font-semibold leading-[1.25]">
-            Apke Business Ka
+            NextWebIT Banata Hai
           </span>
           <span className="block text-[clamp(28px,5vw,42px)] font-semibold leading-[1.25] text-gold">
-            Professional Website
+            Professional Websites for Local Businesses
           </span>
           <span className="block text-[clamp(22px,4vw,42px)] font-semibold leading-[1.25] mt-1">
             - Hum Aate Hain Aapke Paas

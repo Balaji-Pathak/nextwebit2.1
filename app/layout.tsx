@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -9,10 +10,50 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "NextWebIT - Local Websites for Rajasthan Businesses | nexwebit.in",
+  title: {
+    default: "NextWebIT - Website Development Company in Rajasthan",
+    template: "%s | NextWebIT",
+  },
+
   description:
-    "We visit your shop and build professional websites. Fast delivery, honest pricing. Serving local businesses across Rajasthan.",
-  metadataBase: new URL("https://nexwebit.in"),
+    "NextWebIT builds professional business websites for shops, clinics, and local businesses across Rajasthan.",
+
+  metadataBase: new URL("https://nextwebit.in"),
+
+  applicationName: "NextWebIT",
+
+  keywords: [
+    "NextWebIT",
+    "Website Development Rajasthan",
+    "Web Design Jaipur",
+    "Business Website Services",
+    "Local Business Websites",
+  ],
+
+  authors: [{ name: "NextWebIT" }],
+
+  creator: "NextWebIT",
+
+  publisher: "NextWebIT",
+
+  alternates: {
+    canonical: "https://nextwebit.in",
+  },
+
+  openGraph: {
+    title: "NextWebIT",
+    description: "Professional website development for Rajasthan businesses.",
+    url: "https://nextwebit.in",
+    siteName: "NextWebIT",
+    locale: "en_IN",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "NextWebIT",
+    description: "Professional website development for Rajasthan businesses.",
+  },
 };
 
 export default function RootLayout({
@@ -21,8 +62,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="hi" className={`${inter.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col font-sans">{children}</body>
+    <html lang="en-IN" className={`${inter.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col font-sans">
+        <Script
+          id="local-business-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              name: "NextWebIT",
+              url: "https://nextwebit.in",
+              telephone: "+91-7357367085",
+              areaServed: "Rajasthan",
+              description:
+                "Professional website development company for Rajasthan businesses.",
+            }),
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

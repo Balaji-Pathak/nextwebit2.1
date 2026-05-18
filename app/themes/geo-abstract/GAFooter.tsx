@@ -240,7 +240,7 @@ export default function GAFooter() {
               {[
                 { icon: "📍", text: "Jaipur, Rajasthan" },
                 { icon: "📞", text: "+91 73573 67085" },
-                { icon: "✉️", text: "hello@nexwebit.in" }
+                { icon: "✉️", text: "hello@nextwebit.in" }
               ].map(item => (
                 <div key={item.text} style={{ 
                   display: "flex", 
@@ -277,7 +277,7 @@ export default function GAFooter() {
               WebkitTextFillColor: "transparent",
               fontWeight: 600
             }}>NextWebIT</span> 
-            · nexwebit.in · All rights reserved.
+            · nextwebit.in · All rights reserved.
           </p>
           <div style={{ display: "flex", gap: 28, flexWrap: "wrap" }}>
             {["Privacy Policy", "Terms of Service", "Refund Policy"].map(l => (

@@ -54,7 +54,7 @@ export function Navbar() {
             <span className="block font-semibold text-gold text-base tracking-tight">
               NextWebIT
             </span>
-            <span className="block text-[11px] text-gold/65">nexwebit.in</span>
+            <span className="block text-[11px] text-gold/65">nextwebit.in</span>
           </span>
         </Link>
 

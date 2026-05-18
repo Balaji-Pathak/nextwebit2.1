@@ -24,9 +24,9 @@ const contactMethods = [
   {
     icon: "✉️",
     title: "Email Us",
-    value: "hello@nexwebit.in",
+    value: "hello@nextwebit.in",
     sub: "We reply within 24 hours",
-    href: "mailto:hello@nexwebit.in",
+    href: "mailto:hello@nextwebit.in",
     cta: "Send Email",
   },
   {
@@ -607,7 +607,7 @@ export default function ContactPage() {
             </Link>
           </div>
           <p className="text-white/40 text-xs mt-6 tracking-wide">
-            +91 73573 67085 · hello@nexwebit.in · Jaipur, Rajasthan
+            +91 73573 67085 · hello@nextwebit.in · Jaipur, Rajasthan
           </p>
         </div>
       </section>

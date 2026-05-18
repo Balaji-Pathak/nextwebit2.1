@@ -162,7 +162,7 @@ export default function NAFooter() {
 
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-white/8 pt-6 text-xs text-white/25 sm:flex-row sm:items-center">
           <p>
-            © 2025 <span className="text-[#C4A882]">NextWebIT</span> · nexwebit.in
+            © 2025 <span className="text-[#C4A882]">NextWebIT</span> · nextwebit.in
           </p>
           <div className="flex flex-wrap gap-5">
             <Link href="#" className="cursor-pointer transition-colors hover:text-white/55">

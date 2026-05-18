@@ -118,7 +118,7 @@ export default function VLNavbar() {
           className="absolute bottom-8 text-[0.72rem] text-[rgba(240,236,228,0.25)] text-center px-6"
           style={{ fontFamily: dmMono.style.fontFamily }}
         >
-          +91 73573 67085 · hello@nexwebit.in
+          +91 73573 67085 · hello@nextwebit.in
         </p>
       </div>
     </>

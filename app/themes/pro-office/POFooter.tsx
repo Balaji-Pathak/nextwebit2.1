@@ -304,7 +304,7 @@ export default function POFooter() {
                 <span style={{ color: "#3B3DB8", marginRight: 6 }}>
                   {"\u25B8"}
                 </span>
-                hello@nexwebit.in
+                hello@nextwebit.in
               </p>
             </div>
           </div>
