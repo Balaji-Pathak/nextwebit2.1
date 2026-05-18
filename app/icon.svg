@@ -1,9 +1,9 @@
 <svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-  <rect width="128" height="128" rx="24" fill="#0A1F5C"/>
+  <rect width="128" height="128" rx="24" fill="#ff5722"/>
   
   <path
     d="M30 96V32H46L82 76V32H98V96H82L46 52V96Z"
-    fill="#FF5722"
+    fill="#FFF"
   />
 
   <path
