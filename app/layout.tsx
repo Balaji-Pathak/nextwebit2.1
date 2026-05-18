@@ -77,6 +77,9 @@ export default function RootLayout({
               areaServed: "Rajasthan",
               description:
                 "Professional website development company for Rajasthan businesses.",
+              sameAs: [
+                "https://www.linkedin.com/company/nextwebit/"
+              ]
             }),
           }}
         />

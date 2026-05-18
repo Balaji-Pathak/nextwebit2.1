@@ -431,53 +431,6 @@ export default function ContactPage() {
                   </p>
                 </div>
               </div>
-
-              {/* Social links */}
-              <div className="cp-rv bg-white rounded-2xl p-6 border border-[#0A1F5C]/8">
-                <p className="text-[11px] font-semibold uppercase tracking-widest text-[#888] mb-4">
-                  Follow Us
-                </p>
-                <div className="flex gap-3 flex-wrap">
-                  {[
-                    {
-                      label: "Instagram",
-                      short: "ig",
-                      href: "#",
-                      color: "bg-gradient-to-br from-pink-500 to-orange-400",
-                    },
-                    {
-                      label: "Facebook",
-                      short: "fb",
-                      href: "#",
-                      color: "bg-blue-600",
-                    },
-                    {
-                      label: "YouTube",
-                      short: "yt",
-                      href: "#",
-                      color: "bg-red-500",
-                    },
-                    {
-                      label: "LinkedIn",
-                      short: "li",
-                      href: "#",
-                      color: "bg-blue-700",
-                    },
-                  ].map((s) => (
-                    <Link
-                      key={s.short}
-                      href={s.href}
-                      title={s.label}
-                      className={`h-10 w-10 rounded-full ${s.color} flex items-center justify-center text-white text-xs font-bold hover:-translate-y-0.5 hover:shadow-md transition-all duration-200`}
-                    >
-                      {s.short}
-                    </Link>
-                  ))}
-                </div>
-                <p className="text-xs text-gray-400 mt-3">
-                  See our latest work and client results on Instagram
-                </p>
-              </div>
             </div>
           </div>
         </div>
