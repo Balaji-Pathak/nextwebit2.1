@@ -29,7 +29,7 @@ export function Hero() {
             NextWebIT Banata Hai
           </span>
           <span className="block text-[clamp(28px,5vw,42px)] font-semibold leading-[1.25] text-gold">
-            Professional Websites for Local Businesses
+            Professional Business Websites
           </span>
           <span className="block text-[clamp(22px,4vw,42px)] font-semibold leading-[1.25] mt-1">
             - Hum Aate Hain Aapke Paas
