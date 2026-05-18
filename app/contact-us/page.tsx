@@ -386,7 +386,7 @@ export default function ContactPage() {
                     { icon: "📲", text: "WhatsApp support after launch" },
                     {
                       icon: "🌟",
-                      text: "4.9★ Google rating - 120+ happy clients",
+                      text: "4.9★ Google rating - 20+ happy clients",
                     },
                   ].map((item) => (
                     <li

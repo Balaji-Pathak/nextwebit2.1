@@ -429,7 +429,7 @@ export default function VintageLuxuryThemePage() {
               <p className="vl-font-mono text-[10px] tracking-widest text-[var(--muted)]">
                 PROJECTS LIVE
               </p>
-              <p className="mt-1 text-2xl font-bold text-[#C9A84C]">120+</p>
+              <p className="mt-1 text-2xl font-bold text-[#C9A84C]">20+</p>
             </div>
             <div
               className="vl-chip vl-chip--tr vl-font-display absolute right-4 top-28 z-10 hidden max-w-[200px] rounded-2xl border border-[var(--glass-border)] p-[18px_24px] backdrop-blur-[18px] transition-all duration-300 lg:block hover:border-[rgba(201,168,76,0.3)] hover:shadow-[0_8px_40px_rgba(201,168,76,0.12)]"

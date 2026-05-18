@@ -27,7 +27,7 @@ const milestones = [
   { year: "2022", title: "NextWebIT Founded", desc: "Started with one laptop and one belief - every local business deserves a professional online presence." },
   { year: "2023", title: "50 Websites Delivered", desc: "Crossed 50 clients in Jaipur and expanded to Jodhpur, Ajmer and Kota. First 5-star Google review." },
   { year: "2024", title: "Themes Platform Launched", desc: "Introduced 8 pre-designed themes so clients could choose their style before we start building." },
-  { year: "2025", title: "120+ Clients & Growing", desc: "Today we serve 120+ businesses across Rajasthan with websites, Google presence and digital support." },
+  { year: "2025", title: "20+ Clients & Growing", desc: "Today we serve 20+ businesses across Rajasthan with websites, Google presence and digital support." },
 ];
 
 export default function AboutPage() {
@@ -96,7 +96,7 @@ export default function AboutPage() {
       ══════════════════════════════ */}
       <section style={{ background: IND, padding: "28px 24px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 16, textAlign: "center" }} className="ab-4col">
-          {[["120+","Websites Built"],["3","Years Active"],["4.9★","Google Rating"],["100%","Satisfaction"]]
+          {[["20+","Websites Built"],["3","Years Active"],["4.9★","Google Rating"],["100%","Satisfaction"]]
             .map(([num, label]) => (
               <div key={label}>
                 <div className={playfair.className} style={{ fontSize: "clamp(1.6rem,4vw,2.4rem)", fontWeight: 700, color: "#fff", lineHeight: 1 }}>{num}</div>
@@ -124,7 +124,7 @@ export default function AboutPage() {
               So they started NextWebIT with one rule: <strong style={{ color: DARK }}>we go to them.</strong> No complicated forms, no cold emails. We walk into your shop, have a conversation, and build something that truly represents your business.
             </p>
             <div style={{ display: "flex", gap: 28 }}>
-              {[["120+","Clients"],["5 Days","Avg. Delivery"],["₹4,999","Starting"]].map(([num, label]) => (
+              {[["20+","Clients"],["5 Days","Avg. Delivery"],["₹4,999","Starting"]].map(([num, label]) => (
                 <div key={label}>
                   <div className={playfair.className} style={{ fontSize: "1.8rem", fontWeight: 700, color: IND }}>{num}</div>
                   <div style={{ fontSize: "0.65rem", color: SOFT, textTransform: "uppercase", letterSpacing: "0.08em" }}>{label}</div>

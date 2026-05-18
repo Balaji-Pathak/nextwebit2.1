@@ -1,5 +1,5 @@
 const stats = [
-  { value: "120+", label: "Websites Delivered" },
+  { value: "20+", label: "Websites Delivered" },
   { value: "5 Days", label: "Avg Delivery" },
   { value: "4.9★", label: "Google Rating" },
   { value: "₹4,999", label: "Starting Price" },
