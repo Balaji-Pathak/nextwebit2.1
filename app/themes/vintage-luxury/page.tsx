@@ -41,7 +41,7 @@ const SERVICES = [
     icon: "🏺",
     title: "Design & Build",
     desc: "Bespoke sites crafted around your brand, voice, and goals - not a template.",
-    tag: "From ₹4,999",
+    tag: "From ₹3,799",
   },
   {
     icon: "✍️",

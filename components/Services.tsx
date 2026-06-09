@@ -3,7 +3,7 @@ const services = [
     icon: "🏪",
     title: "Business Website",
     desc: "Single-page ya multi-page site - products, timings, map, call buttons. Mobile pe perfect.",
-    price: "₹4,999",
+    price: "₹3,799",
   },
   {
     icon: "🛒",

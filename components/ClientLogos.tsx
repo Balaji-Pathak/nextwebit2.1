@@ -1,8 +1,8 @@
 const clients = [
-  "Sharma Kirana Store",
-  "Pink City Electronics",
-  "Dr. Meena Clinic",
-  "Royal Dhaba & Family Restaurant",
+  "Unidecorindia Furnitures",
+  "HealingHands Clinic",
+  "GK Kitchen Equipments",
+  "Crebbgroup Builders(foreign clients)",
   "Jodhpur Handicrafts",
   "Agarwal Traders",
   "Jaipur Dental Care",

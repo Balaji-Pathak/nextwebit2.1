@@ -52,7 +52,7 @@ export default function AboutPage() {
 
   const BG   = "#F8F9FF";
   const BG2  = "#EEF0FF";
-  const IND  = "#3B3DB8";
+  const IND  = "#0A1F5C";
   const DARK = "#1A1A2E";
   const MUT  = "#4A4A6A";
   const SOFT = "#8888AA";
@@ -124,7 +124,7 @@ export default function AboutPage() {
               So they started NextWebIT with one rule: <strong style={{ color: DARK }}>we go to them.</strong> No complicated forms, no cold emails. We walk into your shop, have a conversation, and build something that truly represents your business.
             </p>
             <div style={{ display: "flex", gap: 28 }}>
-              {[["20+","Clients"],["5 Days","Avg. Delivery"],["₹4,999","Starting"]].map(([num, label]) => (
+              {[["20+","Clients"],["5 Days","Avg. Delivery"],["₹3,799","Starting"]].map(([num, label]) => (
                 <div key={label}>
                   <div className={playfair.className} style={{ fontSize: "1.8rem", fontWeight: 700, color: IND }}>{num}</div>
                   <div style={{ fontSize: "0.65rem", color: SOFT, textTransform: "uppercase", letterSpacing: "0.08em" }}>{label}</div>

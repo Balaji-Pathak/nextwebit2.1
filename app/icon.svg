@@ -1,14 +1,8 @@
-<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-  <rect width="128" height="128" rx="24" fill="#ff5722"/>
-  
+<svg width="128" height="128" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="400" rx="48" fill="#ffffff"/>
   <path
-    d="M30 96V32H46L82 76V32H98V96H82L46 52V96Z"
-    fill="#FFF"
+    d="M70 70 L70 330 L140 330 L140 170 L240 330 L330 330 L330 70 L260 70 L260 230 L160 70 Z"
+    fill="#0A2540"
   />
-
-  <path
-    d="M30 96V32H46L82 76V32H98V96H82L46 52V96Z"
-    fill="#ffffff"
-    opacity="0.08"
-  />
+  <rect x="255" y="70" width="80" height="260" fill="#FF7A00"/>
 </svg>

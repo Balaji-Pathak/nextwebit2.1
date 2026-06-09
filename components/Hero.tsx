@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 const trustItems = [
-  "We come to your shop",
+  "Live meeting at your premise",
   "Delivery in 5 working days",
-  "Starting at just ₹4,999",
+  "Starting at just ₹3,799",
   "Free changes till you're happy",
 ];
 
@@ -37,8 +37,8 @@ export function Hero() {
         </h1>
 
         <p className="mt-6 max-w-2xl text-[15px] leading-[1.7] text-white/[0.72]">
-          NextWebIT aapke dukaan ya clinic tak khud aata hai, samajhta hai aapka kaam, aur 5 din mein
-          ek saaf, mobile-friendly website tayar karta hai - bina tension ke, seedhe Hindi / English
+          NextWebIT aapke business tak khud aata hai, samajhta hai aapka kaam, aur 5 din mein
+          ek clean, mobile-friendly website tayar karta hai - bina tension ke, seedhe Hindi / English
           mein support ke sath.
         </p>
 
@@ -48,12 +48,6 @@ export function Hero() {
             className="inline-flex items-center justify-center rounded-md bg-accent px-6 py-3.5 text-[15px] font-semibold text-white shadow-lg hover:bg-[#e64a19] transition-colors duration-300"
           >
             Book a Free Visit Today
-          </Link>
-          <Link
-            href="#portfolio"
-            className="inline-flex items-center justify-center rounded-md border-2 border-white px-6 py-3.5 text-[15px] font-semibold text-white hover:bg-white/10 transition-colors duration-300"
-          >
-            View Our Work →
           </Link>
         </div>
 

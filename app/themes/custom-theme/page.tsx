@@ -68,7 +68,7 @@ export default function CustomThemePage() {
 
   const BG    = "#F8F9FF";
   const BG2   = "#EEF0FF";
-  const IND   = "#3B3DB8";
+  const IND   = "#0A1F5C";
   const INDL  = "#6366F1";
   const DARK  = "#1A1A2E";
   const MUT   = "#4A4A6A";

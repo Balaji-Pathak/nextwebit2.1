@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { CONTACT, WHATSAPP_E164 } from "@/lib/site";
+import { Logo } from "@/components/Logo";
 import { NewsletterForm } from "./NewsletterForm";
 
 const quickLinks = [
@@ -41,14 +42,8 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-14 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
           <div className="lg:col-span-5">
-            <Link href="#" className="inline-flex items-center gap-2.5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-md bg-accent text-white font-bold text-lg">
-                N
-              </span>
-              <span>
-                <span className="block font-semibold text-gold text-base">NextWebIT</span>
-                <span className="block text-[11px] text-gold/65">nextwebit.in</span>
-              </span>
+            <Link href="/" className="group">
+              <Logo />
             </Link>
             <p className="mt-6 text-[15px] leading-[1.7] text-white/70 max-w-md">
               NextWebIT Rajasthan mein local dukaan, clinic, dhaba aur traders ke liye professional

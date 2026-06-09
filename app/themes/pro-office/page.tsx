@@ -29,7 +29,7 @@ const serviceCards = [
     icon: "\u{1F5A5}",
     title: "Website & Digital",
     text: "Professional websites, Google presence and social media setup for your firm.",
-    tag: "From \u20B94,999",
+    tag: "From \u20B93,799",
   },
   {
     icon: "\u{1F4C8}",

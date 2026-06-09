@@ -3,14 +3,15 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Logo } from "@/components/Logo";
 
 const links = [
   { href: "/#services", label: "Services" },
-  { href: "/about", label: "About Us" },
-  { href: "/themes", label: "Themes" },
   { href: "/#process", label: "Process" },
   { href: "/#reviews", label: "Reviews" },
-  { href: "/contact-us", label: "Contact" },
+  { href: "/about", label: "About Us" },
+  { href: "/themes", label: "Themes" },
+
 ];
 
 export function Navbar() {
@@ -40,22 +41,11 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out bg-[rgba(10,31,92,0.97)] backdrop-blur-[8px] border-b border-white/10 shadow-sm`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out bg-navy/95 backdrop-blur-sm border-b border-white/10 shadow-sm`}
     >
       <nav className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between gap-4 py-3 md:py-4">
-        <Link href="/" className="flex items-center gap-2.5 shrink-0 group">
-          <span
-            className="flex h-9 w-9 items-center justify-center rounded-md bg-accent text-white font-bold text-lg leading-none transition-transform group-hover:scale-105"
-            aria-hidden
-          >
-            N
-          </span>
-          <span className="leading-tight">
-            <span className="block font-semibold text-gold text-base tracking-tight">
-              NextWebIT
-            </span>
-            <span className="block text-[11px] text-gold/65">nextwebit.in</span>
-          </span>
+        <Link href="/" className="shrink-0 group">
+          <Logo />
         </Link>
 
         <ul className="hidden lg:flex items-center gap-8">
@@ -94,7 +84,7 @@ export function Navbar() {
       </nav>
 
       {open && (
-        <div className="lg:hidden border-t border-white/10 bg-[rgba(10,31,92,0.98)] backdrop-blur-md px-6 pb-4">
+        <div className="lg:hidden border-t border-white/10 bg-navy/85 backdrop-blur-md px-6 pb-4">
           <ul className="flex flex-col gap-3 pt-3">
             {links.map((l) => {
               const themesActive = pathname === "/themes" && l.href === "/themes";
