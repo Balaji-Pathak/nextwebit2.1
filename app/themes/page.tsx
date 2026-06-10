@@ -4,7 +4,6 @@ import { Footer } from "@/components/Footer";
 import { CtaStrip } from "@/components/CtaStrip";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { ThemesHero } from "@/components/themes/ThemesHero";
-import { ThemesFilter } from "@/components/themes/ThemesFilter";
 import { ThemesGrid } from "@/components/themes/ThemesGrid";
 
 export const metadata: Metadata = {
@@ -19,7 +18,6 @@ export default function ThemesPage() {
       <Navbar />
       <main className="bg-[#F4F6FB]">
         <ThemesHero />
-        <ThemesFilter />
         <ThemesGrid />
         <CtaStrip />
       </main>

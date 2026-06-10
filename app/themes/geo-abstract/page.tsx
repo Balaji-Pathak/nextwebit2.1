@@ -526,7 +526,7 @@ export default function GeoAbstractPage() {
               onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.22)")}
             >See Case Studies</Link>
           </div>
-          <p style={{ fontSize: "0.72rem", color: MUT, marginTop: 28, letterSpacing: "0.1em" }}>+91 73573 67085 · hello@nextwebit.in</p>
+          <p style={{ fontSize: "0.72rem", color: MUT, marginTop: 28, letterSpacing: "0.1em" }}>+91 73573 67085 · nextwebit.in@gmail.com</p>
         </div>
       </section>
 

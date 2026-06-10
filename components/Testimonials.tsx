@@ -1,10 +1,10 @@
 const testimonials = [
   {
     quote:
-      "Pehle humein lagta tha website sirf bade logo ke liye hai. NextWebIT ne dukaan par aa kar sab samjhaya aur 5 din mein site live kar di. Ab phone par zyada calls aati hain.",
+      "Pehle humein lagta tha website banwane ka kaam kaafi difficult hai. NextWebIT ne dukaan par aa kar sab samjhaya aur 5 din mein site live kar di. Ab phone par zyada calls aati hain.",
     initials: "RS",
     name: "Ramesh Soni",
-    biz: "Soni General Store, Jaipur",
+    biz: "Soni Clothing Store, Jaipur",
   },
   {
     quote:

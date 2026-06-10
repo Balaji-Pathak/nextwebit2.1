@@ -6,26 +6,74 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Inter, Playfair_Display } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"], weight: ["300","400","500","600","700","800"] });
-const playfair = Playfair_Display({ subsets: ["latin"], weight: ["400","500","600","700"], style: ["normal","italic"] });
+const inter = Inter({ subsets: ["latin"], weight: ["300", "400", "500", "600", "700", "800"] });
+const playfair = Playfair_Display({ subsets: ["latin"], weight: ["400", "500", "600", "700"], style: ["normal", "italic"] });
 
 const team = [
-  { name: "Balaji Pathak", role: "Founder", init: "BP",desc: "Co-founder of NextWebIT, leading development and technical excellence.",  color: "#3B3DB8" },
-  { name: "Nandish Taylor", role: "Founder", init: "NT",desc: "Co-founder of NextWebIT, driving innovation and client relationships." , color: "#7B2FFF" },
+  { 
+    name: "Balaji Pathak", 
+    role: "Lead Full Stack Developer", 
+    init: "BP", 
+    desc: "Leading member of NextWebIT, driving technical architecture and development excellence.", 
+    color: "#3B3DB8" 
+  },
+  { 
+    name: "Nandish Taylor", 
+    role: "Business & Client Strategy Lead", 
+    init: "NT", 
+    desc: "Leading member of NextWebIT, focused on client relationships and business growth.", 
+    color: "#7B2FFF" 
+  },
+  
+  // New Members
+  { 
+    name: "Prityush Sharma", 
+    role: "Senior Full Stack Developer", 
+    init: "PS", 
+    desc: "Expert in building scalable web applications with modern technologies.", 
+    color: "#10B981" 
+  },
+  { 
+    name: "Rahul Verma", 
+    role: "Business Development Manager", 
+    init: "RV", 
+    desc: "Passionate about connecting with local businesses and growing client relationships.", 
+    color: "#F59E0B" 
+  },
+  { 
+    name: "Roney Mehta", 
+    role: "UI/UX Designer", 
+    init: "AM", 
+    desc: "Creating beautiful, user-friendly designs that truly represent our clients' brands.", 
+    color: "#EC4899" 
+  },
+  { 
+    name: "Karan Singh", 
+    role: "Project Manager & Operations", 
+    init: "KS", 
+    desc: "Ensuring smooth project delivery and maintaining high quality standards.", 
+    color: "#3B82F6" 
+  },
+  { 
+    name: "Maneesh Gupta", 
+    role: "Digital Marketing Specialist", 
+    init: "SG", 
+    desc: "Helping our clients grow their online presence through SEO and social media.", 
+    color: "#8B5CF6" 
+  },
 ];
 
 const values = [
   { icon: "🏪", title: "We Come To You", desc: "We visit your shop or office anywhere in Rajasthan. No zoom calls, no long emails - just a real conversation over chai." },
   { icon: "🤝", title: "Honest Pricing", desc: "No hidden fees. No surprise invoices. What we quote is what you pay. Always." },
-  { icon: "⚡", title: "Fast Delivery", desc: "We know your time is money. Most websites are live within 5–7 working days of design approval." },
+  { icon: "⚡", title: "Fast Delivery", desc: "We know your time is money. Most websites are live within 5 working days of design approval." },
   { icon: "📞", title: "WhatsApp Support", desc: "After launch you have our WhatsApp number. Text us any time for updates, changes or questions." },
   { icon: "🌟", title: "Local Understanding", desc: "We are from Jaipur. We understand the local market, Indian business culture and what your customers actually look for." },
   { icon: "🔁", title: "Long Term Partners", desc: "We don't disappear after launch. We grow with you - updating your website as your business evolves." },
 ];
 
 const milestones = [
-  { year: "2022", title: "NextWebIT Founded", desc: "Started with one laptop and one belief - every local business deserves a professional online presence." },
-  { year: "2023", title: "50 Websites Delivered", desc: "Crossed 50 clients in Jaipur and expanded to Jodhpur, Ajmer and Kota. First 5-star Google review." },
+  { year: "2023", title: "10 Websites Delivered", desc: "Crossed 10 clients in Jaipur and expanded across Rajasthan." },
   { year: "2024", title: "Themes Platform Launched", desc: "Introduced 8 pre-designed themes so clients could choose their style before we start building." },
   { year: "2025", title: "20+ Clients & Growing", desc: "Today we serve 20+ businesses across Rajasthan with websites, Google presence and digital support." },
 ];
@@ -50,11 +98,11 @@ export default function AboutPage() {
     return () => obs.disconnect();
   }, []);
 
-  const BG   = "#F8F9FF";
-  const BG2  = "#EEF0FF";
-  const IND  = "#0A1F5C";
+  const BG = "#F8F9FF";
+  const BG2 = "#EEF0FF";
+  const IND = "#0A1F5C";
   const DARK = "#1A1A2E";
-  const MUT  = "#4A4A6A";
+  const MUT = "#4A4A6A";
   const SOFT = "#8888AA";
 
   return (
@@ -73,10 +121,10 @@ export default function AboutPage() {
           </div>
           <h1 className={playfair.className} style={{ fontSize: "clamp(2.8rem,7vw,5.5rem)", fontWeight: 700, color: DARK, lineHeight: 1.05, margin: "0 0 20px", letterSpacing: "-0.02em" }}>
             We are NextWebIT.<br />
-            <span style={{ fontStyle: "italic", color: IND }}>We come to you.</span>
+            <span style={{ fontStyle: "italic", color: IND }}>We meet you live.</span>
           </h1>
           <p style={{ fontSize: "1.05rem", color: MUT, lineHeight: 1.85, maxWidth: 560, margin: "0 auto 40px" }}>
-            A Jaipur-based web agency that visits local shops, understands their business, and builds websites that bring more customers. No technical jargon. Just real results.
+            A Jaipur-based web agency that helps local shops, understands their business, and builds websites that bring more customers. No technical jargon. Just real results.
           </p>
           <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/themes" style={{ padding: "13px 32px", background: IND, color: "#fff", borderRadius: 999, fontWeight: 700, fontSize: "0.95rem", textDecoration: "none", transition: "all .2s" }}
@@ -96,7 +144,7 @@ export default function AboutPage() {
       ══════════════════════════════ */}
       <section style={{ background: IND, padding: "28px 24px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 16, textAlign: "center" }} className="ab-4col">
-          {[["20+","Websites Built"],["3","Years Active"],["4.9★","Google Rating"],["100%","Satisfaction"]]
+          {[["20+", "Websites Built"], ["2", "Years Active"], ["100%", "Satisfaction"]]
             .map(([num, label]) => (
               <div key={label}>
                 <div className={playfair.className} style={{ fontSize: "clamp(1.6rem,4vw,2.4rem)", fontWeight: 700, color: "#fff", lineHeight: 1 }}>{num}</div>
@@ -118,13 +166,16 @@ export default function AboutPage() {
               <span style={{ fontStyle: "italic", color: IND }}>observation</span>
             </h2>
             <p style={{ fontSize: "0.95rem", color: MUT, lineHeight: 1.85, marginBottom: 16 }}>
-              In 2022, our founders Balaji Pathak and Nandish Taylor noticed something - hundreds of brilliant local businesses in Jaipur had no online presence. A jeweller with 30 years of heritage. A sweet shop with the best mithai in the city. A clinic trusted by thousands. All invisible on Google.
+              In 2023, our team noticed something - hundreds of brilliant local businesses in Jaipur had no online presence. A jeweller with 30 years of heritage. A sweet shop with the best mithai in the city. A clinic trusted by thousands. All invisible on Google.
             </p>
             <p style={{ fontSize: "0.95rem", color: MUT, lineHeight: 1.85, marginBottom: 24 }}>
-              So they started NextWebIT with one rule: <strong style={{ color: DARK }}>we go to them.</strong> No complicated forms, no cold emails. We walk into your shop, have a conversation, and build something that truly represents your business.
+              So we started NextWebIT with just four people and one clear rule: We meet them at their place, in person. No complicated forms, no cold emails. We walk into your shop, have a real conversation, and build something that truly represents your business.
+            </p>
+            <p style={{ fontSize: "0.95rem", color: MUT, lineHeight: 1.85 }}>
+              Today, our team has grown to seven, but that same hands-on spirit remains at the heart of everything we do.
             </p>
             <div style={{ display: "flex", gap: 28 }}>
-              {[["20+","Clients"],["5 Days","Avg. Delivery"],["₹3,799","Starting"]].map(([num, label]) => (
+              {[["20+", "Clients"], ["5 Days", "Avg. Delivery"], ["₹3,799", "Starting"]].map(([num, label]) => (
                 <div key={label}>
                   <div className={playfair.className} style={{ fontSize: "1.8rem", fontWeight: 700, color: IND }}>{num}</div>
                   <div style={{ fontSize: "0.65rem", color: SOFT, textTransform: "uppercase", letterSpacing: "0.08em" }}>{label}</div>
@@ -141,7 +192,7 @@ export default function AboutPage() {
                 <span style={{ fontSize: "2rem" }}>🏪</span>
               </div>
               <div style={{ background: DARK, borderRadius: 16, padding: "20px 16px", textAlign: "center" }}>
-                <div className={playfair.className} style={{ fontSize: "2rem", fontWeight: 700, color: "#FFD700", fontStyle: "italic" }}>2022</div>
+                <div className={playfair.className} style={{ fontSize: "2rem", fontWeight: 700, color: "#FFD700", fontStyle: "italic" }}>2023</div>
                 <div style={{ fontSize: "0.65rem", color: "rgba(255,255,255,0.55)", marginTop: 4, textTransform: "uppercase", letterSpacing: "0.08em" }}>Founded</div>
               </div>
             </div>

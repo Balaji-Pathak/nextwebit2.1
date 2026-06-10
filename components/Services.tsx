@@ -1,77 +1,99 @@
-const services = [
-  {
-    icon: "🏪",
-    title: "Business Website",
-    desc: "Single-page ya multi-page site - products, timings, map, call buttons. Mobile pe perfect.",
-    price: "₹3,799",
-  },
-  {
-    icon: "🛒",
-    title: "Online Store",
-    desc: "Catalog, WhatsApp order, simple checkout options. Aapka samaan online dikhe.",
-    price: "₹9,999",
-  },
-  {
-    icon: "🏥",
-    title: "Clinic Website",
-    desc: "Doctor profile, timings, services, appointment CTA - patients ko bharosa milta hai.",
-    price: "₹6,999",
-  },
-  {
-    icon: "🍽️",
-    title: "Restaurant Page",
-    desc: "Menu, photos, location, table booking hint - dhaba aur restaurant dono ke liye.",
-    price: "₹5,999",
-  },
-  {
-    icon: "📍",
-    title: "Google My Business",
-    desc: "Profile setup / optimize, photos, categories - local search mein upar aane mein madad.",
-    price: "₹1,499",
-  },
-  {
-    icon: "🔧",
-    title: "Maintenance",
-    desc: "Monthly updates, small text changes, backup - tension-free chalta rahe.",
-    price: "₹499/month",
-  },
-];
+const service = {
+  title: "Elite Online Presence",
+  originalPrice: "₹8,999",
+  price: "₹3,799",
+  savings: "You Save ₹5,200",
+  features: [
+    "Elite Web Page Design",
+    "Mobile Responsiveness",
+    "SEO / SSL Certificate",
+    "Domain (Free 1st Year)",
+    "Hosting",
+    "Map Integration",
+    "WhatsApp Integration",
+    "Advanced Speed Optimization",
+  ],
+};
 
 export function Services() {
   return (
-    <section id="services" className="bg-white py-16 md:py-24">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <section id="services" className="bg-white py-20 md:py-28">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
+        
+        {/* Header */}
         <p className="text-[11px] font-semibold uppercase tracking-[1px] text-accent mb-3">
-          What we build
-        </p>
-        <h2 className="text-[28px] font-semibold text-navy leading-tight">
-          Services for every local business
-        </h2>
-        <p className="mt-4 max-w-2xl text-[15px] leading-[1.7] text-[#444]">
-          Sab packages clear pricing ke sath - pehle free visit, phir aap decide karein. Hum
-          Rajasthan ke hisaab se simple, tez aur reliable websites banate hain.
+          Special Offer
         </p>
 
-        <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {services.map((s) => (
-            <article
-              key={s.title}
-              className="group relative overflow-hidden rounded-xl border border-navy/10 bg-white pt-[3px] shadow-sm hover:shadow-md hover:border-navy-mid/25 hover:-translate-y-0.5 transition-all duration-500"
-            >
-              <div className="absolute top-0 w-full h-[3px] rounded-t-xl bg-navy-mid" />
-              <div className="p-6 pt-7">
-                <span className="text-3xl" aria-hidden>
-                  {s.icon}
-                </span>
-                <h3 className="mt-4 text-lg font-semibold text-navy">{s.title}</h3>
-                <p className="mt-2 text-[15px] leading-[1.7] text-[#444]">{s.desc}</p>
-                <p className="mt-5 inline-block rounded-full bg-card-tint px-3 py-1.5 text-sm font-semibold text-navy-mid">
-                  {s.price}
-                </p>
-              </div>
-            </article>
-          ))}
-        </div>
+        <h2 className="text-[28px] md:text-[36px] font-semibold text-navy leading-tight">
+          Apke Business Ka Professional Website
+        </h2>
+
+        <p className="mt-4 max-w-2xl mx-auto text-[15px] leading-[1.7] text-[#444]">
+          Ek complete online presence — design se lekar hosting tak sab included. Simple, fast aur reliable.
+        </p>
+
+        {/* Main Card */}
+        <div className="mt-14 flex justify-center">
+  <div className="relative w-full max-w-7xl rounded-2xl border border-navy/10 bg-white shadow-sm hover:shadow-md transition-all duration-500 p-8 md:p-12 text-left">
+    
+    <div className="absolute -top-3 left-6 bg-accent text-white text-[13px] md:text-[14px] px-4 py-1.5 rounded-full font-semibold tracking-wide">
+      LIMITED PERIOD OFFER
+    </div>
+
+    <h3 className="text-2xl md:text-3xl font-semibold text-navy">
+      Elite Online Presence
+    </h3>
+
+    <div className="mt-5 flex items-center gap-4 flex-wrap">
+      <span className="text-[16px] md:text-[18px] text-[#777] line-through">
+        ₹8,999
+      </span>
+
+      <span className="text-4xl md:text-5xl font-bold text-navy-mid leading-none">
+        ₹3,799
+      </span>
+
+      <span className="text-[14px] md:text-[15px] font-semibold text-green-600">
+        You Save ₹5,200
+      </span>
+    </div>
+
+    <ul className="mt-10 grid sm:grid-cols-2 gap-x-8 gap-y-4">
+      <li className="flex items-start gap-3 text-[16px] md:text-[17px] text-[#333]">
+        <span className="text-green-600 mt-[3px] text-[14px]">✔</span>Elite Web Page Design
+      </li>
+      <li className="flex items-start gap-3 text-[16px] md:text-[17px] text-[#333]">
+        <span className="text-green-600 mt-[3px] text-[14px]">✔</span>Mobile Responsiveness
+      </li>
+      <li className="flex items-start gap-3 text-[16px] md:text-[17px] text-[#333]">
+        <span className="text-green-600 mt-[3px] text-[14px]">✔</span>SEO / SSL Certificate
+      </li>
+      <li className="flex items-start gap-3 text-[16px] md:text-[17px] text-[#333]">
+        <span className="text-green-600 mt-[3px] text-[14px]">✔</span>Domain (Free 1st Year)
+      </li>
+      <li className="flex items-start gap-3 text-[16px] md:text-[17px] text-[#333]">
+        <span className="text-green-600 mt-[3px] text-[14px]">✔</span>Hosting
+      </li>
+      <li className="flex items-start gap-3 text-[16px] md:text-[17px] text-[#333]">
+        <span className="text-green-600 mt-[3px] text-[14px]">✔</span>Map Integration
+      </li>
+      <li className="flex items-start gap-3 text-[16px] md:text-[17px] text-[#333]">
+        <span className="text-green-600 mt-[3px] text-[14px]">✔</span>WhatsApp Integration
+      </li>
+      <li className="flex items-start gap-3 text-[16px] md:text-[17px] text-[#333]">
+        <span className="text-green-600 mt-[3px] text-[14px]">✔</span>Advanced Speed Optimization
+      </li>
+    </ul>
+
+  </div>
+</div>
+
+        {/* Trust Signals */}
+        <p className="mt-12 text-[13px] text-[#555] max-w-2xl mx-auto">
+          100% Satisfaction Guarantee • On-time Delivery (Within 5 Working Days) • Trusted by Local Businesses in Jaipur
+        </p>
+
       </div>
     </section>
   );

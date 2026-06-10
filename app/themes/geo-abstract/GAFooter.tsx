@@ -240,7 +240,7 @@ export default function GAFooter() {
               {[
                 { icon: "📍", text: "Jaipur, Rajasthan" },
                 { icon: "📞", text: "+91 73573 67085" },
-                { icon: "✉️", text: "hello@nextwebit.in" }
+                { icon: "✉️", text: "nextwebit.in@gmail.com" }
               ].map(item => (
                 <div key={item.text} style={{ 
                   display: "flex", 

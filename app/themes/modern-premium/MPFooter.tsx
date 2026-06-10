@@ -22,7 +22,7 @@ const socialLinks = [
   { icon: <FaWhatsapp size={14} />, href: "#" },
   { icon: <FaXTwitter size={13} />, href: "#" },
 ];
-const contactItems = ["Jaipur, Rajasthan", "+91 73573 67085", "hello@nextwebit.in"];
+const contactItems = ["Jaipur, Rajasthan", "+91 73573 67085", "nextwebit.in@gmail.com"];
 
 export default function MPFooter() {
   return (

@@ -140,7 +140,7 @@ export default function MEFooter() {
             </div>
             <p style={{ fontFamily: dmMono.style.fontFamily, fontSize: "0.6rem", color: "#8A9E8B", letterSpacing: "0.06em" }}>No spam · Unsubscribe anytime</p>
             <div style={{ marginTop: 20, display: "flex", flexDirection: "column", gap: 8 }}>
-              {["Jaipur, Rajasthan", "+91 73573 67085", "hello@nextwebit.in"].map((item) => (
+              {["Jaipur, Rajasthan", "+91 73573 67085", "nextwebit.in@gmail.com"].map((item) => (
                 <div key={item} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.8rem", color: "#5C6B5D" }}>
                   <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#C4735A", flexShrink: 0 }} />
                   {item}

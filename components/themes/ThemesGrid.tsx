@@ -316,7 +316,7 @@ function ThemeCard({ theme }: { theme: ThemeDef }) {
 
 export function ThemesGrid() {
   return (
-    <section className="bg-[#F4F6FB] px-10 pb-12">
+    <section className="bg-[#F4F6FB] px-10 py-10 pb-12">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {THEMES.map((t) => (
           <ThemeCard key={t.id} theme={t} />

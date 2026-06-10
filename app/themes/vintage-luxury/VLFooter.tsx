@@ -21,7 +21,7 @@ const socialLinks = ["f", "in", "yt", "wa", "tw"];
 const contactItems = [
   "Jaipur, Rajasthan",
   "+91 73573 67085",
-  "hello@nextwebit.in",
+  "nextwebit.in@gmail.com",
 ];
 
 export default function VLFooter() {

@@ -24,9 +24,9 @@ const contactMethods = [
   {
     icon: "✉️",
     title: "Email Us",
-    value: "hello@nextwebit.in",
+    value: "nextwebit.in@gmail.com",
     sub: "We reply within 24 hours",
-    href: "mailto:hello@nextwebit.in",
+    href: "mailto:nextwebit.in@gmail.com",
     cta: "Send Email",
   },
   {
@@ -34,28 +34,9 @@ const contactMethods = [
     title: "Visit Us",
     value: "Jaipur, Rajasthan",
     sub: "Or we come to your shop!",
-    href: "#",
+    href: "https://share.google/7QKfdvCc3oQheHrYG",
     cta: "Get Directions",
   },
-];
-
-const services = [
-  "Business Website",
-  "Online Store",
-  "Clinic / Doctor Website",
-  "Restaurant / Hotel Page",
-  "Google My Business",
-  "Custom Theme",
-  "Maintenance & Support",
-  "Something Else",
-];
-
-const budgets = [
-  "Under ₹5,000",
-  "₹5,000 – ₹10,000",
-  "₹10,000 – ₹25,000",
-  "₹25,000+",
-  "Not sure yet",
 ];
 
 const faqs = [
@@ -79,18 +60,6 @@ const faqs = [
 
 export default function ContactPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [sent, setSent] = useState(false);
-  const [form, setForm] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    business: "",
-    city: "",
-    service: "",
-    budget: "",
-    message: "",
-  });
-
   useEffect(() => {
     const els = document.querySelectorAll<HTMLElement>(".cp-rv");
     const obs = new IntersectionObserver(
@@ -104,16 +73,6 @@ export default function ContactPage() {
     els.forEach((el) => obs.observe(el));
     return () => obs.disconnect();
   }, []);
-
-  const handleSubmit = () => {
-    if (form.name && form.phone) setSent(true);
-  };
-
-  const inputCls =
-    "w-full rounded-lg border border-[#0A1F5C]/15 bg-white px-4 py-3 text-sm text-[#1A1A2E] placeholder:text-gray-400 outline-none focus:border-[#0A1F5C] focus:ring-2 focus:ring-[#0A1F5C]/10 transition-all duration-200";
-
-  const labelCls =
-    "block text-[11px] font-semibold uppercase tracking-widest text-[#4A4A6A] mb-2";
 
   return (
     <div className="bg-white">
@@ -143,10 +102,18 @@ export default function ContactPage() {
 
           <div className="flex flex-wrap gap-3 justify-center">
             <Link
-              href="/contact-us-form"
+              href="#contact-form"
+              scroll={false}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById("contact-form")?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }}
               className="inline-flex items-center justify-center rounded-full bg-[#FF5722] px-7 py-3.5 text-[15px] font-bold text-white hover:bg-[#e64a19] hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200"
             >
-              Send a Message
+              Connect Now
             </Link>
             <Link
               href="https://wa.me/917357367085"
@@ -190,7 +157,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ── MAIN FORM + SIDEBAR ── */}
+      {/* ── GOOGLE FORM + SIDEBAR ── */}
       <section id="contact-form" className="bg-white py-20 px-6 md:px-12">
         <div className="max-w-5xl mx-auto">
           <div className="cp-rv text-center mb-14">
@@ -202,168 +169,38 @@ export default function ContactPage() {
               <span className="italic text-[#FF5722]">project</span>
             </h2>
             <p className="text-gray-500 text-sm mt-3 max-w-md mx-auto">
-              Fill this form and our team will call you within 24 hours - free
+              Fill the Google Form and our team will call you within 24 hours - free
               consultation, no commitment.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-10 items-start">
-            {/* ── FORM ── */}
-            {sent ? (
-              <div className="cp-rv bg-[#F4F6FB] rounded-2xl border-2 border-[#0A1F5C] p-12 text-center">
-                <span className="text-6xl block mb-5">🎉</span>
-                <h3 className="text-[#0A1F5C] font-bold text-2xl mb-3">
-                  Message Received!
+            {/* -- GOOGLE FORM CTA -- */}
+            <div className="cp-rv bg-[#F8F9FF] rounded-2xl p-8 md:p-10 border border-[#0A1F5C]/8">
+              <div className="rounded-2xl bg-white p-8 md:p-10 text-center border border-[#0A1F5C]/10">
+                <p className="text-[11px] font-semibold uppercase tracking-widest text-[#FF5722] mb-3">
+                  Google Form
+                </p>
+                <h3 className="text-[#0A1F5C] font-bold text-[clamp(1.5rem,3vw,2.2rem)] leading-tight mb-4">
+                  Fill the Google Form
                 </h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-6">
-                  Thank you! Our team will call or WhatsApp you within 24 hours
-                  to discuss your project. Get ready to take your business
-                  online!
+                <p className="text-gray-500 text-sm leading-relaxed max-w-md mx-auto mb-8">
+                  Share your project details in the form and we will call or
+                  WhatsApp you within 24 hours.
                 </p>
                 <Link
-                  href="/"
-                  className="inline-flex items-center justify-center rounded-full bg-[#0A1F5C] px-6 py-3 text-sm font-bold text-white hover:bg-[#152c6e] transition-colors"
+                  href="https://forms.gle/AH52QwCBek89421o9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center rounded-full bg-[#0A1F5C] px-7 py-3.5 text-[15px] font-bold text-white hover:bg-[#152c6e] hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200"
                 >
-                  Back to Home
+                  Open Google Form
                 </Link>
-              </div>
-            ) : (
-              <div className="cp-rv bg-[#F8F9FF] rounded-2xl p-8 md:p-10 border border-[#0A1F5C]/8">
-                {/* Row 1 */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-                  <div>
-                    <label className={labelCls}>Your Name *</label>
-                    <input
-                      value={form.name}
-                      onChange={(e) =>
-                        setForm({ ...form, name: e.target.value })
-                      }
-                      placeholder="Ramesh Sharma"
-                      className={inputCls}
-                    />
-                  </div>
-                  <div>
-                    <label className={labelCls}>Phone / WhatsApp *</label>
-                    <input
-                      value={form.phone}
-                      onChange={(e) =>
-                        setForm({ ...form, phone: e.target.value })
-                      }
-                      placeholder="+91 73573 67085"
-                      className={inputCls}
-                    />
-                  </div>
-                </div>
-
-                {/* Row 2 */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-                  <div>
-                    <label className={labelCls}>Email (optional)</label>
-                    <input
-                      value={form.email}
-                      onChange={(e) =>
-                        setForm({ ...form, email: e.target.value })
-                      }
-                      placeholder="you@example.com"
-                      className={inputCls}
-                    />
-                  </div>
-                  <div>
-                    <label className={labelCls}>Business Name</label>
-                    <input
-                      value={form.business}
-                      onChange={(e) =>
-                        setForm({ ...form, business: e.target.value })
-                      }
-                      placeholder="Sharma Jewellers"
-                      className={inputCls}
-                    />
-                  </div>
-                </div>
-
-                {/* Row 3 */}
-                <div className="mb-4">
-                  <label className={labelCls}>Your City</label>
-                  <input
-                    value={form.city}
-                    onChange={(e) => setForm({ ...form, city: e.target.value })}
-                    placeholder="Jaipur / Jodhpur / Kota..."
-                    className={inputCls}
-                  />
-                </div>
-
-                {/* Service selector */}
-                <div className="mb-4">
-                  <label className={labelCls}>What do you need?</label>
-                  <div className="flex flex-wrap gap-2">
-                    {services.map((s) => (
-                      <button
-                        key={s}
-                        type="button"
-                        onClick={() => setForm({ ...form, service: s })}
-                        className={`rounded-full px-4 py-2 text-xs font-medium border transition-all duration-200 ${
-                          form.service === s
-                            ? "bg-[#0A1F5C] border-[#0A1F5C] text-white"
-                            : "bg-white border-[#0A1F5C]/20 text-[#1A1A2E] hover:border-[#0A1F5C]"
-                        }`}
-                      >
-                        {s}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Budget selector */}
-                <div className="mb-4">
-                  <label className={labelCls}>Your Budget</label>
-                  <div className="flex flex-wrap gap-2">
-                    {budgets.map((b) => (
-                      <button
-                        key={b}
-                        type="button"
-                        onClick={() => setForm({ ...form, budget: b })}
-                        className={`rounded-full px-4 py-2 text-xs font-medium border transition-all duration-200 ${
-                          form.budget === b
-                            ? "bg-[#FF5722] border-[#FF5722] text-white"
-                            : "bg-white border-[#FF5722]/25 text-[#1A1A2E] hover:border-[#FF5722]"
-                        }`}
-                      >
-                        {b}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Message */}
-                <div className="mb-8">
-                  <label className={labelCls}>
-                    Anything else you want to tell us?
-                  </label>
-                  <textarea
-                    value={form.message}
-                    onChange={(e) =>
-                      setForm({ ...form, message: e.target.value })
-                    }
-                    rows={4}
-                    placeholder="Describe your business, what you sell, any special requirements... Hindi mein bhi likh sakte hain!"
-                    className={`${inputCls} resize-y min-h-[100px]`}
-                  />
-                </div>
-
-                <button
-                  onClick={handleSubmit}
-                  className="w-full rounded-lg bg-[#0A1F5C] py-4 text-[15px] font-bold text-white hover:bg-[#152c6e] hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200"
-                >
-                  Book My Free Consultation →
-                </button>
-
-                <p className="text-center text-xs text-gray-400 mt-3">
-                  We will call or WhatsApp you within 24 hours · No commitment
-                  required
+                <p className="text-center text-xs text-gray-400 mt-4">
+                  Free consultation - No commitment required
                 </p>
               </div>
-            )}
-
+            </div>
             {/* ── SIDEBAR ── */}
             <div className="flex flex-col gap-5">
               {/* Why us card */}
@@ -378,7 +215,7 @@ export default function ContactPage() {
                       text: "We visit your shop - anywhere in Rajasthan",
                     },
                     { icon: "⚡", text: "Website live in 5 working days" },
-                    { icon: "💰", text: "Transparent pricing from ₹3,799" },
+                    { icon: "💰", text: "Transparent pricing at ₹3,799" },
                     {
                       icon: "🔁",
                       text: "Free changes until you are 100% happy",
@@ -386,7 +223,7 @@ export default function ContactPage() {
                     { icon: "📲", text: "WhatsApp support after launch" },
                     {
                       icon: "🌟",
-                      text: "4.9★ Google rating - 20+ happy clients",
+                      text: "20+ Happy Business Owner",
                     },
                   ].map((item) => (
                     <li
@@ -546,7 +383,15 @@ export default function ContactPage() {
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link
-              href="/contact-us-form"
+              href="#contact-form"
+              scroll={false}
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById("contact-form")?.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }}
               className="inline-flex items-center justify-center rounded-full bg-[#FF5722] px-8 py-4 text-[15px] font-bold text-white hover:bg-[#e64a19] hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200"
             >
               📲 Book Free Visit Today
@@ -556,11 +401,11 @@ export default function ContactPage() {
               target="_blank"
               className="inline-flex items-center justify-center rounded-full border-2 border-white/35 px-8 py-4 text-[15px] font-semibold text-white hover:bg-white/10 transition-all duration-200"
             >
-              WhatsApp Us
+              WhatsApp Us →
             </Link>
           </div>
           <p className="text-white/40 text-xs mt-6 tracking-wide">
-            +91 73573 67085 · hello@nextwebit.in · Jaipur, Rajasthan
+            +91 73573 67085 · nextwebit.in@gmail.com · Jaipur, Rajasthan
           </p>
         </div>
       </section>
