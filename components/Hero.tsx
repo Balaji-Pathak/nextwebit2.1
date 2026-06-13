@@ -32,7 +32,7 @@ export function Hero() {
             Professional Business Websites
           </span>
           <span className="block text-[clamp(22px,4vw,42px)] font-semibold leading-[1.25] mt-1">
-            - showcase your elite presence.
+            - Showcase your ELITE Presence.
           </span>
         </h1>
 
