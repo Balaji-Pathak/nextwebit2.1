@@ -3,7 +3,7 @@ import Link from "next/link";
 const trustItems = [
   "Live meeting at your premise",
   "Delivery in 5 working days",
-  "Starting at just ₹3,799",
+  "Starting at just ₹8,999",
   "Free changes till you're happy",
 ];
 
@@ -37,7 +37,7 @@ export function Hero() {
         </h1>
 
         <p className="mt-6 max-w-2xl text-[15px] leading-[1.7] text-white/[0.72]">
-          NextWebIT aapke business tak khud aata hai, samajhta hai aapka kaam, aur 5 din mein
+          NextWebIT samajhta hai aapka kaam, aur 5 din mein
           ek clean, mobile-friendly website tayar karta hai - bina tension ke, seedhe Hindi / English
           mein support ke sath.
         </p>

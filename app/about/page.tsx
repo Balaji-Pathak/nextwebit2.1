@@ -175,7 +175,7 @@ export default function AboutPage() {
               Today, our team has grown to seven, but that same hands-on spirit remains at the heart of everything we do.
             </p>
             <div style={{ display: "flex", gap: 28 }}>
-              {[["20+", "Clients"], ["5 Days", "Avg. Delivery"], ["₹3,799", "Effective Price"]].map(([num, label]) => (
+              {[["20+", "Clients"], ["5 Days", "Avg. Delivery"], ["₹8,999", "Effective Price"]].map(([num, label]) => (
                 <div key={label}>
                   <div className={playfair.className} style={{ fontSize: "1.8rem", fontWeight: 700, color: IND }}>{num}</div>
                   <div style={{ fontSize: "0.65rem", color: SOFT, textTransform: "uppercase", letterSpacing: "0.08em" }}>{label}</div>

@@ -1,7 +1,12 @@
+"use client";
+
+import Image from "next/image";
+import { useEffect, useState } from "react";
+
 const service = {
   title: "Elite Online Presence",
-  originalPrice: "₹8,999",
-  price: "₹3,799",
+  originalPrice: "₹16,999",
+  price: "₹8,999",
   savings: "You Save ₹5,200",
   features: [
     "Elite Web Page Design",
@@ -16,6 +21,26 @@ const service = {
 };
 
 export function Services() {
+  const [isBrochureOpen, setIsBrochureOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isBrochureOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsBrochureOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [isBrochureOpen]);
+
   return (
     <section id="services" className="bg-white py-20 md:py-28">
       <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
@@ -42,20 +67,20 @@ export function Services() {
     </div>
 
     <h3 className="text-2xl md:text-3xl font-semibold text-navy">
-      Elite Online Presence
+      {service.title}
     </h3>
 
     <div className="mt-5 flex items-center gap-4 flex-wrap">
       <span className="text-[16px] md:text-[18px] text-[#777] line-through">
-        ₹8,999
+        ₹16,999
       </span>
 
       <span className="text-4xl md:text-5xl font-bold text-navy-mid leading-none">
-        ₹3,799
+        ₹8,999
       </span>
 
       <span className="text-[14px] md:text-[15px] font-semibold text-green-600">
-        You Save ₹5,200
+        You Save ₹8,000
       </span>
     </div>
 
@@ -86,6 +111,20 @@ export function Services() {
       </li>
     </ul>
 
+    <div className="mt-10 flex flex-wrap items-center gap-4">
+      <button
+        type="button"
+        onClick={() => setIsBrochureOpen(true)}
+        className="inline-flex items-center justify-center rounded-md border border-navy/15 bg-navy px-5 py-3 text-[14px] font-semibold text-white transition-colors duration-300 hover:bg-navy-mid focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
+      >
+        See our brochure
+      </button>
+
+      <span className="text-[13px] leading-6 text-[#666]">
+        Full offer details in one quick preview.
+      </span>
+    </div>
+
   </div>
 </div>
 
@@ -95,6 +134,47 @@ export function Services() {
         </p>
 
       </div>
+
+      {isBrochureOpen ? (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 px-4 py-6"
+          role="dialog"
+          aria-modal="true"
+          aria-label="NextWebIT brochure preview"
+          onMouseDown={() => setIsBrochureOpen(false)}
+        >
+          <div
+            className="relative flex max-h-full w-full max-w-5xl flex-col overflow-hidden rounded-lg bg-white shadow-2xl"
+            onMouseDown={(event) => event.stopPropagation()}
+          >
+            <div className="flex items-center justify-between border-b border-navy/10 px-4 py-3 md:px-5">
+              <p className="text-[15px] font-semibold text-navy">
+                NextWebIT Brochure
+              </p>
+
+              <button
+                type="button"
+                onClick={() => setIsBrochureOpen(false)}
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-navy/10 text-[15px] font-semibold text-navy transition-colors hover:bg-navy hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
+                aria-label="Close brochure preview"
+              >
+                X
+              </button>
+            </div>
+
+            <div className="max-h-[82vh] overflow-auto bg-[#f7f7f7] p-3 md:p-5">
+              <Image
+                src="/Brochure1.png"
+                alt="NextWebIT service brochure"
+                width={3584}
+                height={4780}
+                className="mx-auto h-auto w-full max-w-4xl rounded-md shadow-sm"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+      ) : null}
     </section>
   );
 }

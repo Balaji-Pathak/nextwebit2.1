@@ -29,7 +29,7 @@ const faqs = [
   { q: "Do I need to know about design or coding?", a: "Not at all. You just describe what you like - in simple words, in Hindi or English - and we handle everything. You only need to tell us about your business and your taste." },
   { q: "How long does a custom theme take?", a: "We typically deliver the design prototype within 3–4 days and the full live website within 7–10 working days after approval." },
   { q: "What if I don't like the first design?", a: "We offer unlimited revisions until you are 100% happy. We don't launch anything without your full approval." },
-  { q: "How much does a custom theme cost?", a: "Custom themes start at ₹8,999. The final price depends on the complexity and number of pages. We will give you a clear quote after the free consultation - no surprises." },
+  { q: "How much does a custom theme cost?", a: "Custom themes start at ₹16,999. The final price depends on the complexity and number of pages. We will give you a clear quote after the free consultation - no surprises." },
   { q: "Can I switch to a custom theme later?", a: "Absolutely. If you start with one of our standard themes and later want a fully custom one, we can upgrade you at any time." },
 ];
 
@@ -216,7 +216,7 @@ export default function CustomThemePage() {
       <section style={{ background: `linear-gradient(135deg,${IND},${INDL})`, padding: "72px 24px" }}>
         <div style={{ maxWidth: 900, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 32, textAlign: "center" }} className="ct-3col">
           {[
-            { num: "₹8,999", label: "Starting Price", sub: "5-page custom website" },
+            { num: "₹16,999", label: "Starting Price", sub: "5-page custom website" },
             { num: "5–7", label: "Days to Launch", sub: "After design approval" },
             { num: "∞", label: "Revisions", sub: "Until you're 100% happy" },
           ].map((s) => (

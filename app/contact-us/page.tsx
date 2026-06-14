@@ -215,7 +215,7 @@ export default function ContactPage() {
                       text: "We visit your shop - anywhere in Rajasthan",
                     },
                     { icon: "⚡", text: "Website live in 5 working days" },
-                    { icon: "💰", text: "Transparent pricing at ₹3,799" },
+                    { icon: "💰", text: "Transparent pricing at ₹8,999" },
                     {
                       icon: "🔁",
                       text: "Free changes until you are 100% happy",

@@ -2,7 +2,7 @@ const stats = [
   { value: "20+", label: "Websites Delivered" },
   { value: "5 Days", label: "Avg Delivery" },
   { value: "2 Years", label: "Active Since" },
-  { value: "₹3,799", label: "Effective Price" },
+  { value: "₹8,999", label: "Effective Price" },
 ];
 
 export function StatsBar() {
